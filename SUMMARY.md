@@ -9,3 +9,9 @@
 * [Initial master node](k3s-cluster-deployment/initial-master-node.md)
 * [Worker node\(s\)](k3s-cluster-deployment/worker-node-s.md)
 
+---
+
+* [Setup a powerful Kubernetes client](setup-a-powerful-kubernetes-client/README.md)
+  * [Argo cli](setup-a-powerful-kubernetes-client/argo-cli.md)
+  * [OpenFaaS CLI](setup-a-powerful-kubernetes-client/openfaas-cli.md)
+
