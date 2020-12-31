@@ -1,6 +1,6 @@
 # Table of contents
 
-* [k3s cluster deployment](README.md)
+* [My Kubernetes book](README.md)
 
 ## k3s cluster deployment
 
