@@ -1,12 +1,4 @@
----
-description: Deploy a k3s multi-nodes cluster
----
-
-# k3s cluster deployment
-
-Below how-to provides some step to create a [k3s](https://k3s.io/) based Kubernetes cluster on Ubuntu 20.04 \(LTS\).
-
-## All nodes pre-requisites
+# All nodes pre-requisites
 
 ### Network configuration
 
@@ -40,7 +32,7 @@ sudo apt upgrade -y
 sudo apt-get install python3-pip gcc nfs-common -y
 ```
 
-### \(_optional_\) proxy configuration
+### \(_optionnal_\) proxy configuration
 
 Use the following commands if you need to use a corporate HTTP proxy server to reach Internet based resources: 
 
