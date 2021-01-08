@@ -12,6 +12,8 @@
 ---
 
 * [Setup a powerful Kubernetes client](setup-a-powerful-kubernetes-client/README.md)
+  * [Octant](setup-a-powerful-kubernetes-client/octant.md)
+  * [k9s](setup-a-powerful-kubernetes-client/k9s.md)
   * [Argo cli](setup-a-powerful-kubernetes-client/argo-cli.md)
   * [OpenFaaS CLI](setup-a-powerful-kubernetes-client/openfaas-cli.md)
 
