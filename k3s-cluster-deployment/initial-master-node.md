@@ -56,7 +56,7 @@ kubectl get nodes
 This token will be used to join the other nodes to the current k3s deployment:
 
 ```bash
-cat /var/lib/rancher/k3s/server/node-token
+sudo cat /var/lib/rancher/k3s/server/node-token
 ```
 
 ### \(optional\) Proxy declaration

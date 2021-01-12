@@ -11,7 +11,7 @@ K9s continually watches Kubernetes for changes and offers subsequent commands to
 
 ## CLI installation
 
-```text
+```bash
 curl -L https://github.com/derailed/k9s/releases/download/v0.24.2/k9s_Linux_x86_64.tar.gz | tar -xz
 chmod +x k9s && sudo mv ./k9s /usr/local/bin/k9s
 k9s version
@@ -21,7 +21,7 @@ k9s version
 
 Apply a pre-defined skin to the output:
 
-```text
+```bash
 mkdir -p ~/.k9s
 curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/one_dark.yml > ~/.k9s/skin.yml
 # or
