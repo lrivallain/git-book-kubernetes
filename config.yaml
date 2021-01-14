@@ -1,4 +1,4 @@
-baseURL: "http://ludovic.rivallain.fr/git-book-kubernetes/"
+baseURL: "https://k8s-book.vupti.me"
 languageCode: "en-us"
 title: "My Kubernetes Book"
 
