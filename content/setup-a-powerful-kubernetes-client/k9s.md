@@ -1,9 +1,11 @@
 ---
-description: >-
-  K9s is a terminal based UI to interact with your Kubernetes clusters. The aim
-  of this project is to make it easier to navigate, observe and manage your
-  deployed applications in the wild.
+title: k9s
+weight: 10
 ---
+
+K9s is a terminal based UI to interact with your Kubernetes clusters. The aim
+of this project is to make it easier to navigate, observe and manage your
+deployed applications in the wild.
 
 # k9s
 
@@ -27,6 +29,3 @@ curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/one_dark.yml
 # or
 curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/solarized_dark.yml > ~/.k9s/skin.yml
 ```
-
-
-

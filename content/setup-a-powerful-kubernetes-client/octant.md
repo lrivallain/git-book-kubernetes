@@ -1,8 +1,10 @@
 ---
-description: >-
-  Octant is a tool for developers to understand how applications run on a
-  Kubernetes cluster
+title: Octant
+weight: 50
 ---
+
+Octant is a tool for developers to understand how applications run on a
+Kubernetes cluster
 
 # Octant
 
@@ -17,4 +19,3 @@ OCTANT_LISTENER_ADDR=X.X.X.X:7777 OCTANT_ACCEPTED_HOSTS=Y.Y.Y.Y octant --disable
 ```
 
 Then go to [http://k3s-mstr.vlab.lcl:7777](http://k3s-mstr.vlab.lcl:7777).
-

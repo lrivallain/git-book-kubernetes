@@ -1,3 +1,8 @@
+---
+title: kubens & kubectx
+weight: 10
+---
+
 # kubens & kubectx
 
 Thanks to **@ahmetb**: [https://github.com/ahmetb/kubectx](https://github.com/ahmetb/kubectx)
@@ -20,6 +25,3 @@ kubectx <name> # switch context
 kubens # list namespace
 kubens <name> # switch namespace
 ```
-
-
-
