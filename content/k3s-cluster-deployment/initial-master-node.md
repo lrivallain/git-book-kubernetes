@@ -1,10 +1,9 @@
 ---
-description: >-
-  The following section will explain how to deploy the initial master node of
-  the k3s cluster.
+title: Initial master node
+weight: 2
 ---
-
-# Initial master node
+The following section will explain how to deploy the initial master node of
+the k3s cluster.
 
 ### Install `kubectl` CLI tool
 
@@ -81,4 +80,3 @@ data:
 ```bash
 kubectl apply -f proxy.yaml
 ```
-

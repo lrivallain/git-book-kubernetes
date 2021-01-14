@@ -1,6 +1,11 @@
-# kubens & kubectx
+---
+title: kubens & kubectx
+weight: 10
+---
 
+{{% notice info %}}
 Thanks to **@ahmetb**: [https://github.com/ahmetb/kubectx](https://github.com/ahmetb/kubectx)
+{{% /notice %}}
 
 * `kubectx`is a utility to manage and switch between kubectl **contexts**.
 * `kubens`is a utility to switch between Kubernetes **namespaces**.
@@ -20,6 +25,3 @@ kubectx <name> # switch context
 kubens # list namespace
 kubens <name> # switch namespace
 ```
-
-
-

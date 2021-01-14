@@ -1,11 +1,7 @@
 ---
-description: >-
-  This section provides some tools and tricks to apply to a *nix based
-  workstation or jump server to have a powerful Kubernetes (and other tools)
-  client machine.
+title: Basics tools
+weight: 1
 ---
-
-# Setup a powerful Kubernetes client
 
 ## Generic pre-requisites
 
@@ -28,7 +24,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 kubectl version --client
 ```
 
-### `kubectl`auto-complete
+### `kubectl` auto-complete
 
 Use the following commands to add auto-completion to your bash shell for the `kubectl` command \(or it's `k` alias\)
 
@@ -45,6 +41,3 @@ Easy peasy:
 ```text
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 ```
-
-
-

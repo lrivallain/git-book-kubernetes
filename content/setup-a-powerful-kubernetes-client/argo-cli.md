@@ -1,13 +1,18 @@
 ---
-description: If you need to use Argo from this client machine.
+title: Argo cli
+weight: 99
 ---
 
-# Argo cli
+{{% notice info %}}
+If you need to use Argo from this client machine.
+{{% /notice %}}
 
+{{% notice tip %}}
 Please check version from this [releases](https://github.com/argoproj/argo/releases/) page.
+{{% /notice %}}
 
 ```bash
-curl -sL https://github.com/argoproj/argo/releases/download/v2.11.8/argo-linux-amd64.gz | gunzip > argo
+curl -sL https://github.com/argoproj/argo/releases/download/latest/argo-linux-amd64.gz | gunzip > argo
 chmod +x argo && sudo mv ./argo /usr/local/bin/argo
 argo version
 ```
@@ -26,4 +31,3 @@ jobs
 # if needed: get it back in foreground:
 fg 1
 ```
-

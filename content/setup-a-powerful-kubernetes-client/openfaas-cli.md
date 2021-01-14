@@ -1,8 +1,11 @@
 ---
-description: If you need to use OpenFaaS from the client machine.
+title: OpenFaaS CLI
+weight: 99
 ---
 
-# OpenFaaS CLI
+{{% notice info %}}
+If you need to use OpenFaaS from the client machine.
+{{% /notice %}}
 
 One-liner:
 
@@ -30,4 +33,3 @@ echo "export OPENFAAS_URL=http://"$(kubectl -n $OS_NS describe pods $(kubectl -n
 ```bash
 echo $OF_PASS | faas-cli login --password-stdin
 ```
-

@@ -1,6 +1,8 @@
-# All nodes pre-requisites
-
-### Network configuration
+---
+title: All nodes pre-requisites
+weight: 1
+---
+## Network configuration
 
 ```bash
 # Network setup
@@ -8,7 +10,7 @@ vi /etc/netplan/50-cloud-init.yaml
 netplan apply
 ```
 
-### DNS resolver
+## DNS resolver
 
 This step enable the use of `systemd-resolved` in Ubuntu based distribution OS:
 
@@ -21,7 +23,7 @@ sudo ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
 sudo service systemd-resolved start
 ```
 
-### Software pre-requisites
+## Software pre-requisites
 
 ```bash
 # Upgrade packages
@@ -32,7 +34,7 @@ sudo apt upgrade -y
 sudo apt-get install python3-pip gcc nfs-common -y
 ```
 
-### \(_optionnal_\) proxy configuration
+## \(_optionnal_\) proxy configuration
 
 Use the following commands if you need to use a corporate HTTP proxy server to reach Internet based resources: 
 
@@ -49,6 +51,3 @@ echo "Acquire::http::proxy \"http://X.X.X.X:8080\";" >> /etc/apt/apt.conf
 # Test
 curl https://google.com
 ```
-
-
-
