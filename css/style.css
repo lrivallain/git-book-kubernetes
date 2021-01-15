@@ -1,0 +1,28 @@
+.searchbox {
+    margin-top: 0.5rem;
+    position: relative;
+    border: 0px;
+    background: #202f3c;
+}
+
+/* Background color of the menu */
+#sidebar,
+#header-wrapper,
+#homelinks {
+  background-color: #161D23;
+  border-bottom: none;
+}
+
+/* Background color of the menu, when clicked */
+#sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
+  background-color: #202f3c;
+}
+
+#toc-menu {
+  cursor: pointer;
+}
+
+/* Open subsections by default */
+#sidebar ul.topics ul {
+  display: block;
+}
