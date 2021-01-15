@@ -1,6 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Deploy a k3S cluster on My Kubernetes Book</title><link>https://k8s-book.vupti.me/k3s-cluster-deployment/</link><description>Recent content in Deploy a k3S cluster on My Kubernetes Book</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://k8s-book.vupti.me/k3s-cluster-deployment/index.xml" rel="self" type="application/rss+xml"/><item><title>All nodes pre-requisites</title><link>https://k8s-book.vupti.me/k3s-cluster-deployment/all-nodes-pre-requisites/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://k8s-book.vupti.me/k3s-cluster-deployment/all-nodes-pre-requisites/</guid><description>Network configuration # Network setup vi /etc/netplan/50-cloud-init.yaml netplan apply DNS resolver This step enable the use of systemd-resolved in Ubuntu based distribution OS:
-# Local DNS resolver for local fqdn echo &amp;#34;192.168.2.4 k3s-mstr k3s-mstr.vlab..lcl&amp;#34; &amp;gt;&amp;gt; /etc/hosts sudo service systemd-resolved stop sudo rm -f /etc/resolv.conf sudo ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf sudo service systemd-resolved start Software pre-requisites # Upgrade packages sudo apt update sudo apt upgrade -y # Install software pre-requisites sudo apt-get install python3-pip gcc nfs-common -y (optionnal) proxy configuration Use the following commands if you need to use a corporate HTTP proxy server to reach Internet based resources:</description></item><item><title>Initial master node</title><link>https://k8s-book.vupti.me/k3s-cluster-deployment/initial-master-node/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://k8s-book.vupti.me/k3s-cluster-deployment/initial-master-node/</guid><description>The following section will explain how to deploy the initial master node of the k3s cluster.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deploy a k3S cluster on My Kubernetes Book</title>
+    <link>https://k8s-book.vupti.me/k3s-cluster-deployment/</link>
+    <description>Recent content in Deploy a k3S cluster on My Kubernetes Book</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://k8s-book.vupti.me/k3s-cluster-deployment/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>All nodes pre-requisites</title>
+      <link>https://k8s-book.vupti.me/k3s-cluster-deployment/all-nodes-pre-requisites/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k8s-book.vupti.me/k3s-cluster-deployment/all-nodes-pre-requisites/</guid>
+      <description>Network configuration # Network setup vi /etc/netplan/50-cloud-init.yaml netplan apply DNS resolver This step enable the use of systemd-resolved in Ubuntu based distribution OS:
+# Local DNS resolver for local fqdn echo &amp;#34;192.168.2.4 k3s-mstr k3s-mstr.vlab..lcl&amp;#34; &amp;gt;&amp;gt; /etc/hosts sudo service systemd-resolved stop sudo rm -f /etc/resolv.conf sudo ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf sudo service systemd-resolved start Software pre-requisites # Upgrade packages sudo apt update sudo apt upgrade -y # Install software pre-requisites sudo apt-get install python3-pip gcc nfs-common -y (optionnal) proxy configuration Use the following commands if you need to use a corporate HTTP proxy server to reach Internet based resources:</description>
+    </item>
+    
+    <item>
+      <title>Initial master node</title>
+      <link>https://k8s-book.vupti.me/k3s-cluster-deployment/initial-master-node/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k8s-book.vupti.me/k3s-cluster-deployment/initial-master-node/</guid>
+      <description>The following section will explain how to deploy the initial master node of the k3s cluster.
 Install kubectl CLI tool In order to test and manage the k3s cluster, it could be useful to have a kubectl cli install in the master nodes:
-curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl chmod +x ./kubectl sudo mv ./kubectl /usr/local/bin/kubectl # Test it kubectl version --client Auto-complete Use the following commands to add auto-completion to your bash shell for the kubectl command (or it&amp;rsquo;s k alias)</description></item><item><title>Worker node(s)</title><link>https://k8s-book.vupti.me/k3s-cluster-deployment/worker-node-s/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://k8s-book.vupti.me/k3s-cluster-deployment/worker-node-s/</guid><description>The following section will explain how to join additional worker nodes to your k3s deployment.
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl chmod +x ./kubectl sudo mv ./kubectl /usr/local/bin/kubectl # Test it kubectl version --client Auto-complete Use the following commands to add auto-completion to your bash shell for the kubectl command (or it&amp;rsquo;s k alias)</description>
+    </item>
+    
+    <item>
+      <title>Worker node(s)</title>
+      <link>https://k8s-book.vupti.me/k3s-cluster-deployment/worker-node-s/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k8s-book.vupti.me/k3s-cluster-deployment/worker-node-s/</guid>
+      <description>The following section will explain how to join additional worker nodes to your k3s deployment.
 First of all, you will need to get the cluster token, as explained in the previous section and the master node fqdn.
-Deploy k3s to join an existing cluster curl -sfL https://get.k3s.io | \ K3S_URL=&amp;#34;https://k3s-mstr.vlab.lcl:6443&amp;#34; \ K3S_TOKEN=&amp;#34;K10d1...fe537::server:26a92...e34f9&amp;#34; \ sh - Check From the master node or any client device with access to the Kubernetes cluster, ensure that the node is now added to the cluster:</description></item></channel></rss>
+Deploy k3s to join an existing cluster curl -sfL https://get.k3s.io | \  K3S_URL=&amp;#34;https://k3s-mstr.vlab.lcl:6443&amp;#34; \  K3S_TOKEN=&amp;#34;K10d1...fe537::server:26a92...e34f9&amp;#34; \  sh - Check From the master node or any client device with access to the Kubernetes cluster, ensure that the node is now added to the cluster:</description>
+    </item>
+    
+  </channel>
+</rss>

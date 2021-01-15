@@ -1,1 +1,73 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>https://k8s-book.vupti.me/k3s-cluster-deployment/all-nodes-pre-requisites/</loc><lastmod>2021-01-15T15:51:51+00:00</lastmod></url><url><loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/basics/</loc><lastmod>2021-01-15T15:51:51+00:00</lastmod></url><url><loc>https://k8s-book.vupti.me/k3s-cluster-deployment/</loc><lastmod>2021-01-15T15:51:51+00:00</lastmod></url><url><loc>https://k8s-book.vupti.me/k3s-cluster-deployment/initial-master-node/</loc><lastmod>2021-01-15T15:51:51+00:00</lastmod></url><url><loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/</loc><lastmod>2021-01-15T15:51:51+00:00</lastmod></url><url><loc>https://k8s-book.vupti.me/k3s-cluster-deployment/worker-node-s/</loc><lastmod>2021-01-15T15:51:51+00:00</lastmod></url><url><loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/k9s/</loc><lastmod>2021-01-15T15:51:51+00:00</lastmod></url><url><loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/kubens-and-kubectx/</loc><lastmod>2021-01-15T15:51:51+00:00</lastmod></url><url><loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/octant/</loc><lastmod>2021-01-15T15:51:51+00:00</lastmod></url><url><loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/argo-cli/</loc><lastmod>2021-01-15T15:51:51+00:00</lastmod></url><url><loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/openfaas-cli/</loc><lastmod>2021-01-15T15:51:51+00:00</lastmod></url><url><loc>https://k8s-book.vupti.me/categories/</loc></url><url><loc>https://k8s-book.vupti.me/</loc><lastmod>2021-01-15T15:51:51+00:00</lastmod></url><url><loc>https://k8s-book.vupti.me/tags/</loc></url></urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://k8s-book.vupti.me/k3s-cluster-deployment/all-nodes-pre-requisites/</loc>
+    <lastmod>2021-01-15T15:51:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/basics/</loc>
+    <lastmod>2021-01-15T15:51:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://k8s-book.vupti.me/k3s-cluster-deployment/</loc>
+    <lastmod>2021-01-15T15:51:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://k8s-book.vupti.me/k3s-cluster-deployment/initial-master-node/</loc>
+    <lastmod>2021-01-15T15:51:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/</loc>
+    <lastmod>2021-01-15T15:51:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://k8s-book.vupti.me/k3s-cluster-deployment/worker-node-s/</loc>
+    <lastmod>2021-01-15T15:51:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/k9s/</loc>
+    <lastmod>2021-01-15T15:51:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/kubens-and-kubectx/</loc>
+    <lastmod>2021-01-15T15:51:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/octant/</loc>
+    <lastmod>2021-01-15T15:51:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/argo-cli/</loc>
+    <lastmod>2021-01-15T15:51:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/openfaas-cli/</loc>
+    <lastmod>2021-01-15T15:51:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://k8s-book.vupti.me/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://k8s-book.vupti.me/</loc>
+    <lastmod>2021-01-15T15:51:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://k8s-book.vupti.me/tags/</loc>
+  </url>
+  
+</urlset>
