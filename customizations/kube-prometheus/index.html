@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Octant – My Kubernetes Book</title>
+    <title>Monitoring with Prometheus – My Kubernetes Book</title>
 
     
     <link href="/css/nucleus.css?1611423065" rel="stylesheet">
@@ -38,7 +38,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/setup-a-powerful-kubernetes-client/octant/">
+  <body class="" data-url="/customizations/kube-prometheus/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -213,7 +213,7 @@
   
     
     <li data-nav-id="/setup-a-powerful-kubernetes-client/" title="Setup a powerful Kubernetes client" class="dd-item
-        parent
+        
         
         
         ">
@@ -346,7 +346,7 @@
  
   
     
-      <li data-nav-id="/setup-a-powerful-kubernetes-client/octant/" title="Octant" class="dd-item active">
+      <li data-nav-id="/setup-a-powerful-kubernetes-client/octant/" title="Octant" class="dd-item ">
         <a href="/setup-a-powerful-kubernetes-client/octant/">
         Octant
         <i class="fas fa-check read-icon"></i>
@@ -417,7 +417,7 @@
   
     
     <li data-nav-id="/customizations/" title="Cluster customizations" class="dd-item
-        
+        parent
         
         
         ">
@@ -466,7 +466,7 @@
  
   
     
-      <li data-nav-id="/customizations/kube-prometheus/" title="Monitoring with Prometheus" class="dd-item ">
+      <li data-nav-id="/customizations/kube-prometheus/" title="Monitoring with Prometheus" class="dd-item active">
         <a href="/customizations/kube-prometheus/">
         Monitoring with Prometheus
         <i class="fas fa-check read-icon"></i>
@@ -547,7 +547,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/lrivallain/git-book-kubernetes/tree/master/content/setup-a-powerful-kubernetes-client/octant.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/lrivallain/git-book-kubernetes/tree/master/content/customizations/kube-prometheus.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -578,7 +578,7 @@
             
           
           
-            <a href='/'>Introduction</a> > <a href='/setup-a-powerful-kubernetes-client/'>Setup a powerful Kubernetes client</a> > Octant
+            <a href='/'>Introduction</a> > <a href='/customizations/'>Cluster customizations</a> > Monitoring with Prometheus
           
         
           
@@ -593,7 +593,15 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#installation">Installation</a></li>
+    <li><a href="#port-forward-method-to-access-dashboard">Port-forward method to access dashboard</a></li>
+    <li><a href="#ingress-access-to-dashboards">Ingress access to dashboards</a>
+      <ul>
+        <li><a href="#dns-records">DNS records</a></li>
+        <li><a href="#authentication">Authentication</a></li>
+        <li><a href="#deploy-an-ingress-based-on-traefik">Deploy an ingress based on Traefik</a></li>
+        <li><a href="#test-access-from-ingress">Test access from ingress</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -611,30 +619,102 @@
           
             <h1>
               
-              Octant
+              Monitoring with Prometheus
             </h1>
           
 
         
 
 
-<p>Octant is a tool for developers to understand how applications run on a
-Kubernetes cluster.</p>
+<p>The <a href="https://github.com/prometheus-operator/kube-prometheus">kube-prometheus</a> project collects Kubernetes manifests,
+Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end
+Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/prometheus-operator/kube-prometheus.git /tmp/kube-prometheus
+cd /tmp/kube-prometheus
+<span style="color:#75715e"># create the namespace and CRDs</span>
+kubectl create -f manifests/setup
+<span style="color:#75715e"># wait for them to be availble</span>
+<span style="color:#66d9ef">until</span> kubectl get servicemonitors --all-namespaces ; <span style="color:#66d9ef">do</span> date; sleep 1; echo <span style="color:#e6db74">&#34;&#34;</span>; <span style="color:#66d9ef">done</span>
+<span style="color:#75715e"># create the remaining resources</span>
+kubectl create -f manifests/
+</code></pre></div><h2 id="port-forward-method-to-access-dashboard">Port-forward method to access dashboard</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Prometheus on https://127.0.0.1:9090</span>
+kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/prometheus-k8s <span style="color:#ae81ff">9090</span>
 
-<div class="notices note" ><p>It aims to be part of the developer&rsquo;s toolkit for gaining insight and approaching complexity found in Kubernetes. Octant offers a combination of introspective tooling, cluster navigation, and object management along with a plugin system to further extend its capabilities.</p>
+<span style="color:#75715e"># Grafana with user:password admin:admin on https://127.0.0.1:3000</span>
+kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/grafana <span style="color:#ae81ff">3000</span>
+
+<span style="color:#75715e"># Alert Manager on http://127.0.0.1:9093</span>
+kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/alertmanager-main <span style="color:#ae81ff">9093</span>
+</code></pre></div><h2 id="ingress-access-to-dashboards">Ingress access to dashboards</h2>
+<p>The following section will explain how you can expose the 3 previously created dashboards through a simple <code>ingress</code> configuration with a basic authentication.</p>
+<h3 id="dns-records">DNS records</h3>
+<p>Create DNS records for 3 new hosts with a <code>CNAME</code> type and target on the endpoint of your Kubernetes cluster. For example:</p>
+<ul>
+<li><code>alert.vlab.lcl</code></li>
+<li><code>prometheus.vlab.lcl</code></li>
+<li><code>grafana.vlab.lcl</code></li>
+</ul>
+<h3 id="authentication">Authentication</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># To get `htpasswd` tool</span>
+sudo apt install apache2-utils -y
+
+<span style="color:#75715e"># Create an auth file with data for user &#34;admin&#34;</span>
+htpasswd -c ./users admin <span style="color:#75715e"># you will be prompted for password and confirmation</span>
+
+<span style="color:#75715e"># If needed, add other user(s) to the file with **almost** the same command:</span>
+htpasswd ./users otheradmin
+
+<span style="color:#75715e"># Create a secret named `admin-auth`</span>
+kubectl create secret generic admin-auth --from-file users --namespace<span style="color:#f92672">=</span>monitoring
+</code></pre></div><h3 id="deploy-an-ingress-based-on-traefik">Deploy an ingress based on Traefik</h3>
+
+<div class="notices note" ><p>If needed, please apply content from the <em>Traefik</em> section to prepare Ingress controller.</p>
 </div>
 
-<h2 id="installation">Installation</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -L https://github.com/vmware-tanzu/octant/releases/download/v0.16.3/octant_0.16.3_Linux-64bit.deb &gt; /tmp/octant.deb
-dpkg -i /tmp/octant.deb
+<p>Download the <code>kube-prometheus-ingress-traefik.yaml</code> attached file, customized with your DNS records and apply it:</p>
 
-<span style="color:#75715e"># To run and access octant from http://localhost:7777</span>
-octant
+<section class="attachments grey">
+	<label>
+		<i class="fas fa-paperclip" aria-hidden="true"></i>
+		Related files
+	</label>
+	
+		
+	
+	<div class="attachments-files">
+	
+		
+		
+			
+				<li>
+					<a href="/customizations/kube-prometheus.files/kube-prometheus-ingress-traefik.yaml" >
+						kube-prometheus-ingress-traefik.yaml
+					</a>
+					(1 kb)
+				</li>
+			
+		
+	
+	</div>
+	
+</section>
 
-<span style="color:#75715e"># To remotly run and access octant:</span>
-OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCEPTED_HOSTS<span style="color:#f92672">=</span>Y.Y.Y.Y octant --disable-open-browser
-</code></pre></div><p><img src="/images/powerfull-client/octant.png" alt="Example of Octant UI"></p>
 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl apply -f kube-prometheus-ingress-traefik.yaml
+</code></pre></div><h3 id="test-access-from-ingress">Test access from ingress</h3>
+<p>Following commands provide a quick way to test the behavior of deployed ingress:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Show ingress status</span>
+kubectl describe ingress grafana-gateway-ingress --namespace<span style="color:#f92672">=</span>monitoring
+
+<span style="color:#75715e"># Test your access without authentication</span>
+curl http://grafana.vlab.lcl -Is | head -n <span style="color:#ae81ff">1</span>
+<span style="color:#75715e"># Outpout: HTTP/1.1 401 Unauthorized</span>
+
+<span style="color:#75715e"># Test your access with authentication</span>
+curl http://grafana.vlab.lcl -u <span style="color:#e6db74">&#39;admin:*****&#39;</span> -Is | head -n <span style="color:#ae81ff">1</span>
+<span style="color:#75715e"># Outpout: HTTP/1.1 200 OK</span>
+</code></pre></div>
 
 <footer class="footline">
 	
@@ -754,7 +834,6 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
             
                 
                     
-                    
                 
                 
 
@@ -768,8 +847,21 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
-                        
+            
+            
+                
                     
                 
                 
@@ -851,26 +943,6 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -906,6 +978,7 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
             
                 
                     
+                    
                 
                 
 
@@ -918,6 +991,9 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -934,6 +1010,7 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
             
             
                 
+                    
                     
                 
                 
@@ -958,10 +1035,10 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
 	 
 	 
 		
-			<a class="nav nav-prev" href="/setup-a-powerful-kubernetes-client/jsonnet/" title="jsonnet"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/customizations/traefik/" title="Traefik as ingress controler"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/setup-a-powerful-kubernetes-client/argo-cli/" title="Argo cli" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/customizations/traefik/" title="Traefik as ingress controler" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

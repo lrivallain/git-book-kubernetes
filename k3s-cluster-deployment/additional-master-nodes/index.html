@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Octant – My Kubernetes Book</title>
+    <title>Additional master nodes – My Kubernetes Book</title>
 
     
     <link href="/css/nucleus.css?1611423065" rel="stylesheet">
@@ -38,7 +38,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/setup-a-powerful-kubernetes-client/octant/">
+  <body class="" data-url="/k3s-cluster-deployment/additional-master-nodes/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -93,7 +93,7 @@
   
     
     <li data-nav-id="/k3s-cluster-deployment/" title="Deploy a k3S cluster" class="dd-item
-        
+        parent
         
         
         ">
@@ -184,7 +184,7 @@
  
   
     
-      <li data-nav-id="/k3s-cluster-deployment/additional-master-nodes/" title="Additional master nodes" class="dd-item ">
+      <li data-nav-id="/k3s-cluster-deployment/additional-master-nodes/" title="Additional master nodes" class="dd-item active">
         <a href="/k3s-cluster-deployment/additional-master-nodes/">
         Additional master nodes
         <i class="fas fa-check read-icon"></i>
@@ -213,7 +213,7 @@
   
     
     <li data-nav-id="/setup-a-powerful-kubernetes-client/" title="Setup a powerful Kubernetes client" class="dd-item
-        parent
+        
         
         
         ">
@@ -346,7 +346,7 @@
  
   
     
-      <li data-nav-id="/setup-a-powerful-kubernetes-client/octant/" title="Octant" class="dd-item active">
+      <li data-nav-id="/setup-a-powerful-kubernetes-client/octant/" title="Octant" class="dd-item ">
         <a href="/setup-a-powerful-kubernetes-client/octant/">
         Octant
         <i class="fas fa-check read-icon"></i>
@@ -547,7 +547,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/lrivallain/git-book-kubernetes/tree/master/content/setup-a-powerful-kubernetes-client/octant.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/lrivallain/git-book-kubernetes/tree/master/content/k3s-cluster-deployment/additional-master-nodes.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -578,7 +578,7 @@
             
           
           
-            <a href='/'>Introduction</a> > <a href='/setup-a-powerful-kubernetes-client/'>Setup a powerful Kubernetes client</a> > Octant
+            <a href='/'>Introduction</a> > <a href='/k3s-cluster-deployment/'>Deploy a k3S cluster</a> > Additional master nodes
           
         
           
@@ -593,7 +593,8 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#installation">Installation</a></li>
+    <li><a href="#deploy-k3s-to-join-an-existing-cluster">Deploy k3s to join an existing cluster</a></li>
+    <li><a href="#check">Check</a></li>
   </ul>
 </nav>
     </div>
@@ -611,30 +612,37 @@
           
             <h1>
               
-              Octant
+              Additional master nodes
             </h1>
           
 
         
 
 
-<p>Octant is a tool for developers to understand how applications run on a
-Kubernetes cluster.</p>
+<p>The following section will explain how to join additional master nodes to your
+k3s deployment.</p>
 
-<div class="notices note" ><p>It aims to be part of the developer&rsquo;s toolkit for gaining insight and approaching complexity found in Kubernetes. Octant offers a combination of introspective tooling, cluster navigation, and object management along with a plugin system to further extend its capabilities.</p>
+<div class="notices note" ><p>To run K3s in this mode, you must have an <strong>odd</strong> number of server nodes.</p>
 </div>
 
-<h2 id="installation">Installation</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -L https://github.com/vmware-tanzu/octant/releases/download/v0.16.3/octant_0.16.3_Linux-64bit.deb &gt; /tmp/octant.deb
-dpkg -i /tmp/octant.deb
+<p>First of all, you will need to get the cluster token, as explained in the previous section and the master node <em>fqdn</em>.</p>
+<h2 id="deploy-k3s-to-join-an-existing-cluster">Deploy k3s to join an existing cluster</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+curl -sfL https://get.k3s.io | <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    K3S_URL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://k3s-mstr-01.vlab.lcl:6443&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    K3S_TOKEN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;K10d1...fe537::server:26a92...e34f9&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    INSTALL_K3S_EXEC<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;server&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    sh - --no-deploy<span style="color:#f92672">=</span>traefik
+</code></pre></div><h2 id="check">Check</h2>
+<p>From the master node or any client device with access to the Kubernetes cluster, ensure that the node is now added to the cluster:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get nodes
 
-<span style="color:#75715e"># To run and access octant from http://localhost:7777</span>
-octant
-
-<span style="color:#75715e"># To remotly run and access octant:</span>
-OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCEPTED_HOSTS<span style="color:#f92672">=</span>Y.Y.Y.Y octant --disable-open-browser
-</code></pre></div><p><img src="/images/powerfull-client/octant.png" alt="Example of Octant UI"></p>
-
+<span style="color:#75715e"># Output:</span>
+NAME          STATUS   ROLES                       AGE     VERSION
+k3s-mstr-01   Ready    control-plane,etcd,master   4m25s   v1.20.2+k3s1
+k3s-mstr-02   Ready    control-plane,etcd,master   3m33s   v1.20.2+k3s1
+k3s-mstr-03   Ready    control-plane,etcd,master   2m27s   v1.20.2+k3s1
+</code></pre></div>
 
 <footer class="footline">
 	
@@ -671,6 +679,91 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                         
                         
                     
@@ -746,42 +839,6 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
             
             
@@ -818,58 +875,6 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -958,10 +963,10 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
 	 
 	 
 		
-			<a class="nav nav-prev" href="/setup-a-powerful-kubernetes-client/jsonnet/" title="jsonnet"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/k3s-cluster-deployment/worker-node-s/" title="Worker node(s)"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/setup-a-powerful-kubernetes-client/argo-cli/" title="Argo cli" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/setup-a-powerful-kubernetes-client/" title="Setup a powerful Kubernetes client" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

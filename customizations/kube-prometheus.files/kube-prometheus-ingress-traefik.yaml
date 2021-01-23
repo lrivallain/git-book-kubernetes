@@ -1,0 +1,65 @@
+# Declaring the user list based on deployed secret
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: basic-admin-auth
+spec:
+  basicAuth:
+    secret: admin-auth
+---
+# Deploy an ingress route
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: grafana
+spec:
+  entryPoints:
+  - web
+  routes:
+  - match: Host(`grafana.vlab.lcl`)
+    kind: Rule
+    services:
+    - name: grafana
+      kind: Service
+      namespace: monitoring
+      port: 3000
+    middlewares:
+    - name: basic-admin-auth
+---
+# Deploy an ingress route
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: prometheus
+spec:
+  entryPoints:
+  - web
+  routes:
+  - match: Host(`prometheus.vlab.lcl`)
+    kind: Rule
+    services:
+    - name: prometheus-k8s
+      kind: Service
+      namespace: monitoring
+      port: 9090
+    middlewares:
+    - name: basic-admin-auth
+---
+# Deploy an ingress route
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: alertmanager
+spec:
+  entryPoints:
+  - web
+  routes:
+  - match: Host(`alert.vlab.lcl`)
+    kind: Rule
+    services:
+    - name: alertmanager-main
+      kind: Service
+      namespace: monitoring
+      port: 9093
+    middlewares:
+    - name: basic-admin-auth

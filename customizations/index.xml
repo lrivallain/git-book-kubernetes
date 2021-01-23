@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cluster customizations on My Kubernetes Book</title>
+    <link>https://k8s-book.vupti.me/customizations/</link>
+    <description>Recent content in Cluster customizations on My Kubernetes Book</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://k8s-book.vupti.me/customizations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Traefik as ingress controler</title>
+      <link>https://k8s-book.vupti.me/customizations/traefik/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k8s-book.vupti.me/customizations/traefik/</guid>
+      <description>As mentionned on Traefik website: Traefik is an open-source Edge Router that makes publishing your services a fun and easy experience.
+ It could be used as a powerfull Ingress controler to handle incoming requests on the cluster and forward them to the appropriate service.
+Installation helm repo add traefik https://helm.traefik.io/traefik helm repo update helm install traefik traefik/traefik Test it Get the whoami.yaml file form the bellow attachement files, then:</description>
+    </item>
+    
+    <item>
+      <title>Monitoring with Prometheus</title>
+      <link>https://k8s-book.vupti.me/customizations/kube-prometheus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k8s-book.vupti.me/customizations/kube-prometheus/</guid>
+      <description>The kube-prometheus project collects Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.
+git clone https://github.com/prometheus-operator/kube-prometheus.git /tmp/kube-prometheus cd /tmp/kube-prometheus # create the namespace and CRDs kubectl create -f manifests/setup # wait for them to be availble until kubectl get servicemonitors --all-namespaces ; do date; sleep 1; echo &amp;#34;&amp;#34;; done # create the remaining resources kubectl create -f manifests/ Port-forward method to access dashboard # Prometheus on https://127.</description>
+    </item>
+    
+  </channel>
+</rss>

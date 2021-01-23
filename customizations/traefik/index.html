@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Octant – My Kubernetes Book</title>
+    <title>Traefik as ingress controler – My Kubernetes Book</title>
 
     
     <link href="/css/nucleus.css?1611423065" rel="stylesheet">
@@ -38,7 +38,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/setup-a-powerful-kubernetes-client/octant/">
+  <body class="" data-url="/customizations/traefik/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -213,7 +213,7 @@
   
     
     <li data-nav-id="/setup-a-powerful-kubernetes-client/" title="Setup a powerful Kubernetes client" class="dd-item
-        parent
+        
         
         
         ">
@@ -346,7 +346,7 @@
  
   
     
-      <li data-nav-id="/setup-a-powerful-kubernetes-client/octant/" title="Octant" class="dd-item active">
+      <li data-nav-id="/setup-a-powerful-kubernetes-client/octant/" title="Octant" class="dd-item ">
         <a href="/setup-a-powerful-kubernetes-client/octant/">
         Octant
         <i class="fas fa-check read-icon"></i>
@@ -417,7 +417,7 @@
   
     
     <li data-nav-id="/customizations/" title="Cluster customizations" class="dd-item
-        
+        parent
         
         
         ">
@@ -445,7 +445,7 @@
  
   
     
-      <li data-nav-id="/customizations/traefik/" title="Traefik as ingress controler" class="dd-item ">
+      <li data-nav-id="/customizations/traefik/" title="Traefik as ingress controler" class="dd-item active">
         <a href="/customizations/traefik/">
         Traefik as ingress controler
         <i class="fas fa-check read-icon"></i>
@@ -547,7 +547,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/lrivallain/git-book-kubernetes/tree/master/content/setup-a-powerful-kubernetes-client/octant.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/lrivallain/git-book-kubernetes/tree/master/content/customizations/traefik.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -578,7 +578,7 @@
             
           
           
-            <a href='/'>Introduction</a> > <a href='/setup-a-powerful-kubernetes-client/'>Setup a powerful Kubernetes client</a> > Octant
+            <a href='/'>Introduction</a> > <a href='/customizations/'>Cluster customizations</a> > Traefik as ingress controler
           
         
           
@@ -594,6 +594,13 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#installation">Installation</a></li>
+    <li><a href="#test-it">Test it</a></li>
+    <li><a href="#expose-the-dashboard">Expose the dashboard</a>
+      <ul>
+        <li><a href="#create-a-secret-for-basic-authentication">Create a secret for basic-authentication</a></li>
+        <li><a href="#deploy-the-dashboard-ingressroute">Deploy the dashboard IngressRoute</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -611,29 +618,147 @@
           
             <h1>
               
-              Octant
+              Traefik as ingress controler
             </h1>
           
 
         
 
 
-<p>Octant is a tool for developers to understand how applications run on a
-Kubernetes cluster.</p>
 
-<div class="notices note" ><p>It aims to be part of the developer&rsquo;s toolkit for gaining insight and approaching complexity found in Kubernetes. Octant offers a combination of introspective tooling, cluster navigation, and object management along with a plugin system to further extend its capabilities.</p>
+<div class="notices note" ><p>As mentionned on <a href="https://traefik.io/">Traefik website</a>: <em>Traefik is an open-source Edge Router that makes publishing your services a fun and easy experience.</em></p>
 </div>
 
+<p>It could be used as a powerfull Ingress controler to handle incoming requests on the cluster and forward them to the appropriate service.</p>
 <h2 id="installation">Installation</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -L https://github.com/vmware-tanzu/octant/releases/download/v0.16.3/octant_0.16.3_Linux-64bit.deb &gt; /tmp/octant.deb
-dpkg -i /tmp/octant.deb
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">helm repo add traefik https://helm.traefik.io/traefik
+helm repo update
+helm install traefik traefik/traefik
+</code></pre></div><h2 id="test-it">Test it</h2>
+<p>Get the <code>whoami.yaml</code> file form the bellow attachement files, then:</p>
 
-<span style="color:#75715e"># To run and access octant from http://localhost:7777</span>
-octant
+<section class="attachments grey">
+	<label>
+		<i class="fas fa-paperclip" aria-hidden="true"></i>
+		Related files
+	</label>
+	
+		
+	
+	<div class="attachments-files">
+	
+		
+		
+			
+		
+	
+		
+		
+			
+				<li>
+					<a href="/customizations/traefik.files/whoami.yaml" >
+						whoami.yaml
+					</a>
+					(0 kb)
+				</li>
+			
+		
+	
+	</div>
+	
+</section>
 
-<span style="color:#75715e"># To remotly run and access octant:</span>
-OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCEPTED_HOSTS<span style="color:#f92672">=</span>Y.Y.Y.Y octant --disable-open-browser
-</code></pre></div><p><img src="/images/powerfull-client/octant.png" alt="Example of Octant UI"></p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Deploy it</span>
+kubectl apply -f ./whoami.yaml
+
+<span style="color:#75715e"># Run a test command</span>
+curl -i http://k3s.vlab.lcl -H <span style="color:#e6db74">&#34;Host: mydomain.com&#34;</span>
+
+<span style="color:#75715e"># Output:</span>
+HTTP/1.1 <span style="color:#ae81ff">200</span> OK
+Content-Length: <span style="color:#ae81ff">406</span>
+Content-Type: text/plain; charset<span style="color:#f92672">=</span>utf-8
+Date: Fri, <span style="color:#ae81ff">22</span> Jan <span style="color:#ae81ff">2021</span> 14:59:46 GMT
+
+Hostname: whoami-app-7564dd9695-dtzrh
+IP: 127.0.0.1
+IP: ::1
+IP: 10.42.2.6
+IP: fe80::f099:c3ff:fe3e:7071
+RemoteAddr: 10.42.1.6:46964
+GET / HTTP/1.1
+Host: mydomain.com
+User-Agent: curl/7.68.0
+Accept: */*
+Accept-Encoding: gzip
+X-Forwarded-For: 10.42.0.8
+X-Forwarded-Host: mydomain.com
+X-Forwarded-Port: <span style="color:#ae81ff">80</span>
+X-Forwarded-Proto: http
+X-Forwarded-Server: traefik-79fdc967bf-5nkxt
+X-Real-Ip: 10.42.0.8
+</code></pre></div><p>Here we simulate a DNS record <code>mydomain.com</code> by using the <code>Host</code> HTTP header. It provides a easy way to make a test but of course, for a real service, a DNS record is mandatory.</p>
+<h2 id="expose-the-dashboard">Expose the dashboard</h2>
+<p>It is possible to expose both Traefik UI dashboard and API through Traefik itself.</p>
+<p>Get the <code>dashboard.yaml</code> file from below attachements. Before applying, ensure that the content fits your needs, especially the <em>host</em> specified as a matching criteria.</p>
+
+<section class="attachments grey">
+	<label>
+		<i class="fas fa-paperclip" aria-hidden="true"></i>
+		Related files
+	</label>
+	
+		
+	
+	<div class="attachments-files">
+	
+		
+		
+			
+				<li>
+					<a href="/customizations/traefik.files/dashboard.yaml" >
+						dashboard.yaml
+					</a>
+					(0 kb)
+				</li>
+			
+		
+	
+		
+		
+			
+		
+	
+	</div>
+	
+</section>
+
+
+<h3 id="create-a-secret-for-basic-authentication">Create a secret for basic-authentication</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># To get `htpasswd` tool</span>
+sudo apt install apache2-utils -y
+
+<span style="color:#75715e"># Create an auth file with data for user &#34;admin&#34;</span>
+htpasswd -c ./users admin <span style="color:#75715e"># you will be prompted for password and confirmation</span>
+
+<span style="color:#75715e"># If needed, add other user(s) to the file with **almost** the same command:</span>
+htpasswd ./users otheradmin
+
+<span style="color:#75715e"># Deploy the file as a new secret</span>
+kubectl create secret generic admin-auth --from-file users --namespace<span style="color:#f92672">=</span>default
+</code></pre></div><h3 id="deploy-the-dashboard-ingressroute">Deploy the dashboard IngressRoute</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Deploy it</span>
+kubectl apply -f ./dashboard.yaml
+
+<span style="color:#75715e"># Test it:</span>
+curl -I -X GET http://lb.vlab.lcl/dashboard/ | head -n1
+<span style="color:#75715e"># Output: HTTP/1.1 401 Unauthorized</span>
+
+curl -Is -X GET http://lb.vlab.lcl/dashboard/ -u <span style="color:#e6db74">&#39;admin:*****&#39;</span> | head -n <span style="color:#ae81ff">1</span>
+<span style="color:#75715e"># Output: HTTP/1.1 200 OK</span>
+</code></pre></div><p>Now, you probably can reach: <a href="http://lb.vlab.lcl/dashboard/#">http://lb.vlab.lcl/dashboard/#</a> from your favorite web brower.</p>
+<p><img src="/images/customizations/traefik-dashboard.png" alt="Traefik dashboard"></p>
 
 
 <footer class="footline">
@@ -754,7 +879,6 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
             
                 
                     
-                    
                 
                 
 
@@ -768,8 +892,21 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
-                        
+            
+            
+                
                     
                 
                 
@@ -851,26 +988,6 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -906,6 +1023,7 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
             
                 
                     
+                    
                 
                 
 
@@ -918,6 +1036,7 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
             
             
                 
+                    
                     
                 
                 
@@ -934,6 +1053,9 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -958,10 +1080,10 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
 	 
 	 
 		
-			<a class="nav nav-prev" href="/setup-a-powerful-kubernetes-client/jsonnet/" title="jsonnet"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/customizations/" title="Cluster customizations"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/setup-a-powerful-kubernetes-client/argo-cli/" title="Argo cli" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/customizations/kube-prometheus/" title="Monitoring with Prometheus" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

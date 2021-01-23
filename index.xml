@@ -12,8 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://k8s-book.vupti.me/k3s-cluster-deployment/all-nodes-pre-requisites/</guid>
-      <description>Network configuration # Network setup vi /etc/netplan/50-cloud-init.yaml netplan apply DNS resolver This step enable the use of systemd-resolved in Ubuntu based distribution OS:
-# Local DNS resolver for local fqdn echo &amp;#34;192.168.2.4 k3s-mstr k3s-mstr.vlab..lcl&amp;#34; &amp;gt;&amp;gt; /etc/hosts sudo service systemd-resolved stop sudo rm -f /etc/resolv.conf sudo ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf sudo service systemd-resolved start Software pre-requisites # Upgrade packages sudo apt update sudo apt upgrade -y # Install software pre-requisites sudo apt-get install python3-pip gcc nfs-common -y (optionnal) proxy configuration Use the following commands if you need to use a corporate HTTP proxy server to reach Internet based resources:</description>
+      <description>Network configuration # Network setup vi /etc/netplan/50-cloud-init.yaml netplan apply Software pre-requisites # Upgrade packages sudo apt update sudo apt upgrade -y # Install software pre-requisites sudo apt-get install python3-pip gcc nfs-common -y NTP time sudo apt-get install ntp -y # check configured servers in: sudo vi /etc/ntp.conf # restart services if needed: sudo /etc/init.d/ntp restart # check ntp status: ntpq -p (optionnal) proxy configuration Use the following commands if you need to use a corporate HTTP proxy server to reach Internet based resources:</description>
     </item>
     
     <item>
@@ -28,6 +27,28 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s htt
     </item>
     
     <item>
+      <title>Traefik as ingress controler</title>
+      <link>https://k8s-book.vupti.me/customizations/traefik/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k8s-book.vupti.me/customizations/traefik/</guid>
+      <description>As mentionned on Traefik website: Traefik is an open-source Edge Router that makes publishing your services a fun and easy experience.
+ It could be used as a powerfull Ingress controler to handle incoming requests on the cluster and forward them to the appropriate service.
+Installation helm repo add traefik https://helm.traefik.io/traefik helm repo update helm install traefik traefik/traefik Test it Get the whoami.yaml file form the bellow attachement files, then:</description>
+    </item>
+    
+    <item>
+      <title>Arkade</title>
+      <link>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/arkade/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/arkade/</guid>
+      <description>Arkade is a great open-source Kubernetes &amp;ldquo;market-place&amp;rdquo; project initiated by @alexellis.
+The arkade CLI provides a simple method to download your favourite devops CLIs and install helm charts, with a single command.
+# Note: you can also run without `sudo` and move the binary yourself curl -sLS https://dl.get-arkade.dev | sudo sh # Test arkade --help Install a CLI tool # List available CLI tools arkade get # Example: arkade get yq Install a K8S app # List available apps arkade install / --help # Example: kubernetes-dashboard arkade install kubernetes-dashboard </description>
+    </item>
+    
+    <item>
       <title>Initial master node</title>
       <link>https://k8s-book.vupti.me/k3s-cluster-deployment/initial-master-node/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -39,6 +60,16 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s htt
     </item>
     
     <item>
+      <title>Monitoring with Prometheus</title>
+      <link>https://k8s-book.vupti.me/customizations/kube-prometheus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k8s-book.vupti.me/customizations/kube-prometheus/</guid>
+      <description>The kube-prometheus project collects Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.
+git clone https://github.com/prometheus-operator/kube-prometheus.git /tmp/kube-prometheus cd /tmp/kube-prometheus # create the namespace and CRDs kubectl create -f manifests/setup # wait for them to be availble until kubectl get servicemonitors --all-namespaces ; do date; sleep 1; echo &amp;#34;&amp;#34;; done # create the remaining resources kubectl create -f manifests/ Port-forward method to access dashboard # Prometheus on https://127.</description>
+    </item>
+    
+    <item>
       <title>Worker node(s)</title>
       <link>https://k8s-book.vupti.me/k3s-cluster-deployment/worker-node-s/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -46,7 +77,19 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s htt
       <guid>https://k8s-book.vupti.me/k3s-cluster-deployment/worker-node-s/</guid>
       <description>The following section will explain how to join additional worker nodes to your k3s deployment.
 First of all, you will need to get the cluster token, as explained in the previous section and the master node fqdn.
-Deploy k3s to join an existing cluster curl -sfL https://get.k3s.io | \  K3S_URL=&amp;#34;https://k3s-mstr.vlab.lcl:6443&amp;#34; \  K3S_TOKEN=&amp;#34;K10d1...fe537::server:26a92...e34f9&amp;#34; \  sh - Check From the master node or any client device with access to the Kubernetes cluster, ensure that the node is now added to the cluster:</description>
+Deploy k3s to join an existing cluster curl -sfL https://get.k3s.io | \  K3S_URL=&amp;#34;https://k3s-mstr-01.vlab.lcl:6443&amp;#34; \  K3S_TOKEN=&amp;#34;K10d1...fe537::server:26a92...e34f9&amp;#34; \  sh - Check From the master node or any client device with access to the Kubernetes cluster, ensure that the node is now added to the cluster:</description>
+    </item>
+    
+    <item>
+      <title>Additional master nodes</title>
+      <link>https://k8s-book.vupti.me/k3s-cluster-deployment/additional-master-nodes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k8s-book.vupti.me/k3s-cluster-deployment/additional-master-nodes/</guid>
+      <description>The following section will explain how to join additional master nodes to your k3s deployment.
+To run K3s in this mode, you must have an odd number of server nodes.
+ First of all, you will need to get the cluster token, as explained in the previous section and the master node fqdn.
+Deploy k3s to join an existing cluster curl -sfL https://get.k3s.io | \  K3S_URL=&amp;#34;https://k3s-mstr-01.vlab.lcl:6443&amp;#34; \  K3S_TOKEN=&amp;#34;K10d1...fe537::server:26a92...e34f9&amp;#34; \  INSTALL_K3S_EXEC=&amp;#34;server&amp;#34; \  sh - --no-deploy=traefik Check From the master node or any client device with access to the Kubernetes cluster, ensure that the node is now added to the cluster:</description>
     </item>
     
     <item>
@@ -72,6 +115,16 @@ kubectx # list contexts kubectx &amp;lt;name&amp;gt; # switch context kubens # l
     </item>
     
     <item>
+      <title>jsonnet</title>
+      <link>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/jsonnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/jsonnet/</guid>
+      <description>Jsonnet is a data templating language for app and tool developers
+ Generate config data Side-effect free Organize, simplify, unify Manage sprawling config  # Update or install golang support sudo apt install golang # Expand PATH with `go get` binary folder echo &amp;#39;PATH=&amp;#34;~/go/bin/:&amp;#34;$PATH&amp;#39; &amp;gt;&amp;gt; ~/.bashrc . ~/.bashrc # Install with go go get github.com/google/go-jsonnet/cmd/jsonnet # Test it jsonnet --version gojsontoyaml jsonnet provides json files but it is more easy to use yaml ones.</description>
+    </item>
+    
+    <item>
       <title>Octant</title>
       <link>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/octant/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -79,7 +132,7 @@ kubectx # list contexts kubectx &amp;lt;name&amp;gt; # switch context kubens # l
       <guid>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/octant/</guid>
       <description>Octant is a tool for developers to understand how applications run on a Kubernetes cluster.
 It aims to be part of the developer&amp;rsquo;s toolkit for gaining insight and approaching complexity found in Kubernetes. Octant offers a combination of introspective tooling, cluster navigation, and object management along with a plugin system to further extend its capabilities.
- Installation curl -L https://github.com/vmware-tanzu/octant/releases/download/v0.16.3/octant_0.16.3_Linux-64bit.deb &amp;gt; /tmp/octant.deb dpkg -i /tmp/octant.deb OCTANT_LISTENER_ADDR=X.X.X.X:7777 OCTANT_ACCEPTED_HOSTS=Y.Y.Y.Y octant --disable-open-browser Then go to http://k3s-mstr.</description>
+ Installation curl -L https://github.com/vmware-tanzu/octant/releases/download/v0.16.3/octant_0.16.3_Linux-64bit.deb &amp;gt; /tmp/octant.deb dpkg -i /tmp/octant.deb # To run and access octant from http://localhost:7777 octant # To remotly run and access octant: OCTANT_LISTENER_ADDR=X.</description>
     </item>
     
     <item>
@@ -89,7 +142,6 @@ It aims to be part of the developer&amp;rsquo;s toolkit for gaining insight and 
       
       <guid>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/argo-cli/</guid>
       <description> If you need to use Argo from this client machine.
- Please check version from this releases page.
  curl -sL https://github.com/argoproj/argo/releases/download/latest/argo-linux-amd64.gz | gunzip &amp;gt; argo chmod +x argo &amp;amp;&amp;amp; sudo mv ./argo /usr/local/bin/argo argo version Configuration # Argo namespace export ARGO_NAMESPACE=argo # Start port forwarding kubectl -n $ARGO_NAMESPACE port-forward deployment/argo-server 2746:2746 &amp;amp; # keep it running in bg; user the following command to get the job number: jobs # if needed: get it back in foreground: fg 1 </description>
     </item>
     

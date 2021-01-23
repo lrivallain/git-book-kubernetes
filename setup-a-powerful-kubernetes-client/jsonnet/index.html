@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Octant – My Kubernetes Book</title>
+    <title>jsonnet – My Kubernetes Book</title>
 
     
     <link href="/css/nucleus.css?1611423065" rel="stylesheet">
@@ -38,7 +38,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/setup-a-powerful-kubernetes-client/octant/">
+  <body class="" data-url="/setup-a-powerful-kubernetes-client/jsonnet/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -325,7 +325,7 @@
  
   
     
-      <li data-nav-id="/setup-a-powerful-kubernetes-client/jsonnet/" title="jsonnet" class="dd-item ">
+      <li data-nav-id="/setup-a-powerful-kubernetes-client/jsonnet/" title="jsonnet" class="dd-item active">
         <a href="/setup-a-powerful-kubernetes-client/jsonnet/">
         jsonnet
         <i class="fas fa-check read-icon"></i>
@@ -346,7 +346,7 @@
  
   
     
-      <li data-nav-id="/setup-a-powerful-kubernetes-client/octant/" title="Octant" class="dd-item active">
+      <li data-nav-id="/setup-a-powerful-kubernetes-client/octant/" title="Octant" class="dd-item ">
         <a href="/setup-a-powerful-kubernetes-client/octant/">
         Octant
         <i class="fas fa-check read-icon"></i>
@@ -547,7 +547,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/lrivallain/git-book-kubernetes/tree/master/content/setup-a-powerful-kubernetes-client/octant.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/lrivallain/git-book-kubernetes/tree/master/content/setup-a-powerful-kubernetes-client/jsonnet.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -578,7 +578,7 @@
             
           
           
-            <a href='/'>Introduction</a> > <a href='/setup-a-powerful-kubernetes-client/'>Setup a powerful Kubernetes client</a> > Octant
+            <a href='/'>Introduction</a> > <a href='/setup-a-powerful-kubernetes-client/'>Setup a powerful Kubernetes client</a> > jsonnet
           
         
           
@@ -593,7 +593,7 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#installation">Installation</a></li>
+    <li><a href="#gojsontoyaml">gojsontoyaml</a></li>
   </ul>
 </nav>
     </div>
@@ -611,30 +611,41 @@
           
             <h1>
               
-              Octant
+              jsonnet
             </h1>
           
 
         
 
 
-<p>Octant is a tool for developers to understand how applications run on a
-Kubernetes cluster.</p>
+<p>Jsonnet is a data templating language for app and tool developers</p>
+<ul>
+<li>Generate config data</li>
+<li>Side-effect free</li>
+<li>Organize, simplify, unify</li>
+<li>Manage sprawling config</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Update or install golang support</span>
+sudo apt install golang
 
-<div class="notices note" ><p>It aims to be part of the developer&rsquo;s toolkit for gaining insight and approaching complexity found in Kubernetes. Octant offers a combination of introspective tooling, cluster navigation, and object management along with a plugin system to further extend its capabilities.</p>
-</div>
+<span style="color:#75715e"># Expand PATH with `go get` binary folder</span>
+echo <span style="color:#e6db74">&#39;PATH=&#34;~/go/bin/:&#34;$PATH&#39;</span> &gt;&gt; ~/.bashrc
+. ~/.bashrc
 
-<h2 id="installation">Installation</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -L https://github.com/vmware-tanzu/octant/releases/download/v0.16.3/octant_0.16.3_Linux-64bit.deb &gt; /tmp/octant.deb
-dpkg -i /tmp/octant.deb
+<span style="color:#75715e"># Install with go</span>
+go get github.com/google/go-jsonnet/cmd/jsonnet
 
-<span style="color:#75715e"># To run and access octant from http://localhost:7777</span>
-octant
+<span style="color:#75715e"># Test it</span>
+jsonnet --version
+</code></pre></div><h2 id="gojsontoyaml">gojsontoyaml</h2>
+<p><code>jsonnet</code> provides <em>json</em> files but it is more easy to use <em>yaml</em> ones.
+<code>gojsontoyaml</code> provide a simple way to convert the <code>jsonnet</code> result files to <em>yaml</em> ones.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Install with go</span>
+go get github.com/brancz/gojsontoyaml
 
-<span style="color:#75715e"># To remotly run and access octant:</span>
-OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCEPTED_HOSTS<span style="color:#f92672">=</span>Y.Y.Y.Y octant --disable-open-browser
-</code></pre></div><p><img src="/images/powerfull-client/octant.png" alt="Example of Octant UI"></p>
-
+<span style="color:#75715e"># Test if</span>
+echo <span style="color:#e6db74">&#34;{&#39;installed&#39;: true}&#34;</span> | gojsontoyaml
+</code></pre></div>
 
 <footer class="footline">
 	
@@ -835,22 +846,6 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -870,6 +865,22 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -958,10 +969,10 @@ OCTANT_LISTENER_ADDR<span style="color:#f92672">=</span>X.X.X.X:7777 OCTANT_ACCE
 	 
 	 
 		
-			<a class="nav nav-prev" href="/setup-a-powerful-kubernetes-client/jsonnet/" title="jsonnet"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/setup-a-powerful-kubernetes-client/kubens-and-kubectx/" title="kubens &amp; kubectx"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/setup-a-powerful-kubernetes-client/argo-cli/" title="Argo cli" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/setup-a-powerful-kubernetes-client/octant/" title="Octant" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

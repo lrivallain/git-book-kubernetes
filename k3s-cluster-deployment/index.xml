@@ -12,8 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://k8s-book.vupti.me/k3s-cluster-deployment/all-nodes-pre-requisites/</guid>
-      <description>Network configuration # Network setup vi /etc/netplan/50-cloud-init.yaml netplan apply DNS resolver This step enable the use of systemd-resolved in Ubuntu based distribution OS:
-# Local DNS resolver for local fqdn echo &amp;#34;192.168.2.4 k3s-mstr k3s-mstr.vlab..lcl&amp;#34; &amp;gt;&amp;gt; /etc/hosts sudo service systemd-resolved stop sudo rm -f /etc/resolv.conf sudo ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf sudo service systemd-resolved start Software pre-requisites # Upgrade packages sudo apt update sudo apt upgrade -y # Install software pre-requisites sudo apt-get install python3-pip gcc nfs-common -y (optionnal) proxy configuration Use the following commands if you need to use a corporate HTTP proxy server to reach Internet based resources:</description>
+      <description>Network configuration # Network setup vi /etc/netplan/50-cloud-init.yaml netplan apply Software pre-requisites # Upgrade packages sudo apt update sudo apt upgrade -y # Install software pre-requisites sudo apt-get install python3-pip gcc nfs-common -y NTP time sudo apt-get install ntp -y # check configured servers in: sudo vi /etc/ntp.conf # restart services if needed: sudo /etc/init.d/ntp restart # check ntp status: ntpq -p (optionnal) proxy configuration Use the following commands if you need to use a corporate HTTP proxy server to reach Internet based resources:</description>
     </item>
     
     <item>
@@ -35,7 +34,19 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s htt
       <guid>https://k8s-book.vupti.me/k3s-cluster-deployment/worker-node-s/</guid>
       <description>The following section will explain how to join additional worker nodes to your k3s deployment.
 First of all, you will need to get the cluster token, as explained in the previous section and the master node fqdn.
-Deploy k3s to join an existing cluster curl -sfL https://get.k3s.io | \  K3S_URL=&amp;#34;https://k3s-mstr.vlab.lcl:6443&amp;#34; \  K3S_TOKEN=&amp;#34;K10d1...fe537::server:26a92...e34f9&amp;#34; \  sh - Check From the master node or any client device with access to the Kubernetes cluster, ensure that the node is now added to the cluster:</description>
+Deploy k3s to join an existing cluster curl -sfL https://get.k3s.io | \  K3S_URL=&amp;#34;https://k3s-mstr-01.vlab.lcl:6443&amp;#34; \  K3S_TOKEN=&amp;#34;K10d1...fe537::server:26a92...e34f9&amp;#34; \  sh - Check From the master node or any client device with access to the Kubernetes cluster, ensure that the node is now added to the cluster:</description>
+    </item>
+    
+    <item>
+      <title>Additional master nodes</title>
+      <link>https://k8s-book.vupti.me/k3s-cluster-deployment/additional-master-nodes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k8s-book.vupti.me/k3s-cluster-deployment/additional-master-nodes/</guid>
+      <description>The following section will explain how to join additional master nodes to your k3s deployment.
+To run K3s in this mode, you must have an odd number of server nodes.
+ First of all, you will need to get the cluster token, as explained in the previous section and the master node fqdn.
+Deploy k3s to join an existing cluster curl -sfL https://get.k3s.io | \  K3S_URL=&amp;#34;https://k3s-mstr-01.vlab.lcl:6443&amp;#34; \  K3S_TOKEN=&amp;#34;K10d1...fe537::server:26a92...e34f9&amp;#34; \  INSTALL_K3S_EXEC=&amp;#34;server&amp;#34; \  sh - --no-deploy=traefik Check From the master node or any client device with access to the Kubernetes cluster, ensure that the node is now added to the cluster:</description>
     </item>
     
   </channel>

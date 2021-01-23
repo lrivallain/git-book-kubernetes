@@ -18,6 +18,17 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s htt
     </item>
     
     <item>
+      <title>Arkade</title>
+      <link>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/arkade/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/arkade/</guid>
+      <description>Arkade is a great open-source Kubernetes &amp;ldquo;market-place&amp;rdquo; project initiated by @alexellis.
+The arkade CLI provides a simple method to download your favourite devops CLIs and install helm charts, with a single command.
+# Note: you can also run without `sudo` and move the binary yourself curl -sLS https://dl.get-arkade.dev | sudo sh # Test arkade --help Install a CLI tool # List available CLI tools arkade get # Example: arkade get yq Install a K8S app # List available apps arkade install / --help # Example: kubernetes-dashboard arkade install kubernetes-dashboard </description>
+    </item>
+    
+    <item>
       <title>k9s</title>
       <link>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/k9s/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -40,6 +51,16 @@ kubectx # list contexts kubectx &amp;lt;name&amp;gt; # switch context kubens # l
     </item>
     
     <item>
+      <title>jsonnet</title>
+      <link>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/jsonnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/jsonnet/</guid>
+      <description>Jsonnet is a data templating language for app and tool developers
+ Generate config data Side-effect free Organize, simplify, unify Manage sprawling config  # Update or install golang support sudo apt install golang # Expand PATH with `go get` binary folder echo &amp;#39;PATH=&amp;#34;~/go/bin/:&amp;#34;$PATH&amp;#39; &amp;gt;&amp;gt; ~/.bashrc . ~/.bashrc # Install with go go get github.com/google/go-jsonnet/cmd/jsonnet # Test it jsonnet --version gojsontoyaml jsonnet provides json files but it is more easy to use yaml ones.</description>
+    </item>
+    
+    <item>
       <title>Octant</title>
       <link>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/octant/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -47,7 +68,7 @@ kubectx # list contexts kubectx &amp;lt;name&amp;gt; # switch context kubens # l
       <guid>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/octant/</guid>
       <description>Octant is a tool for developers to understand how applications run on a Kubernetes cluster.
 It aims to be part of the developer&amp;rsquo;s toolkit for gaining insight and approaching complexity found in Kubernetes. Octant offers a combination of introspective tooling, cluster navigation, and object management along with a plugin system to further extend its capabilities.
- Installation curl -L https://github.com/vmware-tanzu/octant/releases/download/v0.16.3/octant_0.16.3_Linux-64bit.deb &amp;gt; /tmp/octant.deb dpkg -i /tmp/octant.deb OCTANT_LISTENER_ADDR=X.X.X.X:7777 OCTANT_ACCEPTED_HOSTS=Y.Y.Y.Y octant --disable-open-browser Then go to http://k3s-mstr.</description>
+ Installation curl -L https://github.com/vmware-tanzu/octant/releases/download/v0.16.3/octant_0.16.3_Linux-64bit.deb &amp;gt; /tmp/octant.deb dpkg -i /tmp/octant.deb # To run and access octant from http://localhost:7777 octant # To remotly run and access octant: OCTANT_LISTENER_ADDR=X.</description>
     </item>
     
     <item>
@@ -57,7 +78,6 @@ It aims to be part of the developer&amp;rsquo;s toolkit for gaining insight and 
       
       <guid>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/argo-cli/</guid>
       <description> If you need to use Argo from this client machine.
- Please check version from this releases page.
  curl -sL https://github.com/argoproj/argo/releases/download/latest/argo-linux-amd64.gz | gunzip &amp;gt; argo chmod +x argo &amp;amp;&amp;amp; sudo mv ./argo /usr/local/bin/argo argo version Configuration # Argo namespace export ARGO_NAMESPACE=argo # Start port forwarding kubectl -n $ARGO_NAMESPACE port-forward deployment/argo-server 2746:2746 &amp;amp; # keep it running in bg; user the following command to get the job number: jobs # if needed: get it back in foreground: fg 1 </description>
     </item>
     
