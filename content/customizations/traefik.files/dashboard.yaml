@@ -1,0 +1,25 @@
+# Declaring the user list based on deployed secret
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: basic-admin-auth
+spec:
+  basicAuth:
+    secret: admin-auth
+---
+# Deploy an ingress route
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: dashboard
+spec:
+  entryPoints:
+  - web
+  routes:
+  - match: Host(`lb.vlab.lcl`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
+    kind: Rule
+    services:
+    - name: api@internal
+      kind: TraefikService
+    middlewares:
+    - name: basic-admin-auth

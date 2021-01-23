@@ -10,19 +10,6 @@ vi /etc/netplan/50-cloud-init.yaml
 netplan apply
 ```
 
-## DNS resolver
-
-This step enable the use of `systemd-resolved` in Ubuntu based distribution OS:
-
-```bash
-# Local DNS resolver for local fqdn
-echo "192.168.2.4 k3s-mstr k3s-mstr.vlab..lcl" >> /etc/hosts
-sudo service systemd-resolved stop
-sudo rm -f /etc/resolv.conf
-sudo ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
-sudo service systemd-resolved start
-```
-
 ## Software pre-requisites
 
 ```bash
@@ -32,6 +19,18 @@ sudo apt upgrade -y
 
 # Install software pre-requisites
 sudo apt-get install python3-pip gcc nfs-common -y
+```
+
+## NTP time
+
+```bash
+sudo apt-get install ntp -y
+# check configured servers in:
+sudo vi /etc/ntp.conf
+# restart services if needed:
+sudo /etc/init.d/ntp restart
+# check ntp status:
+ntpq -p
 ```
 
 ## \(_optionnal_\) proxy configuration

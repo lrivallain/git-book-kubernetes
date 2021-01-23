@@ -4,7 +4,7 @@ weight: 10
 ---
 
 {{% notice info %}}
-Thanks to **@ahmetb**: [https://github.com/ahmetb/kubectx](https://github.com/ahmetb/kubectx)
+Thanks to [@ahmetb](https://github.com/ahmetb): [https://github.com/ahmetb/kubectx](https://github.com/ahmetb/kubectx)
 {{% /notice %}}
 
 * `kubectx`is a utility to manage and switch between kubectl **contexts**.

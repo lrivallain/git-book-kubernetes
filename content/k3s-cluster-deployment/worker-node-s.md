@@ -12,7 +12,7 @@ First of all, you will need to get the cluster token, as explained in the previo
 
 ```bash
 curl -sfL https://get.k3s.io | \
-    K3S_URL="https://k3s-mstr.vlab.lcl:6443" \
+    K3S_URL="https://k3s-mstr-01.vlab.lcl:6443" \
     K3S_TOKEN="K10d1...fe537::server:26a92...e34f9" \
     sh -
 ```

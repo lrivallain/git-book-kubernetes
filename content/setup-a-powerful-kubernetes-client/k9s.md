@@ -27,3 +27,5 @@ curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/one_dark.yml
 # or
 curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/solarized_dark.yml > ~/.k9s/skin.yml
 ```
+
+![Example of Octant UI](/images/powerfull-client/k9s.png)

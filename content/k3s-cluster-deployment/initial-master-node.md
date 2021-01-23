@@ -31,15 +31,16 @@ echo 'complete -F __start_kubectl k' >>~/.bashrc
 ### Deploy
 
 ```bash
-# Deploy a new k3s master node
-curl -sfL https://get.k3s.io | sh -
+# enable read for other users
+export K3S_KUBECONFIG_MODE=0644
+
+# Deploy a new k3s master node with embeded etcd
+curl -sfL https://get.k3s.io | sh -s - --no-deploy=traefik  --cluster-init
 ```
 
 ### Configuration file
 
 ```bash
-# enable read for other users
-sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 ```
 
@@ -48,6 +49,10 @@ You can test the connection to the cluster by listing the deployed _pods_ and th
 ```bash
 kubectl get pods --all-namespaces
 kubectl get nodes
+
+#Output:
+NAME          STATUS   ROLES                       AGE     VERSION
+k3s-mstr-01   Ready    control-plane,etcd,master   2m32s   v1.20.2+k3s1
 ```
 
 ### Retrieve the cluster token

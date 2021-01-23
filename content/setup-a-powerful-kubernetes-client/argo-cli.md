@@ -7,10 +7,6 @@ weight: 99
 If you need to use Argo from this client machine.
 {{% /notice %}}
 
-{{% notice tip %}}
-Please check version from this [releases](https://github.com/argoproj/argo/releases/) page.
-{{% /notice %}}
-
 ```bash
 curl -sL https://github.com/argoproj/argo/releases/download/latest/argo-linux-amd64.gz | gunzip > argo
 chmod +x argo && sudo mv ./argo /usr/local/bin/argo
