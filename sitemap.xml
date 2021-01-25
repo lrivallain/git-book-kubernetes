@@ -4,96 +4,96 @@
   
   <url>
     <loc>https://k8s-book.vupti.me/k3s-cluster-deployment/all-nodes-pre-requisites/</loc>
-    <lastmod>2021-01-23T17:29:46+00:00</lastmod>
+    <lastmod>2021-01-25T08:44:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/basics/</loc>
-    <lastmod>2021-01-14T15:54:14+00:00</lastmod>
+    <lastmod>2021-01-25T08:44:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://k8s-book.vupti.me/k3s-cluster-deployment/</loc>
-    <lastmod>2021-01-14T15:54:14+00:00</lastmod>
+    <lastmod>2021-01-25T08:44:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://k8s-book.vupti.me/customizations/traefik/</loc>
-    <lastmod>2021-01-25T07:53:29+00:00</lastmod>
+    <lastmod>2021-01-25T08:44:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/arkade/</loc>
-    <lastmod>2021-01-23T17:29:46+00:00</lastmod>
+    <lastmod>2021-01-25T08:44:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://k8s-book.vupti.me/k3s-cluster-deployment/initial-master-node/</loc>
-    <lastmod>2021-01-23T17:29:46+00:00</lastmod>
+    <lastmod>2021-01-25T08:44:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://k8s-book.vupti.me/customizations/kube-prometheus/</loc>
-    <lastmod>2021-01-23T17:29:46+00:00</lastmod>
+    <lastmod>2021-01-25T08:44:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/</loc>
-    <lastmod>2021-01-14T15:54:14+00:00</lastmod>
+    <lastmod>2021-01-25T08:44:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://k8s-book.vupti.me/customizations/</loc>
-    <lastmod>2021-01-23T17:29:46+00:00</lastmod>
+    <lastmod>2021-01-25T08:44:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://k8s-book.vupti.me/k3s-cluster-deployment/worker-node-s/</loc>
-    <lastmod>2021-01-23T17:29:46+00:00</lastmod>
+    <lastmod>2021-01-25T08:44:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://k8s-book.vupti.me/k3s-cluster-deployment/additional-master-nodes/</loc>
-    <lastmod>2021-01-23T17:29:46+00:00</lastmod>
+    <lastmod>2021-01-25T08:44:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/k9s/</loc>
-    <lastmod>2021-01-23T17:29:46+00:00</lastmod>
+    <lastmod>2021-01-25T08:44:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/kubens-and-kubectx/</loc>
-    <lastmod>2021-01-23T17:29:46+00:00</lastmod>
+    <lastmod>2021-01-25T08:44:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/jsonnet/</loc>
-    <lastmod>2021-01-23T17:29:46+00:00</lastmod>
+    <lastmod>2021-01-25T08:44:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/octant/</loc>
-    <lastmod>2021-01-23T17:29:46+00:00</lastmod>
+    <lastmod>2021-01-25T08:44:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/argo-cli/</loc>
-    <lastmod>2021-01-23T17:29:46+00:00</lastmod>
+    <lastmod>2021-01-25T08:44:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/openfaas-cli/</loc>
-    <lastmod>2021-01-14T15:54:14+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://k8s-book.vupti.me/categories/</loc>
+    <lastmod>2021-01-25T08:44:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://k8s-book.vupti.me/</loc>
-    <lastmod>2021-01-14T15:54:14+00:00</lastmod>
+    <lastmod>2021-01-25T08:44:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://k8s-book.vupti.me/categories/</loc>
   </url>
   
   <url>

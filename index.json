@@ -119,18 +119,18 @@
 	"content": " If you need to use OpenFaaS from the client machine.\n One-liner:\n# openfaas-cli curl -sSL https://cli.openfaas.com | sudo sh Configuration # Set namespace export OS_NS=\u0026#34;openfaas\u0026#34; # Get password export OF_PASS=$(echo $(kubectl -n $OS_NS get secret basic-auth -o jsonpath=\u0026#34;{.data.basic-auth-password}\u0026#34; | base64 --decode)) echo $OF_PASS # Get URI echo \u0026#34;export OPENFAAS_URL=http://\u0026#34;$(kubectl -n $OS_NS describe pods $(kubectl -n $OS_NS get pods | grep \u0026#34;gateway-\u0026#34; | awk \u0026#39;{print $1}\u0026#39;) | grep \u0026#34;^Node:\u0026#34; | awk -F \u0026#34;/\u0026#34; \u0026#39;{print $2}\u0026#39;)\u0026#34;:31112\u0026#34; Login echo $OF_PASS | faas-cli login --password-stdin "
 },
 {
+	"uri": "https://k8s-book.vupti.me/",
+	"title": "My Kubernetes Book",
+	"tags": [],
+	"description": "",
+	"content": "My Kubernetes book The following book is a personal note-book to keep some relevant informations about Kubernetes and k8s related products, for my personal and/or professional use.\nThis is not a substitution to official projects documentation, just a quick way for me to get the information I need.\n   How to contribute ?   This website is built on Hugo static website engine with the learn theme.\nYou can contribute by suggesting issues or pull-requests on the  GitHub project.\n As a pre-requesite to local build, you will need Hugo engine installed: Quick Start Clone the repository with submodules:  git clone --recursive https://github.com/lrivallain/git-book-kubernetes.git Push changes to a new branch:  # new branch: git checkout -b \u0026#34;my-changes\u0026#34; # \u0026lt;do changes here !\u0026gt; # test your changes with: hugo server # \u0026lt;git add / git commit / git push\u0026gt; Create a pull request on the project. Once accepted and merged to master, the static will be run through this Publish GitHub Action    "
+},
+{
 	"uri": "https://k8s-book.vupti.me/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
-},
-{
-	"uri": "https://k8s-book.vupti.me/",
-	"title": "Introduction",
-	"tags": [],
-	"description": "",
-	"content": "My Kubernetes book The following book is a personal note-book to keep some relevant informations about Kubernetes and k8s related products, for my personal and/or professional use.\nThis is not a substitution to official projects documentation, just a quick way for me to get the information I need.\n   How to contribute ?   This website is built on Hugo static website engine with the learn theme.\nYou can contribute by suggesting issues or pull-requests on the  GitHub project.\n As a pre-requesite to local build, you will need Hugo engine installed: Quick Start Clone the repository with submodules:  git clone --recursive https://github.com/lrivallain/git-book-kubernetes.git Push changes to a new branch:  # new branch: git checkout -b \u0026#34;my-changes\u0026#34; # \u0026lt;do changes here !\u0026gt; # test your changes with: hugo server # \u0026lt;git add / git commit / git push\u0026gt; Create a pull request on the project. Once accepted and merged to master, the static will be run through this Publish GitHub Action    "
 },
 {
 	"uri": "https://k8s-book.vupti.me/tags/",

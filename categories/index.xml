@@ -6,6 +6,8 @@
     <description>Recent content in Categories on My Kubernetes Book</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</managingEditor>
+    <webMaster>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</webMaster>
     <copyright>This work is licensed under a MIT License.</copyright><atom:link href="https://k8s-book.vupti.me/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

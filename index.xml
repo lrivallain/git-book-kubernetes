@@ -1,160 +1,642 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Introduction on My Kubernetes Book</title>
+    <title>My Kubernetes Book</title>
     <link>https://k8s-book.vupti.me/</link>
-    <description>Recent content in Introduction on My Kubernetes Book</description>
+    <description>Recent content on My Kubernetes Book</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>This work is licensed under a MIT License.</copyright><atom:link href="https://k8s-book.vupti.me/index.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</managingEditor>
+    <webMaster>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</webMaster>
+    <copyright>This work is licensed under a MIT License.</copyright>
+    <lastBuildDate>Sat, 23 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://k8s-book.vupti.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>All nodes pre-requisites</title>
       <link>https://k8s-book.vupti.me/k3s-cluster-deployment/all-nodes-pre-requisites/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 24 Jan 2021 00:00:00 +0000</pubDate>
+      <author>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</author>
       <guid>https://k8s-book.vupti.me/k3s-cluster-deployment/all-nodes-pre-requisites/</guid>
-      <description>Network configuration # Network setup vi /etc/netplan/50-cloud-init.yaml netplan apply Software pre-requisites # Upgrade packages sudo apt update sudo apt upgrade -y # Install software pre-requisites sudo apt-get install python3-pip gcc nfs-common -y NTP time sudo apt-get install ntp -y # check configured servers in: sudo vi /etc/ntp.conf # restart services if needed: sudo /etc/init.d/ntp restart # check ntp status: ntpq -p (optionnal) proxy configuration Use the following commands if you need to use a corporate HTTP proxy server to reach Internet based resources:</description>
+      <category>Deploy a k3S cluster</category>
+      <description>&lt;h2 id=&#34;network-configuration&#34;&gt;Network configuration&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Network setup&lt;/span&gt;
+vi /etc/netplan/50-cloud-init.yaml
+netplan apply
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;software-pre-requisites&#34;&gt;Software pre-requisites&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Upgrade packages&lt;/span&gt;
+sudo apt update
+sudo apt upgrade -y
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Install software pre-requisites&lt;/span&gt;
+sudo apt-get install python3-pip gcc nfs-common -y
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ntp-time&#34;&gt;NTP time&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt-get install ntp -y
+&lt;span style=&#34;color:#75715e&#34;&gt;# check configured servers in:&lt;/span&gt;
+sudo vi /etc/ntp.conf
+&lt;span style=&#34;color:#75715e&#34;&gt;# restart services if needed:&lt;/span&gt;
+sudo /etc/init.d/ntp restart
+&lt;span style=&#34;color:#75715e&#34;&gt;# check ntp status:&lt;/span&gt;
+ntpq -p
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;_optionnal_-proxy-configuration&#34;&gt;(&lt;em&gt;optionnal&lt;/em&gt;) proxy configuration&lt;/h2&gt;
+&lt;p&gt;Use the following commands if you need to use a corporate HTTP proxy server to reach Internet based resources:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Proxy setup&lt;/span&gt;
+echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;HTTP_PROXY=X.X.X.X:8080
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;HTTPS_PROXY=X.X.X.X:8080
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;NO_PROXY=.vlab.lcl,192.168.0.0/16,127.0.0.1,localhost&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; /etc/environment
+export HTTP_PROXY&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;X.X.X.X:8080&amp;#34;&lt;/span&gt;
+export HTTPS_PROXY&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;X.X.X.X:8080&amp;#34;&lt;/span&gt;
+export NO_PROXY&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.vlab.lcl,192.168.0.0/16,127.0.0.1,localhost&amp;#34;&lt;/span&gt;
+echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Acquire::http::proxy \&amp;#34;http://X.X.X.X:8080\&amp;#34;;&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; /etc/apt/apt.conf
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Test&lt;/span&gt;
+curl https://google.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
       <title>Basics tools</title>
       <link>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/basics/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 24 Jan 2021 00:00:00 +0000</pubDate>
+      <author>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</author>
       <guid>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/basics/</guid>
-      <description>Generic pre-requisites We will need pip and gcc for some tools, so lets install them if needed:
-sudo apt-get install python3-pip gcc -y Install kubectl CLI tool In order to test and manage the k3s cluster, it could be useful to have a kubectl cli install in the master nodes:
-curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl chmod +x ./kubectl sudo mv ./kubectl /usr/local/bin/kubectl # Test it kubectl version --client kubectl auto-complete Use the following commands to add auto-completion to your bash shell for the kubectl command (or it&amp;rsquo;s k alias)</description>
+      <category>Setup a powerful Kubernetes client</category>
+      <description>&lt;h2 id=&#34;generic-pre-requisites&#34;&gt;Generic pre-requisites&lt;/h2&gt;
+&lt;p&gt;We will need pip and gcc for some tools, so lets install them if needed:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt-get install python3-pip gcc -y
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;install-kubectl-cli-tool&#34;&gt;Install &lt;code&gt;kubectl&lt;/code&gt; CLI tool&lt;/h2&gt;
+&lt;p&gt;In order to test and manage the k3s cluster, it could be useful to have a &lt;code&gt;kubectl&lt;/code&gt; cli install in the master nodes:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -LO https://storage.googleapis.com/kubernetes-release/release/&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Test it&lt;/span&gt;
+kubectl version --client
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;kubectl-auto-complete&#34;&gt;&lt;code&gt;kubectl&lt;/code&gt; auto-complete&lt;/h3&gt;
+&lt;p&gt;Use the following commands to add auto-completion to your bash shell for the &lt;code&gt;kubectl&lt;/code&gt; command (or it&amp;rsquo;s &lt;code&gt;k&lt;/code&gt; alias)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;source &amp;lt;(kubectl completion bash)&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
+echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;alias k=kubectl&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
+echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;complete -F __start_kubectl k&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;heml&#34;&gt;Heml&lt;/h2&gt;
+&lt;p&gt;Easy peasy:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
       <title>Traefik as ingress controler</title>
       <link>https://k8s-book.vupti.me/customizations/traefik/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 24 Jan 2021 00:00:00 +0000</pubDate>
+      <author>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</author>
       <guid>https://k8s-book.vupti.me/customizations/traefik/</guid>
-      <description>As mentionned on Traefik website: Traefik is an open-source Edge Router that makes publishing your services a fun and easy experience.
- It could be used as a powerfull Ingress controler to handle incoming requests on the cluster and forward them to the appropriate service.
-Installation helm repo add traefik https://helm.traefik.io/traefik helm repo update helm install traefik traefik/traefik Test it Get the whoami.yaml file form the bellow attachement files, then:</description>
+      <category>Cluster customizations</category>
+      <description>
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;As mentionned on &lt;a href=&#34;https://traefik.io/&#34;&gt;Traefik website&lt;/a&gt;: &lt;em&gt;Traefik is an open-source Edge Router that makes publishing your services a fun and easy experience.&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;It could be used as a powerfull Ingress controler to handle incoming requests on the cluster and forward them to the appropriate service.&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;helm repo add traefik https://helm.traefik.io/traefik
+helm repo update
+helm install traefik traefik/traefik
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;test-it&#34;&gt;Test it&lt;/h2&gt;
+&lt;p&gt;Get the &lt;code&gt;whoami.yaml&lt;/code&gt; file form the bellow attachement files, then:&lt;/p&gt;
+
+&lt;section class=&#34;attachments grey&#34;&gt;
+	&lt;label&gt;
+		&lt;i class=&#34;fas fa-paperclip&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
+		Related files
+	&lt;/label&gt;
+	
+		
+	
+	&lt;div class=&#34;attachments-files&#34;&gt;
+	
+		
+		
+			
+		
+	
+		
+		
+			
+				&lt;li&gt;
+					&lt;a href=&#34;https://k8s-book.vupti.me/customizations/traefik.files/whoami.yaml&#34; &gt;
+						whoami.yaml
+					&lt;/a&gt;
+					(0 kb)
+				&lt;/li&gt;
+			
+		
+	
+	&lt;/div&gt;
+	
+&lt;/section&gt;
+
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy it&lt;/span&gt;
+kubectl apply -f ./whoami.yaml
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Run a test command&lt;/span&gt;
+curl -i http://k3s.vlab.lcl -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Host: mydomain.com&amp;#34;&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Output:&lt;/span&gt;
+HTTP/1.1 &lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt; OK
+Content-Length: &lt;span style=&#34;color:#ae81ff&#34;&gt;406&lt;/span&gt;
+Content-Type: text/plain; charset&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;utf-8
+Date: Fri, &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; Jan &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; 14:59:46 GMT
+
+Hostname: whoami-app-7564dd9695-dtzrh
+IP: 127.0.0.1
+IP: ::1
+IP: 10.42.2.6
+IP: fe80::f099:c3ff:fe3e:7071
+RemoteAddr: 10.42.1.6:46964
+GET / HTTP/1.1
+Host: mydomain.com
+User-Agent: curl/7.68.0
+Accept: */*
+Accept-Encoding: gzip
+X-Forwarded-For: 10.42.0.8
+X-Forwarded-Host: mydomain.com
+X-Forwarded-Port: &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;
+X-Forwarded-Proto: http
+X-Forwarded-Server: traefik-79fdc967bf-5nkxt
+X-Real-Ip: 10.42.0.8
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here we simulate a DNS record &lt;code&gt;mydomain.com&lt;/code&gt; by using the &lt;code&gt;Host&lt;/code&gt; HTTP header. It provides a easy way to make a test but of course, for a real service, a DNS record is mandatory.&lt;/p&gt;
+&lt;p&gt;Here is a quick demo of the load-balancing made on the &lt;code&gt;whoami&lt;/code&gt; service with 4 replicas:
+&lt;asciinema-player src=&#34;https://k8s-book.vupti.me/images/customizations/whoami-traefik-ingress.cast&#34; cols=&#34;170&#34; rows=&#34;27&#34;&gt;&lt;/asciinema-player&gt;&lt;/p&gt;
+&lt;script src=&#34;https://k8s-book.vupti.me/libs/asciinema/asciinema-player.js&#34;&gt;&lt;/script&gt;
+&lt;h2 id=&#34;expose-the-dashboard&#34;&gt;Expose the dashboard&lt;/h2&gt;
+&lt;p&gt;It is possible to expose both Traefik UI dashboard and API through Traefik itself.&lt;/p&gt;
+&lt;p&gt;Get the &lt;code&gt;dashboard.yaml&lt;/code&gt; file from below attachements. Before applying, ensure that the content fits your needs, especially the &lt;em&gt;host&lt;/em&gt; specified as a matching criteria.&lt;/p&gt;
+
+&lt;section class=&#34;attachments grey&#34;&gt;
+	&lt;label&gt;
+		&lt;i class=&#34;fas fa-paperclip&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
+		Related files
+	&lt;/label&gt;
+	
+		
+	
+	&lt;div class=&#34;attachments-files&#34;&gt;
+	
+		
+		
+			
+				&lt;li&gt;
+					&lt;a href=&#34;https://k8s-book.vupti.me/customizations/traefik.files/dashboard.yaml&#34; &gt;
+						dashboard.yaml
+					&lt;/a&gt;
+					(0 kb)
+				&lt;/li&gt;
+			
+		
+	
+		
+		
+			
+		
+	
+	&lt;/div&gt;
+	
+&lt;/section&gt;
+
+
+&lt;h3 id=&#34;create-a-secret-for-basic-authentication&#34;&gt;Create a secret for basic-authentication&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# To get `htpasswd` tool&lt;/span&gt;
+sudo apt install apache2-utils -y
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Create an auth file with data for user &amp;#34;admin&amp;#34;&lt;/span&gt;
+htpasswd -c ./users admin &lt;span style=&#34;color:#75715e&#34;&gt;# you will be prompted for password and confirmation&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# If needed, add other user(s) to the file with **almost** the same command:&lt;/span&gt;
+htpasswd ./users otheradmin
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy the file as a new secret&lt;/span&gt;
+kubectl create secret generic admin-auth --from-file users --namespace&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;default
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;deploy-the-dashboard-ingressroute&#34;&gt;Deploy the dashboard IngressRoute&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy it&lt;/span&gt;
+kubectl apply -f ./dashboard.yaml
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Test it:&lt;/span&gt;
+curl -I -X GET http://lb.vlab.lcl/dashboard/ | head -n1
+&lt;span style=&#34;color:#75715e&#34;&gt;# Output: HTTP/1.1 401 Unauthorized&lt;/span&gt;
+
+curl -Is -X GET http://lb.vlab.lcl/dashboard/ -u &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;admin:*****&amp;#39;&lt;/span&gt; | head -n &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Output: HTTP/1.1 200 OK&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, you probably can reach: &lt;a href=&#34;http://lb.vlab.lcl/dashboard/#&#34;&gt;http://lb.vlab.lcl/dashboard/#&lt;/a&gt; from your favorite web brower.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://k8s-book.vupti.me/images/customizations/traefik-dashboard.png&#34; alt=&#34;Traefik dashboard&#34;&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>Arkade</title>
       <link>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/arkade/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 24 Jan 2021 00:00:00 +0000</pubDate>
+      <author>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</author>
       <guid>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/arkade/</guid>
-      <description>Arkade is a great open-source Kubernetes &amp;ldquo;market-place&amp;rdquo; project initiated by @alexellis.
-The arkade CLI provides a simple method to download your favourite devops CLIs and install helm charts, with a single command.
-# Note: you can also run without `sudo` and move the binary yourself curl -sLS https://dl.get-arkade.dev | sudo sh # Test arkade --help Install a CLI tool # List available CLI tools arkade get # Example: arkade get yq Install a K8S app # List available apps arkade install / --help # Example: kubernetes-dashboard arkade install kubernetes-dashboard </description>
+      <category>Setup a powerful Kubernetes client</category>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/alexellis/arkade&#34;&gt;Arkade&lt;/a&gt; is a great open-source Kubernetes &lt;em&gt;&amp;ldquo;market-place&amp;rdquo;&lt;/em&gt; project initiated by &lt;a href=&#34;https://github.com/alexellis&#34;&gt;@alexellis&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;arkade&lt;/code&gt; CLI provides a simple method to download your favourite devops CLIs and install helm charts, with a single command.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Note: you can also run without `sudo` and move the binary yourself&lt;/span&gt;
+curl -sLS https://dl.get-arkade.dev | sudo sh
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Test&lt;/span&gt;
+arkade --help
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;install-a-cli-tool&#34;&gt;Install a CLI tool&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# List available CLI tools&lt;/span&gt;
+arkade get
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Example:&lt;/span&gt;
+arkade get yq
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;install-a-k8s-app&#34;&gt;Install a K8S app&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# List available apps&lt;/span&gt;
+arkade install / --help
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Example: kubernetes-dashboard&lt;/span&gt;
+arkade install kubernetes-dashboard
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
       <title>Initial master node</title>
       <link>https://k8s-book.vupti.me/k3s-cluster-deployment/initial-master-node/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 24 Jan 2021 00:00:00 +0000</pubDate>
+      <author>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</author>
       <guid>https://k8s-book.vupti.me/k3s-cluster-deployment/initial-master-node/</guid>
-      <description>The following section will explain how to deploy the initial master node of the k3s cluster.
-Install kubectl CLI tool In order to test and manage the k3s cluster, it could be useful to have a kubectl cli install in the master nodes:
-curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl chmod +x ./kubectl sudo mv ./kubectl /usr/local/bin/kubectl # Test it kubectl version --client Auto-complete Use the following commands to add auto-completion to your bash shell for the kubectl command (or it&amp;rsquo;s k alias)</description>
+      <category>Deploy a k3S cluster</category>
+      <description>&lt;p&gt;The following section will explain how to deploy the initial master node of
+the k3s cluster.&lt;/p&gt;
+&lt;h3 id=&#34;install-kubectl-cli-tool&#34;&gt;Install &lt;code&gt;kubectl&lt;/code&gt; CLI tool&lt;/h3&gt;
+&lt;p&gt;In order to test and manage the k3s cluster, it could be useful to have a &lt;code&gt;kubectl&lt;/code&gt; cli install in the master nodes:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -LO https://storage.googleapis.com/kubernetes-release/release/&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Test it&lt;/span&gt;
+kubectl version --client
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;auto-complete&#34;&gt;Auto-complete&lt;/h4&gt;
+&lt;p&gt;Use the following commands to add auto-completion to your bash shell for the &lt;code&gt;kubectl&lt;/code&gt; command (or it&amp;rsquo;s &lt;code&gt;k&lt;/code&gt; alias)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;source &amp;lt;(kubectl completion bash)&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
+echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;alias k=kubectl&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
+echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;complete -F __start_kubectl k&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;deploy&#34;&gt;Deploy&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# enable read for other users&lt;/span&gt;
+export K3S_KUBECONFIG_MODE&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0644&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy a new k3s master node with embeded etcd&lt;/span&gt;
+curl -sfL https://get.k3s.io | sh -s - --no-deploy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;traefik  --cluster-init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;configuration-file&#34;&gt;Configuration file&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;export KUBECONFIG&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/etc/rancher/k3s/k3s.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can test the connection to the cluster by listing the deployed &lt;em&gt;pods&lt;/em&gt; and the list of &lt;em&gt;nodes&lt;/em&gt; in the cluster (only one will be listed by now):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get pods --all-namespaces
+kubectl get nodes
+
+&lt;span style=&#34;color:#75715e&#34;&gt;#Output:&lt;/span&gt;
+NAME          STATUS   ROLES                       AGE     VERSION
+k3s-mstr-01   Ready    control-plane,etcd,master   2m32s   v1.20.2+k3s1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;retrieve-the-cluster-token&#34;&gt;Retrieve the cluster token&lt;/h3&gt;
+&lt;p&gt;This token will be used to join the other nodes to the current k3s deployment:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo cat /var/lib/rancher/k3s/server/node-token
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;optional-proxy-declaration&#34;&gt;(optional) Proxy declaration&lt;/h3&gt;
+&lt;p&gt;If you are in a corporate-proxy situation, you can specify it in the Kubernetes deployment by deploying the following &lt;em&gt;configMap&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;{% code title=&amp;ldquo;proxy.yaml&amp;rdquo; %}&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;apiVersion&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;v1&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;kind&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ConfigMap&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;metadata&lt;/span&gt;:
+  &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;lab-proxy&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;labels&lt;/span&gt;:
+    &lt;span style=&#34;color:#f92672&#34;&gt;app&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;proxy&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;data&lt;/span&gt;:
+  &lt;span style=&#34;color:#f92672&#34;&gt;HTTPS_PROXY&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;http://X.X.X.X:8080&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;HTTP_PROXY&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;http://X.X.X.X:8080&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;NO_PROXY&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;.vlab.lcl,192.168.0.0/16,127.0.0.1,localhost&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;{% endcode %}&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl apply -f proxy.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
       <title>Monitoring with Prometheus</title>
       <link>https://k8s-book.vupti.me/customizations/kube-prometheus/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 24 Jan 2021 00:00:00 +0000</pubDate>
+      <author>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</author>
       <guid>https://k8s-book.vupti.me/customizations/kube-prometheus/</guid>
-      <description>The kube-prometheus project collects Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.
-git clone https://github.com/prometheus-operator/kube-prometheus.git /tmp/kube-prometheus cd /tmp/kube-prometheus # create the namespace and CRDs kubectl create -f manifests/setup # wait for them to be availble until kubectl get servicemonitors --all-namespaces ; do date; sleep 1; echo &amp;#34;&amp;#34;; done # create the remaining resources kubectl create -f manifests/ Port-forward method to access dashboard # Prometheus on https://127.</description>
+      <category>Cluster customizations</category>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/prometheus-operator/kube-prometheus&#34;&gt;kube-prometheus&lt;/a&gt; project collects Kubernetes manifests,
+Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end
+Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone https://github.com/prometheus-operator/kube-prometheus.git /tmp/kube-prometheus
+cd /tmp/kube-prometheus
+&lt;span style=&#34;color:#75715e&#34;&gt;# create the namespace and CRDs&lt;/span&gt;
+kubectl create -f manifests/setup
+&lt;span style=&#34;color:#75715e&#34;&gt;# wait for them to be availble&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;until&lt;/span&gt; kubectl get servicemonitors --all-namespaces ; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; date; sleep 1; echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# create the remaining resources&lt;/span&gt;
+kubectl create -f manifests/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;port-forward-method-to-access-dashboard&#34;&gt;Port-forward method to access dashboard&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Prometheus on https://127.0.0.1:9090&lt;/span&gt;
+kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/prometheus-k8s &lt;span style=&#34;color:#ae81ff&#34;&gt;9090&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Grafana with user:password admin:admin on https://127.0.0.1:3000&lt;/span&gt;
+kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/grafana &lt;span style=&#34;color:#ae81ff&#34;&gt;3000&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Alert Manager on http://127.0.0.1:9093&lt;/span&gt;
+kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/alertmanager-main &lt;span style=&#34;color:#ae81ff&#34;&gt;9093&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ingress-access-to-dashboards&#34;&gt;Ingress access to dashboards&lt;/h2&gt;
+&lt;p&gt;The following section will explain how you can expose the 3 previously created dashboards through a simple &lt;code&gt;ingress&lt;/code&gt; configuration with a basic authentication.&lt;/p&gt;
+&lt;h3 id=&#34;dns-records&#34;&gt;DNS records&lt;/h3&gt;
+&lt;p&gt;Create DNS records for 3 new hosts with a &lt;code&gt;CNAME&lt;/code&gt; type and target on the endpoint of your Kubernetes cluster. For example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;alert.vlab.lcl&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;prometheus.vlab.lcl&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;grafana.vlab.lcl&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;authentication&#34;&gt;Authentication&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# To get `htpasswd` tool&lt;/span&gt;
+sudo apt install apache2-utils -y
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Create an auth file with data for user &amp;#34;admin&amp;#34;&lt;/span&gt;
+htpasswd -c ./users admin &lt;span style=&#34;color:#75715e&#34;&gt;# you will be prompted for password and confirmation&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# If needed, add other user(s) to the file with **almost** the same command:&lt;/span&gt;
+htpasswd ./users otheradmin
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Create a secret named `admin-auth`&lt;/span&gt;
+kubectl create secret generic admin-auth --from-file users --namespace&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;monitoring
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;deploy-an-ingress-based-on-traefik&#34;&gt;Deploy an ingress based on Traefik&lt;/h3&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;If needed, please apply content from the &lt;em&gt;Traefik&lt;/em&gt; section to prepare Ingress controller.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Download the &lt;code&gt;kube-prometheus-ingress-traefik.yaml&lt;/code&gt; attached file, customized with your DNS records and apply it:&lt;/p&gt;
+
+&lt;section class=&#34;attachments grey&#34;&gt;
+	&lt;label&gt;
+		&lt;i class=&#34;fas fa-paperclip&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
+		Related files
+	&lt;/label&gt;
+	
+		
+	
+	&lt;div class=&#34;attachments-files&#34;&gt;
+	
+		
+		
+			
+				&lt;li&gt;
+					&lt;a href=&#34;https://k8s-book.vupti.me/customizations/kube-prometheus.files/kube-prometheus-ingress-traefik.yaml&#34; &gt;
+						kube-prometheus-ingress-traefik.yaml
+					&lt;/a&gt;
+					(1 kb)
+				&lt;/li&gt;
+			
+		
+	
+	&lt;/div&gt;
+	
+&lt;/section&gt;
+
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl apply -f kube-prometheus-ingress-traefik.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;test-access-from-ingress&#34;&gt;Test access from ingress&lt;/h3&gt;
+&lt;p&gt;Following commands provide a quick way to test the behavior of deployed ingress:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Show ingress status&lt;/span&gt;
+kubectl describe ingress grafana-gateway-ingress --namespace&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;monitoring
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Test your access without authentication&lt;/span&gt;
+curl http://grafana.vlab.lcl -Is | head -n &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Outpout: HTTP/1.1 401 Unauthorized&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Test your access with authentication&lt;/span&gt;
+curl http://grafana.vlab.lcl -u &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;admin:*****&amp;#39;&lt;/span&gt; -Is | head -n &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Outpout: HTTP/1.1 200 OK&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
       <title>Worker node(s)</title>
       <link>https://k8s-book.vupti.me/k3s-cluster-deployment/worker-node-s/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 24 Jan 2021 00:00:00 +0000</pubDate>
+      <author>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</author>
       <guid>https://k8s-book.vupti.me/k3s-cluster-deployment/worker-node-s/</guid>
-      <description>The following section will explain how to join additional worker nodes to your k3s deployment.
-First of all, you will need to get the cluster token, as explained in the previous section and the master node fqdn.
-Deploy k3s to join an existing cluster curl -sfL https://get.k3s.io | \  K3S_URL=&amp;#34;https://k3s-mstr-01.vlab.lcl:6443&amp;#34; \  K3S_TOKEN=&amp;#34;K10d1...fe537::server:26a92...e34f9&amp;#34; \  sh - Check From the master node or any client device with access to the Kubernetes cluster, ensure that the node is now added to the cluster:</description>
+      <category>Deploy a k3S cluster</category>
+      <description>&lt;p&gt;The following section will explain how to join additional worker nodes to your
+k3s deployment.&lt;/p&gt;
+&lt;p&gt;First of all, you will need to get the cluster token, as explained in the previous section and the master node &lt;em&gt;fqdn&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;deploy-k3s-to-join-an-existing-cluster&#34;&gt;Deploy k3s to join an existing cluster&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -sfL https://get.k3s.io | &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    K3S_URL&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://k3s-mstr-01.vlab.lcl:6443&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    K3S_TOKEN&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;K10d1...fe537::server:26a92...e34f9&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    sh -
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;check&#34;&gt;Check&lt;/h2&gt;
+&lt;p&gt;From the master node or any client device with access to the Kubernetes cluster, ensure that the node is now added to the cluster:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get nodes
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
       <title>Additional master nodes</title>
       <link>https://k8s-book.vupti.me/k3s-cluster-deployment/additional-master-nodes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 24 Jan 2021 00:00:00 +0000</pubDate>
+      <author>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</author>
       <guid>https://k8s-book.vupti.me/k3s-cluster-deployment/additional-master-nodes/</guid>
-      <description>The following section will explain how to join additional master nodes to your k3s deployment.
-To run K3s in this mode, you must have an odd number of server nodes.
- First of all, you will need to get the cluster token, as explained in the previous section and the master node fqdn.
-Deploy k3s to join an existing cluster curl -sfL https://get.k3s.io | \  K3S_URL=&amp;#34;https://k3s-mstr-01.vlab.lcl:6443&amp;#34; \  K3S_TOKEN=&amp;#34;K10d1...fe537::server:26a92...e34f9&amp;#34; \  INSTALL_K3S_EXEC=&amp;#34;server&amp;#34; \  sh - --no-deploy=traefik Check From the master node or any client device with access to the Kubernetes cluster, ensure that the node is now added to the cluster:</description>
+      <category>Deploy a k3S cluster</category>
+      <description>&lt;p&gt;The following section will explain how to join additional master nodes to your
+k3s deployment.&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;To run K3s in this mode, you must have an &lt;strong&gt;odd&lt;/strong&gt; number of server nodes.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;First of all, you will need to get the cluster token, as explained in the previous section and the master node &lt;em&gt;fqdn&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;deploy-k3s-to-join-an-existing-cluster&#34;&gt;Deploy k3s to join an existing cluster&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;
+curl -sfL https://get.k3s.io | &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    K3S_URL&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://k3s-mstr-01.vlab.lcl:6443&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    K3S_TOKEN&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;K10d1...fe537::server:26a92...e34f9&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    INSTALL_K3S_EXEC&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;server&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    sh - --no-deploy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;traefik
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;check&#34;&gt;Check&lt;/h2&gt;
+&lt;p&gt;From the master node or any client device with access to the Kubernetes cluster, ensure that the node is now added to the cluster:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get nodes
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Output:&lt;/span&gt;
+NAME          STATUS   ROLES                       AGE     VERSION
+k3s-mstr-01   Ready    control-plane,etcd,master   4m25s   v1.20.2+k3s1
+k3s-mstr-02   Ready    control-plane,etcd,master   3m33s   v1.20.2+k3s1
+k3s-mstr-03   Ready    control-plane,etcd,master   2m27s   v1.20.2+k3s1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
       <title>k9s</title>
       <link>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/k9s/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 24 Jan 2021 00:00:00 +0000</pubDate>
+      <author>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</author>
       <guid>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/k9s/</guid>
-      <description>K9s is a terminal based UI to interact with your Kubernetes clusters. The aim of this project is to make it easier to navigate, observe and manage your deployed applications in the wild.
-K9s continually watches Kubernetes for changes and offers subsequent commands to interact with your observed resources.
-CLI installation curl -L https://github.com/derailed/k9s/releases/download/v0.24.2/k9s_Linux_x86_64.tar.gz | tar -xz chmod +x k9s &amp;amp;&amp;amp; sudo mv ./k9s /usr/local/bin/k9s k9s version Skin Apply a pre-defined skin to the output:</description>
+      <category>Setup a powerful Kubernetes client</category>
+      <description>&lt;p&gt;K9s is a terminal based UI to interact with your Kubernetes clusters. The aim
+of this project is to make it easier to navigate, observe and manage your
+deployed applications in the wild.&lt;/p&gt;
+&lt;p&gt;K9s continually watches Kubernetes for changes and offers subsequent commands to interact with your observed resources.&lt;/p&gt;
+&lt;h2 id=&#34;cli-installation&#34;&gt;CLI installation&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -L https://github.com/derailed/k9s/releases/download/v0.24.2/k9s_Linux_x86_64.tar.gz | tar -xz
+chmod +x k9s &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo mv ./k9s /usr/local/bin/k9s
+k9s version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;skin&#34;&gt;Skin&lt;/h3&gt;
+&lt;p&gt;Apply a pre-defined skin to the output:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;mkdir -p ~/.k9s
+curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/one_dark.yml &amp;gt; ~/.k9s/skin.yml
+&lt;span style=&#34;color:#75715e&#34;&gt;# or&lt;/span&gt;
+curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/solarized_dark.yml &amp;gt; ~/.k9s/skin.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://k8s-book.vupti.me/images/powerfull-client/k9s.png&#34; alt=&#34;Example of Octant UI&#34;&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>kubens &amp; kubectx</title>
       <link>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/kubens-and-kubectx/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 24 Jan 2021 00:00:00 +0000</pubDate>
+      <author>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</author>
       <guid>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/kubens-and-kubectx/</guid>
-      <description> Thanks to @ahmetb: https://github.com/ahmetb/kubectx
-  kubectxis a utility to manage and switch between kubectl contexts. kubensis a utility to switch between Kubernetes namespaces.  sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens Then you can easly switch both context and namespace by:
-kubectx # list contexts kubectx &amp;lt;name&amp;gt; # switch context kubens # list namespace kubens &amp;lt;name&amp;gt; # switch namespace </description>
+      <category>Setup a powerful Kubernetes client</category>
+      <description>
+&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Thanks to &lt;a href=&#34;https://github.com/ahmetb&#34;&gt;@ahmetb&lt;/a&gt;: &lt;a href=&#34;https://github.com/ahmetb/kubectx&#34;&gt;https://github.com/ahmetb/kubectx&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;kubectx&lt;/code&gt;is a utility to manage and switch between kubectl &lt;strong&gt;contexts&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;kubens&lt;/code&gt;is a utility to switch between Kubernetes &lt;strong&gt;namespaces&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
+sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
+sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then you can easly switch both &lt;code&gt;context&lt;/code&gt; and &lt;code&gt;namespace&lt;/code&gt; by:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectx &lt;span style=&#34;color:#75715e&#34;&gt;# list contexts&lt;/span&gt;
+kubectx &amp;lt;name&amp;gt; &lt;span style=&#34;color:#75715e&#34;&gt;# switch context&lt;/span&gt;
+
+kubens &lt;span style=&#34;color:#75715e&#34;&gt;# list namespace&lt;/span&gt;
+kubens &amp;lt;name&amp;gt; &lt;span style=&#34;color:#75715e&#34;&gt;# switch namespace&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
       <title>jsonnet</title>
       <link>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/jsonnet/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 24 Jan 2021 00:00:00 +0000</pubDate>
+      <author>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</author>
       <guid>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/jsonnet/</guid>
-      <description>Jsonnet is a data templating language for app and tool developers
- Generate config data Side-effect free Organize, simplify, unify Manage sprawling config  # Update or install golang support sudo apt install golang # Expand PATH with `go get` binary folder echo &amp;#39;PATH=&amp;#34;~/go/bin/:&amp;#34;$PATH&amp;#39; &amp;gt;&amp;gt; ~/.bashrc . ~/.bashrc # Install with go go get github.com/google/go-jsonnet/cmd/jsonnet # Test it jsonnet --version gojsontoyaml jsonnet provides json files but it is more easy to use yaml ones.</description>
+      <category>Setup a powerful Kubernetes client</category>
+      <description>&lt;p&gt;Jsonnet is a data templating language for app and tool developers&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Generate config data&lt;/li&gt;
+&lt;li&gt;Side-effect free&lt;/li&gt;
+&lt;li&gt;Organize, simplify, unify&lt;/li&gt;
+&lt;li&gt;Manage sprawling config&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Update or install golang support&lt;/span&gt;
+sudo apt install golang
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Expand PATH with `go get` binary folder&lt;/span&gt;
+echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;PATH=&amp;#34;~/go/bin/:&amp;#34;$PATH&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
+. ~/.bashrc
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Install with go&lt;/span&gt;
+go get github.com/google/go-jsonnet/cmd/jsonnet
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Test it&lt;/span&gt;
+jsonnet --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;gojsontoyaml&#34;&gt;gojsontoyaml&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;jsonnet&lt;/code&gt; provides &lt;em&gt;json&lt;/em&gt; files but it is more easy to use &lt;em&gt;yaml&lt;/em&gt; ones.
+&lt;code&gt;gojsontoyaml&lt;/code&gt; provide a simple way to convert the &lt;code&gt;jsonnet&lt;/code&gt; result files to &lt;em&gt;yaml&lt;/em&gt; ones.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Install with go&lt;/span&gt;
+go get github.com/brancz/gojsontoyaml
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Test if&lt;/span&gt;
+echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{&amp;#39;installed&amp;#39;: true}&amp;#34;&lt;/span&gt; | gojsontoyaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
       <title>Octant</title>
       <link>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/octant/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 24 Jan 2021 00:00:00 +0000</pubDate>
+      <author>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</author>
       <guid>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/octant/</guid>
-      <description>Octant is a tool for developers to understand how applications run on a Kubernetes cluster.
-It aims to be part of the developer&amp;rsquo;s toolkit for gaining insight and approaching complexity found in Kubernetes. Octant offers a combination of introspective tooling, cluster navigation, and object management along with a plugin system to further extend its capabilities.
- Installation curl -L https://github.com/vmware-tanzu/octant/releases/download/v0.16.3/octant_0.16.3_Linux-64bit.deb &amp;gt; /tmp/octant.deb dpkg -i /tmp/octant.deb # To run and access octant from http://localhost:7777 octant # To remotly run and access octant: OCTANT_LISTENER_ADDR=X.</description>
+      <category>Setup a powerful Kubernetes client</category>
+      <description>&lt;p&gt;Octant is a tool for developers to understand how applications run on a
+Kubernetes cluster.&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;It aims to be part of the developer&amp;rsquo;s toolkit for gaining insight and approaching complexity found in Kubernetes. Octant offers a combination of introspective tooling, cluster navigation, and object management along with a plugin system to further extend its capabilities.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -L https://github.com/vmware-tanzu/octant/releases/download/v0.16.3/octant_0.16.3_Linux-64bit.deb &amp;gt; /tmp/octant.deb
+dpkg -i /tmp/octant.deb
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# To run and access octant from http://localhost:7777&lt;/span&gt;
+octant
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# To remotly run and access octant:&lt;/span&gt;
+OCTANT_LISTENER_ADDR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;X.X.X.X:7777 OCTANT_ACCEPTED_HOSTS&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Y.Y.Y.Y octant --disable-open-browser
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://k8s-book.vupti.me/images/powerfull-client/octant.png&#34; alt=&#34;Example of Octant UI&#34;&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>Argo cli</title>
       <link>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/argo-cli/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 24 Jan 2021 00:00:00 +0000</pubDate>
+      <author>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</author>
       <guid>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/argo-cli/</guid>
-      <description> If you need to use Argo from this client machine.
- curl -sL https://github.com/argoproj/argo/releases/download/latest/argo-linux-amd64.gz | gunzip &amp;gt; argo chmod +x argo &amp;amp;&amp;amp; sudo mv ./argo /usr/local/bin/argo argo version Configuration # Argo namespace export ARGO_NAMESPACE=argo # Start port forwarding kubectl -n $ARGO_NAMESPACE port-forward deployment/argo-server 2746:2746 &amp;amp; # keep it running in bg; user the following command to get the job number: jobs # if needed: get it back in foreground: fg 1 </description>
+      <category>Setup a powerful Kubernetes client</category>
+      <description>
+&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;If you need to use Argo from this client machine.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -sL https://github.com/argoproj/argo/releases/download/latest/argo-linux-amd64.gz | gunzip &amp;gt; argo
+chmod +x argo &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo mv ./argo /usr/local/bin/argo
+argo version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Argo namespace&lt;/span&gt;
+export ARGO_NAMESPACE&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;argo
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Start port forwarding&lt;/span&gt;
+kubectl -n $ARGO_NAMESPACE port-forward deployment/argo-server 2746:2746 &amp;amp;
+&lt;span style=&#34;color:#75715e&#34;&gt;# keep it running in bg; user the following command to get the job number:&lt;/span&gt;
+jobs
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# if needed: get it back in foreground:&lt;/span&gt;
+fg &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
       <title>OpenFaaS CLI</title>
       <link>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/openfaas-cli/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 24 Jan 2021 00:00:00 +0000</pubDate>
+      <author>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</author>
       <guid>https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/openfaas-cli/</guid>
-      <description> If you need to use OpenFaaS from the client machine.
- One-liner:
-# openfaas-cli curl -sSL https://cli.openfaas.com | sudo sh Configuration # Set namespace export OS_NS=&amp;#34;openfaas&amp;#34; # Get password export OF_PASS=$(echo $(kubectl -n $OS_NS get secret basic-auth -o jsonpath=&amp;#34;{.data.basic-auth-password}&amp;#34; | base64 --decode)) echo $OF_PASS # Get URI echo &amp;#34;export OPENFAAS_URL=http://&amp;#34;$(kubectl -n $OS_NS describe pods $(kubectl -n $OS_NS get pods | grep &amp;#34;gateway-&amp;#34; | awk &amp;#39;{print $1}&amp;#39;) | grep &amp;#34;^Node:&amp;#34; | awk -F &amp;#34;/&amp;#34; &amp;#39;{print $2}&amp;#39;)&amp;#34;:31112&amp;#34; Login echo $OF_PASS | faas-cli login --password-stdin </description>
+      <category>Setup a powerful Kubernetes client</category>
+      <description>
+&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;If you need to use OpenFaaS from the client machine.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;One-liner:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;# openfaas-cli
+curl -sSL https://cli.openfaas.com | sudo sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Set namespace&lt;/span&gt;
+export OS_NS&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;openfaas&amp;#34;&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Get password&lt;/span&gt;
+export OF_PASS&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;echo &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;kubectl -n $OS_NS get secret basic-auth -o jsonpath&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{.data.basic-auth-password}&amp;#34;&lt;/span&gt; | base64 --decode&lt;span style=&#34;color:#66d9ef&#34;&gt;))&lt;/span&gt;
+echo $OF_PASS
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Get URI&lt;/span&gt;
+echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;export OPENFAAS_URL=http://&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;kubectl -n $OS_NS describe pods &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;kubectl -n $OS_NS get pods | grep &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;gateway-&amp;#34;&lt;/span&gt; | awk &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{print $1}&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; | grep &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;^Node:&amp;#34;&lt;/span&gt; | awk -F &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{print $2}&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:31112&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;login&#34;&gt;Login&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;echo $OF_PASS | faas-cli login --password-stdin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>

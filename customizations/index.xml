@@ -6,26 +6,253 @@
     <description>Recent content in Cluster customizations on My Kubernetes Book</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>This work is licensed under a MIT License.</copyright><atom:link href="https://k8s-book.vupti.me/customizations/index.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</managingEditor>
+    <webMaster>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</webMaster>
+    <copyright>This work is licensed under a MIT License.</copyright>
+    <lastBuildDate>Sun, 24 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://k8s-book.vupti.me/customizations/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Traefik as ingress controler</title>
       <link>https://k8s-book.vupti.me/customizations/traefik/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 24 Jan 2021 00:00:00 +0000</pubDate>
+      <author>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</author>
       <guid>https://k8s-book.vupti.me/customizations/traefik/</guid>
-      <description>As mentionned on Traefik website: Traefik is an open-source Edge Router that makes publishing your services a fun and easy experience.
- It could be used as a powerfull Ingress controler to handle incoming requests on the cluster and forward them to the appropriate service.
-Installation helm repo add traefik https://helm.traefik.io/traefik helm repo update helm install traefik traefik/traefik Test it Get the whoami.yaml file form the bellow attachement files, then:</description>
+      <category>Cluster customizations</category>
+      <description>
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;As mentionned on &lt;a href=&#34;https://traefik.io/&#34;&gt;Traefik website&lt;/a&gt;: &lt;em&gt;Traefik is an open-source Edge Router that makes publishing your services a fun and easy experience.&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;It could be used as a powerfull Ingress controler to handle incoming requests on the cluster and forward them to the appropriate service.&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;helm repo add traefik https://helm.traefik.io/traefik
+helm repo update
+helm install traefik traefik/traefik
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;test-it&#34;&gt;Test it&lt;/h2&gt;
+&lt;p&gt;Get the &lt;code&gt;whoami.yaml&lt;/code&gt; file form the bellow attachement files, then:&lt;/p&gt;
+
+&lt;section class=&#34;attachments grey&#34;&gt;
+	&lt;label&gt;
+		&lt;i class=&#34;fas fa-paperclip&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
+		Related files
+	&lt;/label&gt;
+	
+		
+	
+	&lt;div class=&#34;attachments-files&#34;&gt;
+	
+		
+		
+			
+		
+	
+		
+		
+			
+				&lt;li&gt;
+					&lt;a href=&#34;https://k8s-book.vupti.me/customizations/traefik.files/whoami.yaml&#34; &gt;
+						whoami.yaml
+					&lt;/a&gt;
+					(0 kb)
+				&lt;/li&gt;
+			
+		
+	
+	&lt;/div&gt;
+	
+&lt;/section&gt;
+
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy it&lt;/span&gt;
+kubectl apply -f ./whoami.yaml
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Run a test command&lt;/span&gt;
+curl -i http://k3s.vlab.lcl -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Host: mydomain.com&amp;#34;&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Output:&lt;/span&gt;
+HTTP/1.1 &lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt; OK
+Content-Length: &lt;span style=&#34;color:#ae81ff&#34;&gt;406&lt;/span&gt;
+Content-Type: text/plain; charset&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;utf-8
+Date: Fri, &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; Jan &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; 14:59:46 GMT
+
+Hostname: whoami-app-7564dd9695-dtzrh
+IP: 127.0.0.1
+IP: ::1
+IP: 10.42.2.6
+IP: fe80::f099:c3ff:fe3e:7071
+RemoteAddr: 10.42.1.6:46964
+GET / HTTP/1.1
+Host: mydomain.com
+User-Agent: curl/7.68.0
+Accept: */*
+Accept-Encoding: gzip
+X-Forwarded-For: 10.42.0.8
+X-Forwarded-Host: mydomain.com
+X-Forwarded-Port: &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;
+X-Forwarded-Proto: http
+X-Forwarded-Server: traefik-79fdc967bf-5nkxt
+X-Real-Ip: 10.42.0.8
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here we simulate a DNS record &lt;code&gt;mydomain.com&lt;/code&gt; by using the &lt;code&gt;Host&lt;/code&gt; HTTP header. It provides a easy way to make a test but of course, for a real service, a DNS record is mandatory.&lt;/p&gt;
+&lt;p&gt;Here is a quick demo of the load-balancing made on the &lt;code&gt;whoami&lt;/code&gt; service with 4 replicas:
+&lt;asciinema-player src=&#34;https://k8s-book.vupti.me/images/customizations/whoami-traefik-ingress.cast&#34; cols=&#34;170&#34; rows=&#34;27&#34;&gt;&lt;/asciinema-player&gt;&lt;/p&gt;
+&lt;script src=&#34;https://k8s-book.vupti.me/libs/asciinema/asciinema-player.js&#34;&gt;&lt;/script&gt;
+&lt;h2 id=&#34;expose-the-dashboard&#34;&gt;Expose the dashboard&lt;/h2&gt;
+&lt;p&gt;It is possible to expose both Traefik UI dashboard and API through Traefik itself.&lt;/p&gt;
+&lt;p&gt;Get the &lt;code&gt;dashboard.yaml&lt;/code&gt; file from below attachements. Before applying, ensure that the content fits your needs, especially the &lt;em&gt;host&lt;/em&gt; specified as a matching criteria.&lt;/p&gt;
+
+&lt;section class=&#34;attachments grey&#34;&gt;
+	&lt;label&gt;
+		&lt;i class=&#34;fas fa-paperclip&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
+		Related files
+	&lt;/label&gt;
+	
+		
+	
+	&lt;div class=&#34;attachments-files&#34;&gt;
+	
+		
+		
+			
+				&lt;li&gt;
+					&lt;a href=&#34;https://k8s-book.vupti.me/customizations/traefik.files/dashboard.yaml&#34; &gt;
+						dashboard.yaml
+					&lt;/a&gt;
+					(0 kb)
+				&lt;/li&gt;
+			
+		
+	
+		
+		
+			
+		
+	
+	&lt;/div&gt;
+	
+&lt;/section&gt;
+
+
+&lt;h3 id=&#34;create-a-secret-for-basic-authentication&#34;&gt;Create a secret for basic-authentication&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# To get `htpasswd` tool&lt;/span&gt;
+sudo apt install apache2-utils -y
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Create an auth file with data for user &amp;#34;admin&amp;#34;&lt;/span&gt;
+htpasswd -c ./users admin &lt;span style=&#34;color:#75715e&#34;&gt;# you will be prompted for password and confirmation&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# If needed, add other user(s) to the file with **almost** the same command:&lt;/span&gt;
+htpasswd ./users otheradmin
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy the file as a new secret&lt;/span&gt;
+kubectl create secret generic admin-auth --from-file users --namespace&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;default
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;deploy-the-dashboard-ingressroute&#34;&gt;Deploy the dashboard IngressRoute&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy it&lt;/span&gt;
+kubectl apply -f ./dashboard.yaml
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Test it:&lt;/span&gt;
+curl -I -X GET http://lb.vlab.lcl/dashboard/ | head -n1
+&lt;span style=&#34;color:#75715e&#34;&gt;# Output: HTTP/1.1 401 Unauthorized&lt;/span&gt;
+
+curl -Is -X GET http://lb.vlab.lcl/dashboard/ -u &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;admin:*****&amp;#39;&lt;/span&gt; | head -n &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Output: HTTP/1.1 200 OK&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, you probably can reach: &lt;a href=&#34;http://lb.vlab.lcl/dashboard/#&#34;&gt;http://lb.vlab.lcl/dashboard/#&lt;/a&gt; from your favorite web brower.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://k8s-book.vupti.me/images/customizations/traefik-dashboard.png&#34; alt=&#34;Traefik dashboard&#34;&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>Monitoring with Prometheus</title>
       <link>https://k8s-book.vupti.me/customizations/kube-prometheus/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 24 Jan 2021 00:00:00 +0000</pubDate>
+      <author>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</author>
       <guid>https://k8s-book.vupti.me/customizations/kube-prometheus/</guid>
-      <description>The kube-prometheus project collects Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.
-git clone https://github.com/prometheus-operator/kube-prometheus.git /tmp/kube-prometheus cd /tmp/kube-prometheus # create the namespace and CRDs kubectl create -f manifests/setup # wait for them to be availble until kubectl get servicemonitors --all-namespaces ; do date; sleep 1; echo &amp;#34;&amp;#34;; done # create the remaining resources kubectl create -f manifests/ Port-forward method to access dashboard # Prometheus on https://127.</description>
+      <category>Cluster customizations</category>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/prometheus-operator/kube-prometheus&#34;&gt;kube-prometheus&lt;/a&gt; project collects Kubernetes manifests,
+Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end
+Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone https://github.com/prometheus-operator/kube-prometheus.git /tmp/kube-prometheus
+cd /tmp/kube-prometheus
+&lt;span style=&#34;color:#75715e&#34;&gt;# create the namespace and CRDs&lt;/span&gt;
+kubectl create -f manifests/setup
+&lt;span style=&#34;color:#75715e&#34;&gt;# wait for them to be availble&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;until&lt;/span&gt; kubectl get servicemonitors --all-namespaces ; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; date; sleep 1; echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# create the remaining resources&lt;/span&gt;
+kubectl create -f manifests/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;port-forward-method-to-access-dashboard&#34;&gt;Port-forward method to access dashboard&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Prometheus on https://127.0.0.1:9090&lt;/span&gt;
+kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/prometheus-k8s &lt;span style=&#34;color:#ae81ff&#34;&gt;9090&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Grafana with user:password admin:admin on https://127.0.0.1:3000&lt;/span&gt;
+kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/grafana &lt;span style=&#34;color:#ae81ff&#34;&gt;3000&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Alert Manager on http://127.0.0.1:9093&lt;/span&gt;
+kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/alertmanager-main &lt;span style=&#34;color:#ae81ff&#34;&gt;9093&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ingress-access-to-dashboards&#34;&gt;Ingress access to dashboards&lt;/h2&gt;
+&lt;p&gt;The following section will explain how you can expose the 3 previously created dashboards through a simple &lt;code&gt;ingress&lt;/code&gt; configuration with a basic authentication.&lt;/p&gt;
+&lt;h3 id=&#34;dns-records&#34;&gt;DNS records&lt;/h3&gt;
+&lt;p&gt;Create DNS records for 3 new hosts with a &lt;code&gt;CNAME&lt;/code&gt; type and target on the endpoint of your Kubernetes cluster. For example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;alert.vlab.lcl&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;prometheus.vlab.lcl&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;grafana.vlab.lcl&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;authentication&#34;&gt;Authentication&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# To get `htpasswd` tool&lt;/span&gt;
+sudo apt install apache2-utils -y
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Create an auth file with data for user &amp;#34;admin&amp;#34;&lt;/span&gt;
+htpasswd -c ./users admin &lt;span style=&#34;color:#75715e&#34;&gt;# you will be prompted for password and confirmation&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# If needed, add other user(s) to the file with **almost** the same command:&lt;/span&gt;
+htpasswd ./users otheradmin
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Create a secret named `admin-auth`&lt;/span&gt;
+kubectl create secret generic admin-auth --from-file users --namespace&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;monitoring
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;deploy-an-ingress-based-on-traefik&#34;&gt;Deploy an ingress based on Traefik&lt;/h3&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;If needed, please apply content from the &lt;em&gt;Traefik&lt;/em&gt; section to prepare Ingress controller.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Download the &lt;code&gt;kube-prometheus-ingress-traefik.yaml&lt;/code&gt; attached file, customized with your DNS records and apply it:&lt;/p&gt;
+
+&lt;section class=&#34;attachments grey&#34;&gt;
+	&lt;label&gt;
+		&lt;i class=&#34;fas fa-paperclip&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
+		Related files
+	&lt;/label&gt;
+	
+		
+	
+	&lt;div class=&#34;attachments-files&#34;&gt;
+	
+		
+		
+			
+				&lt;li&gt;
+					&lt;a href=&#34;https://k8s-book.vupti.me/customizations/kube-prometheus.files/kube-prometheus-ingress-traefik.yaml&#34; &gt;
+						kube-prometheus-ingress-traefik.yaml
+					&lt;/a&gt;
+					(1 kb)
+				&lt;/li&gt;
+			
+		
+	
+	&lt;/div&gt;
+	
+&lt;/section&gt;
+
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl apply -f kube-prometheus-ingress-traefik.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;test-access-from-ingress&#34;&gt;Test access from ingress&lt;/h3&gt;
+&lt;p&gt;Following commands provide a quick way to test the behavior of deployed ingress:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Show ingress status&lt;/span&gt;
+kubectl describe ingress grafana-gateway-ingress --namespace&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;monitoring
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Test your access without authentication&lt;/span&gt;
+curl http://grafana.vlab.lcl -Is | head -n &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Outpout: HTTP/1.1 401 Unauthorized&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Test your access with authentication&lt;/span&gt;
+curl http://grafana.vlab.lcl -u &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;admin:*****&amp;#39;&lt;/span&gt; -Is | head -n &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Outpout: HTTP/1.1 200 OK&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>
