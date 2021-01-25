@@ -1,6 +1,10 @@
 baseURL: "https://k8s-book.vupti.me"
 languageCode: "en-us"
 title: "My Kubernetes Book"
+copyright: "This work is licensed under a MIT License."
+
+author:
+    name: "Ludovic Rivallain"
 
 #theme: "book"
 theme: "learn"
@@ -42,10 +46,13 @@ pygmentsStyle: "monokai"
 
 
 outputs:
-  home: ["HTML","RSS", "JSON"]
+  home: ["HTML", "RSS", "JSON"]
 
 menu:
   shortcuts:
+  - name: "<i class='fas fa-fw fa-rss'></i> RSS feed"
+    url: "/index.xml"
+    weight: 9
   - name: "<i class='fab fa-fw fa-github'></i> GitHub repo"
     url: "https://github.com/lrivallain/git-book-kubernetes"
     weight: 10

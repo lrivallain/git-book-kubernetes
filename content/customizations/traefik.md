@@ -59,7 +59,7 @@ Here we simulate a DNS record `mydomain.com` by using the `Host` HTTP header. It
 
 Here is a quick demo of the load-balancing made on the `whoami` service with 4 replicas:
 <asciinema-player src="/images/customizations/whoami-traefik-ingress.cast" cols="170" rows="27"></asciinema-player>
-<script src="/asciinema/asciinema-player.js"></script>
+<script src="/libs/asciinema/asciinema-player.js"></script>
 
 ## Expose the dashboard
 
