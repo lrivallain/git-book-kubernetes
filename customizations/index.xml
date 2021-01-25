@@ -5,7 +5,8 @@
     <link>https://k8s-book.vupti.me/customizations/</link>
     <description>Recent content in Cluster customizations on My Kubernetes Book</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://k8s-book.vupti.me/customizations/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <copyright>This work is licensed under a MIT License.</copyright><atom:link href="https://k8s-book.vupti.me/customizations/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Traefik as ingress controler</title>
       <link>https://k8s-book.vupti.me/customizations/traefik/</link>

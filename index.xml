@@ -5,7 +5,8 @@
     <link>https://k8s-book.vupti.me/</link>
     <description>Recent content in Introduction on My Kubernetes Book</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://k8s-book.vupti.me/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <copyright>This work is licensed under a MIT License.</copyright><atom:link href="https://k8s-book.vupti.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>All nodes pre-requisites</title>
       <link>https://k8s-book.vupti.me/k3s-cluster-deployment/all-nodes-pre-requisites/</link>
