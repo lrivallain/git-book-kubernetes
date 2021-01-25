@@ -33,21 +33,3 @@ sudo /etc/init.d/ntp restart
 # check ntp status:
 ntpq -p
 ```
-
-## \(_optionnal_\) proxy configuration
-
-Use the following commands if you need to use a corporate HTTP proxy server to reach Internet based resources: 
-
-```bash
-# Proxy setup
-echo "HTTP_PROXY=X.X.X.X:8080
-HTTPS_PROXY=X.X.X.X:8080
-NO_PROXY=.vlab.lcl,192.168.0.0/16,127.0.0.1,localhost" >> /etc/environment
-export HTTP_PROXY="X.X.X.X:8080"
-export HTTPS_PROXY="X.X.X.X:8080"
-export NO_PROXY=".vlab.lcl,192.168.0.0/16,127.0.0.1,localhost"
-echo "Acquire::http::proxy \"http://X.X.X.X:8080\";" >> /etc/apt/apt.conf
-
-# Test
-curl https://google.com
-```

@@ -63,26 +63,3 @@ This token will be used to join the other nodes to the current k3s deployment:
 ```bash
 sudo cat /var/lib/rancher/k3s/server/node-token
 ```
-
-### \(optional\) Proxy declaration
-
-If you are in a corporate-proxy situation, you can specify it in the Kubernetes deployment by deploying the following _configMap_:
-
-{% code title="proxy.yaml" %}
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: lab-proxy
-  labels:
-    app: proxy
-data:
-  HTTPS_PROXY: http://X.X.X.X:8080
-  HTTP_PROXY: http://X.X.X.X:8080
-  NO_PROXY: .vlab.lcl,192.168.0.0/16,127.0.0.1,localhost
-```
-{% endcode %}
-
-```bash
-kubectl apply -f proxy.yaml
-```
