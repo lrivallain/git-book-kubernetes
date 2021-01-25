@@ -1,6 +1,7 @@
 ---
 title: Arkade
 weight: 2
+date: 2021-01-24
 ---
 
 [Arkade](https://github.com/alexellis/arkade) is a great open-source Kubernetes *"market-place"* project initiated by [@alexellis](https://github.com/alexellis).

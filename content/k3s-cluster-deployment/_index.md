@@ -3,6 +3,7 @@ title: Deploy a k3S cluster
 weight: 1
 pre: "<b>1. </b>"
 chapter: true
+date: 2021-01-24
 ---
 
 # Deploy a k3S cluster

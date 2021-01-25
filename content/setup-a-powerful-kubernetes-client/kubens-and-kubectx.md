@@ -1,6 +1,7 @@
 ---
 title: kubens & kubectx
 weight: 10
+date: 2021-01-24
 ---
 
 {{% notice info %}}

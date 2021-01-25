@@ -1,6 +1,7 @@
 ---
 title: Traefik as ingress controler
 weight: 1
+date: 2021-01-24
 ---
 
 {{% notice note %}}

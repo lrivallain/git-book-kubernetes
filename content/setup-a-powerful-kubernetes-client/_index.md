@@ -3,6 +3,7 @@ title: Setup a powerful Kubernetes client
 weight: 2
 pre: "<b>2. </b>"
 chapter: true
+date: 2021-01-24
 ---
 
 # Setup a powerful Kubernetes client

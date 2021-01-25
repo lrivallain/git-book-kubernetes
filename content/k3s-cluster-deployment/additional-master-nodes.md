@@ -1,6 +1,7 @@
 ---
 title: Additional master nodes
 weight: 4
+date: 2021-01-24
 ---
 
 The following section will explain how to join additional master nodes to your

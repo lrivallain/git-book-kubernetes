@@ -1,6 +1,7 @@
 ---
 title: Worker node(s)
 weight: 3
+date: 2021-01-24
 ---
 
 The following section will explain how to join additional worker nodes to your

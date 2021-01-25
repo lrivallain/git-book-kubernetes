@@ -1,6 +1,7 @@
 ---
 title: k9s
 weight: 10
+date: 2021-01-24
 ---
 
 K9s is a terminal based UI to interact with your Kubernetes clusters. The aim

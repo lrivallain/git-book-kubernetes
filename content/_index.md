@@ -1,5 +1,6 @@
 ---
-title: Introduction
+title: My Kubernetes Book
+date: 2021-01-23
 ---
 
 # My Kubernetes book

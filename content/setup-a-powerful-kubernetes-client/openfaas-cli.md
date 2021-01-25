@@ -1,6 +1,7 @@
 ---
 title: OpenFaaS CLI
 weight: 99
+date: 2021-01-24
 ---
 
 {{% notice info %}}

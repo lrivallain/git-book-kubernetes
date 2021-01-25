@@ -1,6 +1,7 @@
 ---
 title: Basics tools
 weight: 1
+date: 2021-01-24
 ---
 
 ## Generic pre-requisites

@@ -1,6 +1,7 @@
 ---
 title: Monitoring with Prometheus
 weight: 2
+date: 2021-01-24
 ---
 
 The [kube-prometheus](https://github.com/prometheus-operator/kube-prometheus) project collects Kubernetes manifests,

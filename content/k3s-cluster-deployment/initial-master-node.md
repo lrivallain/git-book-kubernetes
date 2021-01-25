@@ -1,6 +1,7 @@
 ---
 title: Initial master node
 weight: 2
+date: 2021-01-24
 ---
 The following section will explain how to deploy the initial master node of
 the k3s cluster.

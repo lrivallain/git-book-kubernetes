@@ -1,6 +1,7 @@
 ---
 title: jsonnet
 weight: 40
+date: 2021-01-24
 ---
 
 Jsonnet is a data templating language for app and tool developers

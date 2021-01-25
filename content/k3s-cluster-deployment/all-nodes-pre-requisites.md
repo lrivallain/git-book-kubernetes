@@ -1,6 +1,7 @@
 ---
 title: All nodes pre-requisites
 weight: 1
+date: 2021-01-24
 ---
 ## Network configuration
 

@@ -3,6 +3,7 @@ title: Cluster customizations
 weight: 3
 pre: "<b>3. </b>"
 chapter: true
+date: 2021-01-24
 ---
 
 # Cluster customizations

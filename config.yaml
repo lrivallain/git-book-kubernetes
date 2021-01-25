@@ -4,7 +4,8 @@ title: "My Kubernetes Book"
 copyright: "This work is licensed under a MIT License."
 
 author:
-    name: "Ludovic Rivallain"
+  name: "Ludovic Rivallain"
+  email: "ludovic <.> rivallain <@> gmail <.> com"
 
 #theme: "book"
 theme: "learn"
