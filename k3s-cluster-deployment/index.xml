@@ -36,19 +36,6 @@ sudo vi /etc/ntp.conf
 sudo /etc/init.d/ntp restart
 &lt;span style=&#34;color:#75715e&#34;&gt;# check ntp status:&lt;/span&gt;
 ntpq -p
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;_optionnal_-proxy-configuration&#34;&gt;(&lt;em&gt;optionnal&lt;/em&gt;) proxy configuration&lt;/h2&gt;
-&lt;p&gt;Use the following commands if you need to use a corporate HTTP proxy server to reach Internet based resources:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Proxy setup&lt;/span&gt;
-echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;HTTP_PROXY=X.X.X.X:8080
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;HTTPS_PROXY=X.X.X.X:8080
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;NO_PROXY=.vlab.lcl,192.168.0.0/16,127.0.0.1,localhost&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; /etc/environment
-export HTTP_PROXY&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;X.X.X.X:8080&amp;#34;&lt;/span&gt;
-export HTTPS_PROXY&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;X.X.X.X:8080&amp;#34;&lt;/span&gt;
-export NO_PROXY&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.vlab.lcl,192.168.0.0/16,127.0.0.1,localhost&amp;#34;&lt;/span&gt;
-echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Acquire::http::proxy \&amp;#34;http://X.X.X.X:8080\&amp;#34;;&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; /etc/apt/apt.conf
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Test&lt;/span&gt;
-curl https://google.com
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
@@ -92,21 +79,6 @@ k3s-mstr-01   Ready    control-plane,etcd,master   2m32s   v1.20.2+k3s1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;retrieve-the-cluster-token&#34;&gt;Retrieve the cluster token&lt;/h3&gt;
 &lt;p&gt;This token will be used to join the other nodes to the current k3s deployment:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo cat /var/lib/rancher/k3s/server/node-token
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;optional-proxy-declaration&#34;&gt;(optional) Proxy declaration&lt;/h3&gt;
-&lt;p&gt;If you are in a corporate-proxy situation, you can specify it in the Kubernetes deployment by deploying the following &lt;em&gt;configMap&lt;/em&gt;:&lt;/p&gt;
-&lt;p&gt;{% code title=&amp;ldquo;proxy.yaml&amp;rdquo; %}&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;apiVersion&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;v1&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;kind&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ConfigMap&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;metadata&lt;/span&gt;:
-  &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;lab-proxy&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;labels&lt;/span&gt;:
-    &lt;span style=&#34;color:#f92672&#34;&gt;app&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;proxy&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;data&lt;/span&gt;:
-  &lt;span style=&#34;color:#f92672&#34;&gt;HTTPS_PROXY&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;http://X.X.X.X:8080&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;HTTP_PROXY&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;http://X.X.X.X:8080&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;NO_PROXY&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;.vlab.lcl,192.168.0.0/16,127.0.0.1,localhost&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;{% endcode %}&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl apply -f proxy.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     

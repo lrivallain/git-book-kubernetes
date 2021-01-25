@@ -12,19 +12,19 @@
     <title>All nodes pre-requisites – My Kubernetes Book</title>
 
     
-    <link href="/css/nucleus.css?1611564266" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1611564266" rel="stylesheet">
-    <link href="/css/hybrid.css?1611564266" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1611564266" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1611564266" rel="stylesheet">
-    <link href="/css/auto-complete.css?1611564266" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1611564266" rel="stylesheet">
-    <link href="/css/theme.css?1611564266" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1611564266" rel="stylesheet">
+    <link href="/css/nucleus.css?1611579930" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1611579930" rel="stylesheet">
+    <link href="/css/hybrid.css?1611579930" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1611579930" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1611579930" rel="stylesheet">
+    <link href="/css/auto-complete.css?1611579930" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1611579930" rel="stylesheet">
+    <link href="/css/theme.css?1611579930" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1611579930" rel="stylesheet">
     <link href="/libs/asciinema/asciinema-player.css" rel="stylesheet" />
     
-    <link href="/css/style.css?1611564266" rel="stylesheet">
-    <script src="/js/jquery-3.3.1.min.js?1611564266"></script>
+    <link href="/css/style.css?1611579930" rel="stylesheet">
+    <script src="/js/jquery-3.3.1.min.js?1611579930"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -58,14 +58,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1611564266"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1611564266"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1611579930"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1611579930"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/k8s-book.vupti.me";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1611564266"></script>
+<script type="text/javascript" src="/js/search.js?1611579930"></script>
 
     
   </div>
@@ -600,7 +600,6 @@
     <li><a href="#network-configuration">Network configuration</a></li>
     <li><a href="#software-pre-requisites">Software pre-requisites</a></li>
     <li><a href="#ntp-time">NTP time</a></li>
-    <li><a href="#_optionnal_-proxy-configuration">(<em>optionnal</em>) proxy configuration</a></li>
   </ul>
 </nav>
     </div>
@@ -644,19 +643,6 @@ sudo vi /etc/ntp.conf
 sudo /etc/init.d/ntp restart
 <span style="color:#75715e"># check ntp status:</span>
 ntpq -p
-</code></pre></div><h2 id="_optionnal_-proxy-configuration">(<em>optionnal</em>) proxy configuration</h2>
-<p>Use the following commands if you need to use a corporate HTTP proxy server to reach Internet based resources:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Proxy setup</span>
-echo <span style="color:#e6db74">&#34;HTTP_PROXY=X.X.X.X:8080
-</span><span style="color:#e6db74">HTTPS_PROXY=X.X.X.X:8080
-</span><span style="color:#e6db74">NO_PROXY=.vlab.lcl,192.168.0.0/16,127.0.0.1,localhost&#34;</span> &gt;&gt; /etc/environment
-export HTTP_PROXY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X.X.X.X:8080&#34;</span>
-export HTTPS_PROXY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X.X.X.X:8080&#34;</span>
-export NO_PROXY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;.vlab.lcl,192.168.0.0/16,127.0.0.1,localhost&#34;</span>
-echo <span style="color:#e6db74">&#34;Acquire::http::proxy \&#34;http://X.X.X.X:8080\&#34;;&#34;</span> &gt;&gt; /etc/apt/apt.conf
-
-<span style="color:#75715e"># Test</span>
-curl https://google.com
 </code></pre></div>
 
 <footer class="footline">
@@ -988,16 +974,16 @@ curl https://google.com
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1611564266"></script>
-    <script src="/js/perfect-scrollbar.min.js?1611564266"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1611564266"></script>
-    <script src="/js/jquery.sticky.js?1611564266"></script>
-    <script src="/js/featherlight.min.js?1611564266"></script>
-    <script src="/js/highlight.pack.js?1611564266"></script>
+    <script src="/js/clipboard.min.js?1611579930"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611579930"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611579930"></script>
+    <script src="/js/jquery.sticky.js?1611579930"></script>
+    <script src="/js/featherlight.min.js?1611579930"></script>
+    <script src="/js/highlight.pack.js?1611579930"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1611564266"></script>
-    <script src="/js/learn.js?1611564266"></script>
-    <script src="/js/hugo-learn.js?1611564266"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611579930"></script>
+    <script src="/js/learn.js?1611579930"></script>
+    <script src="/js/hugo-learn.js?1611579930"></script>
     
     
 
