@@ -1,0 +1,16 @@
+{{if and (not .IsHome) (not .Params.chapter) }}
+
+<div class="comment-title-container">
+    <hr data-content="Comments">
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="lrivallain/git-book-kubernetes"
+        issue-term="title"
+        label="💬 (Utterances)"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+{{ end }}
