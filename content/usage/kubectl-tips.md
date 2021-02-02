@@ -86,6 +86,7 @@ kubectl exec --stdin --tty <pod-name> -- /bin/sh
 kubectl exec <pod-name> -- ls /
 # Exec a single command in a pod (multi container pod)
 kubectl exec <pod-name> -c <container> -- ls /
+
 # Forward port 6000 from the pod to local machine port 5000
 kubectl port-forward <pod-name> 5000:6000
 # Forward port 6000 from the pod to machine port 5000

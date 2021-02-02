@@ -10,6 +10,9 @@ author:
 #theme: "book"
 theme: "learn"
 
+# Google Analytics
+googleAnalytics: G-BBXBH4J1KT
+
 # Manage languages
 # For any more details, you can check the official documentation: https://gohugo.io/content-management/multilingual/
 languages:
