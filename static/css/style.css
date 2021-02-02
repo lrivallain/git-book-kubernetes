@@ -24,7 +24,7 @@
 
 /* Open subsections by default */
 #sidebar ul.topics ul {
-  display: block;
+  /* display: block; */
 }
 
 

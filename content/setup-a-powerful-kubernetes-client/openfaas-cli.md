@@ -10,7 +10,7 @@ If you need to use OpenFaaS from the client machine.
 
 One-liner:
 
-```text
+```bash
 # openfaas-cli
 curl -sSL https://cli.openfaas.com | sudo sh
 ```
