@@ -1,5 +1,12 @@
 [
 {
+	"uri": "https://k8s-book.vupti.me/usage/kubectl-tips/",
+	"title": "Kubectl tips",
+	"tags": [],
+	"description": "",
+	"content": "This page will gather some tips to use kubectl in a more effective way.\nWatch resources status change kubectl have a useful feature to monitor the changes in the status of a resource. For example, when you deploy a pod, there are multiple status before Running (See Pod Lifecycle documentation).\nUsing the --watch/-w option for a get command, enable to watch continuously the status changes of resources:\n# Will provide a new line for each status change in the pods list kubectl get \u0026lt;resource-type\u0026gt; --watch # long format kubectl get \u0026lt;resource-type\u0026gt; -w # short format More and more details The following commands will provide you more and more details about a specific resource.\n# get resource items names only kubectl get \u0026lt;resource-type\u0026gt; -o name # list resource items kubectl get \u0026lt;resource-type\u0026gt; # display labels kubectl get \u0026lt;resource-type\u0026gt; --show-labels # list resource items with more details kubectl get \u0026lt;resource-type\u0026gt; -o wide # get a specific resource item kubectl get \u0026lt;resource-type\u0026gt; \u0026lt;resource-name\u0026gt; # get a specific resource item with more details kubectl describe \u0026lt;resource-type\u0026gt; \u0026lt;resource-name\u0026gt; # yaml export kubectl get \u0026lt;resource-type\u0026gt; \u0026lt;resource-name\u0026gt; -o yaml # json export kubectl get \u0026lt;resource-type\u0026gt; \u0026lt;resource-name\u0026gt; -o json Troubelshooting You can use kubectl to troubleshoot your clusters, deployments or other resources.\n# Monitor pod metrics kubectl top pod \u0026lt;pod-name\u0026gt; # Monitor node metrics kubectl top node \u0026lt;node-name\u0026gt; # Look at pod\u0026#39;s logs kubectl logs -f \u0026lt;pod-name\u0026gt; # Look at a specific pod\u0026#39;s container logs kubectl logs -f \u0026lt;pod-name\u0026gt; -c \u0026lt;container\u0026gt; # Mark node as unschedulable kubectl cordon \u0026lt;node-name\u0026gt; # Empty node in preparation for maintenance kubectl drain \u0026lt;node-name\u0026gt; # Cluster info kubectl cluster-info # Dump cluster state kubectl cluster-info dump --output-directory=/tmp/dump.txt # Config kubectl config view Pod interractions Interact with your pods with the following commands:\n# Run an interactive pod kubectl run -i --tty busybox --image=busybox -- sh # Attach to an existing pod kubectl attach \u0026lt;pod-name\u0026gt; -i # or kubectl exec --stdin --tty \u0026lt;pod-name\u0026gt; -- /bin/sh # Exec a single command in a pod (single container pod) kubectl exec \u0026lt;pod-name\u0026gt; -- ls / # Exec a single command in a pod (multi container pod) kubectl exec \u0026lt;pod-name\u0026gt; -c \u0026lt;container\u0026gt; -- ls / # Forward port 6000 from the pod to local machine port 5000 kubectl port-forward \u0026lt;pod-name\u0026gt; 5000:6000 # Forward port 6000 from the pod to machine port 5000 kubectl port-forward --address 0.0.0.0 \u0026lt;pod-name\u0026gt; 5000:6000 All ! Use following commands to list (all) resources from (all) namespace(s):\n# List resource-type items from all namespaces kubectl get \u0026lt;resource-type\u0026gt; -A # List all resources in current context kubectl get all # List all resources from all namespaces kubectl get all -A "
+},
+{
 	"uri": "https://k8s-book.vupti.me/k3s-cluster-deployment/all-nodes-pre-requisites/",
 	"title": "All nodes pre-requisites",
 	"tags": [],
@@ -68,6 +75,13 @@
 	"tags": [],
 	"description": "",
 	"content": "The following section will explain how to join additional worker nodes to your k3s deployment.\nFirst of all, you will need to get the cluster token, as explained in the previous section and the master node fqdn.\nDeploy k3s to join an existing cluster curl -sfL https://get.k3s.io | \\  K3S_URL=\u0026#34;https://k3s-mstr-01.vlab.lcl:6443\u0026#34; \\  K3S_TOKEN=\u0026#34;K10d1...fe537::server:26a92...e34f9\u0026#34; \\  sh - Check From the master node or any client device with access to the Kubernetes cluster, ensure that the node is now added to the cluster:\nkubectl get nodes "
+},
+{
+	"uri": "https://k8s-book.vupti.me/usage/",
+	"title": "Cluster usage",
+	"tags": [],
+	"description": "",
+	"content": "Cluster usage This section will provide tools and tips to use your kubernetes cluster in an effective way.\n"
 },
 {
 	"uri": "https://k8s-book.vupti.me/k3s-cluster-deployment/additional-master-nodes/",

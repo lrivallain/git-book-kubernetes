@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Basics tools – My Kubernetes Book</title>
+    <title>Cluster usage – My Kubernetes Book</title>
 
     
     <link href="/css/nucleus.css?1612254870" rel="stylesheet">
@@ -40,7 +40,7 @@
 
 <link href="/libs/asciinema/asciinema-player.css" rel="stylesheet" />
   </head>
-  <body class="" data-url="/setup-a-powerful-kubernetes-client/basics/">
+  <body class="" data-url="/usage/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -215,7 +215,7 @@
   
     
     <li data-nav-id="/setup-a-powerful-kubernetes-client/" title="Setup a powerful Kubernetes client" class="dd-item
-        parent
+        
         
         
         ">
@@ -243,7 +243,7 @@
  
   
     
-      <li data-nav-id="/setup-a-powerful-kubernetes-client/basics/" title="Basics tools" class="dd-item active">
+      <li data-nav-id="/setup-a-powerful-kubernetes-client/basics/" title="Basics tools" class="dd-item ">
         <a href="/setup-a-powerful-kubernetes-client/basics/">
         Basics tools
         <i class="fas fa-check read-icon"></i>
@@ -497,8 +497,8 @@
   
     
     <li data-nav-id="/usage/" title="Cluster usage" class="dd-item
-        
-        
+        parent
+        active
         
         ">
       <a href="/usage/">
@@ -610,7 +610,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/lrivallain/git-book-kubernetes/tree/master/content/setup-a-powerful-kubernetes-client/basics.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/lrivallain/git-book-kubernetes/tree/master/content/usage/_index.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -625,8 +625,6 @@
                         </a>
                     </span>
                   
-                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
-                  
                   <span class="links">
                  
                  
@@ -637,13 +635,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='/'>My Kubernetes Book</a> > <a href='/setup-a-powerful-kubernetes-client/'>Setup a powerful Kubernetes client</a> > Basics tools
-          
-        
+            <a href='/'>My Kubernetes Book</a> > Cluster usage
           
         
           
@@ -652,23 +644,6 @@
                   </span>
                 </div>
                 
-                    <div class="progress">
-    <div class="wrapper">
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#generic-pre-requisites">Generic pre-requisites</a></li>
-    <li><a href="#install-kubectl-cli-tool">Install <code>kubectl</code> CLI tool</a>
-      <ul>
-        <li><a href="#kubectl-auto-complete"><code>kubectl</code> auto-complete</a></li>
-      </ul>
-    </li>
-    <li><a href="#heml">Heml</a></li>
-  </ul>
-</nav>
-    </div>
-</div>
-
-                
               </div>
             </div>
             
@@ -676,60 +651,31 @@
         
         </div>
         
+          <div id="chapter">
+        
         <div id="body-inner">
-          
-            <h1>
-              
-              Basics tools
-            </h1>
           
 
         
 
 
-<h2 id="generic-pre-requisites">Generic pre-requisites</h2>
-<p>We will need pip and gcc for some tools, so lets install them if needed:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install python3-pip gcc -y
-</code></pre></div><h2 id="install-kubectl-cli-tool">Install <code>kubectl</code> CLI tool</h2>
-<p>In order to test and manage the k3s cluster, it could be useful to have a <code>kubectl</code> cli install in the master nodes:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -LO https://storage.googleapis.com/kubernetes-release/release/<span style="color:#66d9ef">$(</span>curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt<span style="color:#66d9ef">)</span>/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
 
-<span style="color:#75715e"># Test it</span>
-kubectl version --client
-</code></pre></div><h3 id="kubectl-auto-complete"><code>kubectl</code> auto-complete</h3>
-<p>Use the following commands to add auto-completion to your bash shell for the <code>kubectl</code> command (or it&rsquo;s <code>k</code> alias)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#39;source &lt;(kubectl completion bash)&#39;</span> &gt;&gt;~/.bashrc
-echo <span style="color:#e6db74">&#39;alias k=kubectl&#39;</span> &gt;&gt;~/.bashrc
-echo <span style="color:#e6db74">&#39;complete -F __start_kubectl k&#39;</span> &gt;&gt;~/.bashrc
-</code></pre></div><h2 id="heml">Heml</h2>
-<p>Easy peasy:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
-</code></pre></div>
+	<h1 id="cluster-usage">Cluster usage</h1>
+<p>This section will provide tools and tips to use your kubernetes cluster in an effective way.</p>
 
-<footer class="footline">
+
+
+
+
+<footer class=" footline" >
 	
 </footer>
 
         
+            </div> 
+        
         </div>
         
-
-<div class="comment-title-container">
-    <hr data-content="Comments">
-</div>
-
-<script src="https://utteranc.es/client.js"
-        repo="lrivallain/git-book-kubernetes"
-        issue-term="title"
-        label="💬 (Utterances)"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
-
-
       </div>
 
     <div id="navigation">
@@ -840,7 +786,6 @@ echo <span style="color:#e6db74">&#39;complete -F __start_kubectl k&#39;</span> 
             
                 
                     
-                    
                 
                 
 
@@ -853,7 +798,6 @@ echo <span style="color:#e6db74">&#39;complete -F __start_kubectl k&#39;</span> 
             
             
                 
-                    
                     
                 
                 
@@ -870,9 +814,6 @@ echo <span style="color:#e6db74">&#39;complete -F __start_kubectl k&#39;</span> 
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1037,6 +978,7 @@ echo <span style="color:#e6db74">&#39;complete -F __start_kubectl k&#39;</span> 
             
                 
                     
+                    
                 
                 
 
@@ -1049,6 +991,9 @@ echo <span style="color:#e6db74">&#39;complete -F __start_kubectl k&#39;</span> 
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1073,10 +1018,10 @@ echo <span style="color:#e6db74">&#39;complete -F __start_kubectl k&#39;</span> 
 	 
 	 
 		
-			<a class="nav nav-prev" href="/setup-a-powerful-kubernetes-client/" title="Setup a powerful Kubernetes client"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/customizations/kube-prometheus/" title="Monitoring with Prometheus"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/setup-a-powerful-kubernetes-client/arkade/" title="Arkade" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/usage/kubectl-tips/" title="Kubectl tips" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1101,4 +1046,3 @@ echo <span style="color:#e6db74">&#39;complete -F __start_kubectl k&#39;</span> 
 
   </body>
 </html>
-

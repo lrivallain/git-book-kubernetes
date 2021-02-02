@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Basics tools – My Kubernetes Book</title>
+    <title>Kubectl tips – My Kubernetes Book</title>
 
     
     <link href="/css/nucleus.css?1612254870" rel="stylesheet">
@@ -40,7 +40,7 @@
 
 <link href="/libs/asciinema/asciinema-player.css" rel="stylesheet" />
   </head>
-  <body class="" data-url="/setup-a-powerful-kubernetes-client/basics/">
+  <body class="" data-url="/usage/kubectl-tips/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -215,7 +215,7 @@
   
     
     <li data-nav-id="/setup-a-powerful-kubernetes-client/" title="Setup a powerful Kubernetes client" class="dd-item
-        parent
+        
         
         
         ">
@@ -243,7 +243,7 @@
  
   
     
-      <li data-nav-id="/setup-a-powerful-kubernetes-client/basics/" title="Basics tools" class="dd-item active">
+      <li data-nav-id="/setup-a-powerful-kubernetes-client/basics/" title="Basics tools" class="dd-item ">
         <a href="/setup-a-powerful-kubernetes-client/basics/">
         Basics tools
         <i class="fas fa-check read-icon"></i>
@@ -497,7 +497,7 @@
   
     
     <li data-nav-id="/usage/" title="Cluster usage" class="dd-item
-        
+        parent
         
         
         ">
@@ -525,7 +525,7 @@
  
   
     
-      <li data-nav-id="/usage/kubectl-tips/" title="Kubectl tips" class="dd-item ">
+      <li data-nav-id="/usage/kubectl-tips/" title="Kubectl tips" class="dd-item active">
         <a href="/usage/kubectl-tips/">
         Kubectl tips
         <i class="fas fa-check read-icon"></i>
@@ -610,7 +610,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/lrivallain/git-book-kubernetes/tree/master/content/setup-a-powerful-kubernetes-client/basics.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/lrivallain/git-book-kubernetes/tree/master/content/usage/kubectl-tips.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -641,7 +641,7 @@
             
           
           
-            <a href='/'>My Kubernetes Book</a> > <a href='/setup-a-powerful-kubernetes-client/'>Setup a powerful Kubernetes client</a> > Basics tools
+            <a href='/'>My Kubernetes Book</a> > <a href='/usage/'>Cluster usage</a> > Kubectl tips
           
         
           
@@ -656,13 +656,11 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#generic-pre-requisites">Generic pre-requisites</a></li>
-    <li><a href="#install-kubectl-cli-tool">Install <code>kubectl</code> CLI tool</a>
-      <ul>
-        <li><a href="#kubectl-auto-complete"><code>kubectl</code> auto-complete</a></li>
-      </ul>
-    </li>
-    <li><a href="#heml">Heml</a></li>
+    <li><a href="#watch-resources-status-change">Watch resources status change</a></li>
+    <li><a href="#more-and-more-details">More and more details</a></li>
+    <li><a href="#troubelshooting">Troubelshooting</a></li>
+    <li><a href="#pod-interractions">Pod interractions</a></li>
+    <li><a href="#all-">All !</a></li>
   </ul>
 </nav>
     </div>
@@ -680,32 +678,86 @@
           
             <h1>
               
-              Basics tools
+              Kubectl tips
             </h1>
           
 
         
 
 
-<h2 id="generic-pre-requisites">Generic pre-requisites</h2>
-<p>We will need pip and gcc for some tools, so lets install them if needed:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install python3-pip gcc -y
-</code></pre></div><h2 id="install-kubectl-cli-tool">Install <code>kubectl</code> CLI tool</h2>
-<p>In order to test and manage the k3s cluster, it could be useful to have a <code>kubectl</code> cli install in the master nodes:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -LO https://storage.googleapis.com/kubernetes-release/release/<span style="color:#66d9ef">$(</span>curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt<span style="color:#66d9ef">)</span>/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
+<p>This page will gather some tips to use <a href="/setup-a-powerful-kubernetes-client/basics/"><code>kubectl</code></a> in a more effective way.</p>
+<h2 id="watch-resources-status-change">Watch resources status change</h2>
+<p><code>kubectl</code> have a useful feature to monitor the changes in the status of a resource. For example, when you deploy a <em>pod</em>, there are multiple status before <code>Running</code> (See <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/">Pod Lifecycle documentation</a>).</p>
+<p>Using the <code>--watch/-w</code> option for a <code>get</code> command, enable to watch continuously the status changes of resources:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Will provide a new line for each status change in the pods list</span>
+kubectl get &lt;resource-type&gt; --watch  <span style="color:#75715e"># long format</span>
+kubectl get &lt;resource-type&gt; -w       <span style="color:#75715e"># short format</span>
+</code></pre></div><h2 id="more-and-more-details">More and more details</h2>
+<p>The following commands will provide you more and more details about a specific resource.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># get resource items names only</span>
+kubectl get &lt;resource-type&gt; -o name
+<span style="color:#75715e"># list resource items</span>
+kubectl get &lt;resource-type&gt;
+<span style="color:#75715e"># display labels</span>
+kubectl get &lt;resource-type&gt; --show-labels
+<span style="color:#75715e"># list resource items with more details</span>
+kubectl get &lt;resource-type&gt; -o wide
+<span style="color:#75715e"># get a specific resource item</span>
+kubectl get &lt;resource-type&gt; &lt;resource-name&gt;
+<span style="color:#75715e"># get a specific resource item with more details</span>
+kubectl describe &lt;resource-type&gt; &lt;resource-name&gt;
+<span style="color:#75715e"># yaml export</span>
+kubectl get &lt;resource-type&gt; &lt;resource-name&gt; -o yaml
+<span style="color:#75715e"># json export</span>
+kubectl get &lt;resource-type&gt; &lt;resource-name&gt; -o json
+</code></pre></div><h2 id="troubelshooting">Troubelshooting</h2>
+<p>You can use <code>kubectl</code> to troubleshoot your clusters, deployments or other resources.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Monitor pod metrics</span>
+kubectl top pod &lt;pod-name&gt;
+<span style="color:#75715e"># Monitor node metrics</span>
+kubectl top node &lt;node-name&gt;
 
-<span style="color:#75715e"># Test it</span>
-kubectl version --client
-</code></pre></div><h3 id="kubectl-auto-complete"><code>kubectl</code> auto-complete</h3>
-<p>Use the following commands to add auto-completion to your bash shell for the <code>kubectl</code> command (or it&rsquo;s <code>k</code> alias)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#39;source &lt;(kubectl completion bash)&#39;</span> &gt;&gt;~/.bashrc
-echo <span style="color:#e6db74">&#39;alias k=kubectl&#39;</span> &gt;&gt;~/.bashrc
-echo <span style="color:#e6db74">&#39;complete -F __start_kubectl k&#39;</span> &gt;&gt;~/.bashrc
-</code></pre></div><h2 id="heml">Heml</h2>
-<p>Easy peasy:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+<span style="color:#75715e"># Look at pod&#39;s logs</span>
+kubectl logs -f &lt;pod-name&gt;
+<span style="color:#75715e"># Look at a specific pod&#39;s container logs</span>
+kubectl logs -f &lt;pod-name&gt; -c &lt;container&gt;
+
+<span style="color:#75715e"># Mark node as unschedulable</span>
+kubectl cordon &lt;node-name&gt;
+<span style="color:#75715e"># Empty node in preparation for maintenance</span>
+kubectl drain &lt;node-name&gt;
+
+<span style="color:#75715e"># Cluster info</span>
+kubectl cluster-info
+<span style="color:#75715e"># Dump cluster state</span>
+kubectl cluster-info dump --output-directory<span style="color:#f92672">=</span>/tmp/dump.txt
+
+<span style="color:#75715e"># Config</span>
+kubectl config view
+</code></pre></div><h2 id="pod-interractions">Pod interractions</h2>
+<p>Interact with your pods with the following commands:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Run an interactive pod</span>
+kubectl run -i --tty busybox --image<span style="color:#f92672">=</span>busybox -- sh
+<span style="color:#75715e"># Attach to an existing pod</span>
+kubectl attach &lt;pod-name&gt; -i
+<span style="color:#75715e"># or</span>
+kubectl exec --stdin --tty &lt;pod-name&gt; -- /bin/sh
+<span style="color:#75715e"># Exec a single command in a pod (single container pod)</span>
+kubectl exec &lt;pod-name&gt; -- ls /
+<span style="color:#75715e"># Exec a single command in a pod (multi container pod)</span>
+kubectl exec &lt;pod-name&gt; -c &lt;container&gt; -- ls /
+<span style="color:#75715e"># Forward port 6000 from the pod to local machine port 5000</span>
+kubectl port-forward &lt;pod-name&gt; 5000:6000
+<span style="color:#75715e"># Forward port 6000 from the pod to machine port 5000</span>
+kubectl port-forward --address 0.0.0.0 &lt;pod-name&gt; 5000:6000
+</code></pre></div><h2 id="all-">All !</h2>
+<p>Use following commands to list (all) resources from (all) namespace(s):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># List resource-type items from all namespaces</span>
+kubectl get &lt;resource-type&gt; -A
+<span style="color:#75715e"># List all resources in current context</span>
+kubectl get all
+<span style="color:#75715e"># List all resources from all namespaces</span>
+kubectl get all -A
 </code></pre></div>
 
 <footer class="footline">
@@ -840,7 +892,6 @@ echo <span style="color:#e6db74">&#39;complete -F __start_kubectl k&#39;</span> 
             
                 
                     
-                    
                 
                 
 
@@ -853,7 +904,6 @@ echo <span style="color:#e6db74">&#39;complete -F __start_kubectl k&#39;</span> 
             
             
                 
-                    
                     
                 
                 
@@ -870,9 +920,6 @@ echo <span style="color:#e6db74">&#39;complete -F __start_kubectl k&#39;</span> 
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1037,6 +1084,7 @@ echo <span style="color:#e6db74">&#39;complete -F __start_kubectl k&#39;</span> 
             
                 
                     
+                    
                 
                 
 
@@ -1049,6 +1097,7 @@ echo <span style="color:#e6db74">&#39;complete -F __start_kubectl k&#39;</span> 
             
             
                 
+                    
                     
                 
                 
@@ -1073,10 +1122,10 @@ echo <span style="color:#e6db74">&#39;complete -F __start_kubectl k&#39;</span> 
 	 
 	 
 		
-			<a class="nav nav-prev" href="/setup-a-powerful-kubernetes-client/" title="Setup a powerful Kubernetes client"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/usage/" title="Cluster usage"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/setup-a-powerful-kubernetes-client/arkade/" title="Arkade" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/k3s-cluster-deployment/" title="Deploy a k3S cluster" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

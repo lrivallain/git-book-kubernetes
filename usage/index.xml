@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cluster usage on My Kubernetes Book</title>
+    <link>https://k8s-book.vupti.me/usage/</link>
+    <description>Recent content in Cluster usage on My Kubernetes Book</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</managingEditor>
+    <webMaster>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</webMaster>
+    <copyright>This work is licensed under a MIT License.</copyright>
+    <lastBuildDate>Tue, 02 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://k8s-book.vupti.me/usage/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubectl tips</title>
+      <link>https://k8s-book.vupti.me/usage/kubectl-tips/</link>
+      <pubDate>Mon, 01 Feb 2021 00:00:00 +0000</pubDate>
+      <author>ludovic &lt;.&gt; rivallain &lt;@&gt; gmail &lt;.&gt; com (Ludovic Rivallain)</author>
+      <guid>https://k8s-book.vupti.me/usage/kubectl-tips/</guid>
+      <category>Cluster usage</category>
+      <description>&lt;p&gt;This page will gather some tips to use &lt;a href=&#34;https://k8s-book.vupti.me/setup-a-powerful-kubernetes-client/basics/&#34;&gt;&lt;code&gt;kubectl&lt;/code&gt;&lt;/a&gt; in a more effective way.&lt;/p&gt;
+&lt;h2 id=&#34;watch-resources-status-change&#34;&gt;Watch resources status change&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;kubectl&lt;/code&gt; have a useful feature to monitor the changes in the status of a resource. For example, when you deploy a &lt;em&gt;pod&lt;/em&gt;, there are multiple status before &lt;code&gt;Running&lt;/code&gt; (See &lt;a href=&#34;https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/&#34;&gt;Pod Lifecycle documentation&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Using the &lt;code&gt;--watch/-w&lt;/code&gt; option for a &lt;code&gt;get&lt;/code&gt; command, enable to watch continuously the status changes of resources:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Will provide a new line for each status change in the pods list&lt;/span&gt;
+kubectl get &amp;lt;resource-type&amp;gt; --watch  &lt;span style=&#34;color:#75715e&#34;&gt;# long format&lt;/span&gt;
+kubectl get &amp;lt;resource-type&amp;gt; -w       &lt;span style=&#34;color:#75715e&#34;&gt;# short format&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;more-and-more-details&#34;&gt;More and more details&lt;/h2&gt;
+&lt;p&gt;The following commands will provide you more and more details about a specific resource.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# get resource items names only&lt;/span&gt;
+kubectl get &amp;lt;resource-type&amp;gt; -o name
+&lt;span style=&#34;color:#75715e&#34;&gt;# list resource items&lt;/span&gt;
+kubectl get &amp;lt;resource-type&amp;gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# display labels&lt;/span&gt;
+kubectl get &amp;lt;resource-type&amp;gt; --show-labels
+&lt;span style=&#34;color:#75715e&#34;&gt;# list resource items with more details&lt;/span&gt;
+kubectl get &amp;lt;resource-type&amp;gt; -o wide
+&lt;span style=&#34;color:#75715e&#34;&gt;# get a specific resource item&lt;/span&gt;
+kubectl get &amp;lt;resource-type&amp;gt; &amp;lt;resource-name&amp;gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# get a specific resource item with more details&lt;/span&gt;
+kubectl describe &amp;lt;resource-type&amp;gt; &amp;lt;resource-name&amp;gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# yaml export&lt;/span&gt;
+kubectl get &amp;lt;resource-type&amp;gt; &amp;lt;resource-name&amp;gt; -o yaml
+&lt;span style=&#34;color:#75715e&#34;&gt;# json export&lt;/span&gt;
+kubectl get &amp;lt;resource-type&amp;gt; &amp;lt;resource-name&amp;gt; -o json
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;troubelshooting&#34;&gt;Troubelshooting&lt;/h2&gt;
+&lt;p&gt;You can use &lt;code&gt;kubectl&lt;/code&gt; to troubleshoot your clusters, deployments or other resources.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Monitor pod metrics&lt;/span&gt;
+kubectl top pod &amp;lt;pod-name&amp;gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Monitor node metrics&lt;/span&gt;
+kubectl top node &amp;lt;node-name&amp;gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Look at pod&amp;#39;s logs&lt;/span&gt;
+kubectl logs -f &amp;lt;pod-name&amp;gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Look at a specific pod&amp;#39;s container logs&lt;/span&gt;
+kubectl logs -f &amp;lt;pod-name&amp;gt; -c &amp;lt;container&amp;gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Mark node as unschedulable&lt;/span&gt;
+kubectl cordon &amp;lt;node-name&amp;gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Empty node in preparation for maintenance&lt;/span&gt;
+kubectl drain &amp;lt;node-name&amp;gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Cluster info&lt;/span&gt;
+kubectl cluster-info
+&lt;span style=&#34;color:#75715e&#34;&gt;# Dump cluster state&lt;/span&gt;
+kubectl cluster-info dump --output-directory&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/tmp/dump.txt
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Config&lt;/span&gt;
+kubectl config view
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;pod-interractions&#34;&gt;Pod interractions&lt;/h2&gt;
+&lt;p&gt;Interact with your pods with the following commands:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Run an interactive pod&lt;/span&gt;
+kubectl run -i --tty busybox --image&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;busybox -- sh
+&lt;span style=&#34;color:#75715e&#34;&gt;# Attach to an existing pod&lt;/span&gt;
+kubectl attach &amp;lt;pod-name&amp;gt; -i
+&lt;span style=&#34;color:#75715e&#34;&gt;# or&lt;/span&gt;
+kubectl exec --stdin --tty &amp;lt;pod-name&amp;gt; -- /bin/sh
+&lt;span style=&#34;color:#75715e&#34;&gt;# Exec a single command in a pod (single container pod)&lt;/span&gt;
+kubectl exec &amp;lt;pod-name&amp;gt; -- ls /
+&lt;span style=&#34;color:#75715e&#34;&gt;# Exec a single command in a pod (multi container pod)&lt;/span&gt;
+kubectl exec &amp;lt;pod-name&amp;gt; -c &amp;lt;container&amp;gt; -- ls /
+&lt;span style=&#34;color:#75715e&#34;&gt;# Forward port 6000 from the pod to local machine port 5000&lt;/span&gt;
+kubectl port-forward &amp;lt;pod-name&amp;gt; 5000:6000
+&lt;span style=&#34;color:#75715e&#34;&gt;# Forward port 6000 from the pod to machine port 5000&lt;/span&gt;
+kubectl port-forward --address 0.0.0.0 &amp;lt;pod-name&amp;gt; 5000:6000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;all-&#34;&gt;All !&lt;/h2&gt;
+&lt;p&gt;Use following commands to list (all) resources from (all) namespace(s):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# List resource-type items from all namespaces&lt;/span&gt;
+kubectl get &amp;lt;resource-type&amp;gt; -A
+&lt;span style=&#34;color:#75715e&#34;&gt;# List all resources in current context&lt;/span&gt;
+kubectl get all
+&lt;span style=&#34;color:#75715e&#34;&gt;# List all resources from all namespaces&lt;/span&gt;
+kubectl get all -A
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
