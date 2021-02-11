@@ -36,7 +36,7 @@ echo 'complete -F __start_kubectl k' >>~/.bashrc
 export K3S_KUBECONFIG_MODE=0644
 
 # Deploy a new k3s master node with embeded etcd
-curl -sfL https://get.k3s.io | sh -s - --no-deploy=traefik  --cluster-init
+curl -sfL https://get.k3s.io | sh -s - --disable=traefik --cluster-init
 ```
 
 ### Configuration file
