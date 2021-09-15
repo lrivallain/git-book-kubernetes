@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="A personal note-book to keep some relevant informations about Kubernetes and k8s related products, for my personal and/or professional use.">
 <meta name="author" content="Ludovic Rivallain">
 
@@ -12,19 +12,19 @@
     <title>Kubectl tips – My Kubernetes Book</title>
 
     
-    <link href="/css/nucleus.css?1613032038" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1613032038" rel="stylesheet">
-    <link href="/css/hybrid.css?1613032038" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1613032038" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1613032038" rel="stylesheet">
-    <link href="/css/auto-complete.css?1613032038" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1613032038" rel="stylesheet">
-    <link href="/css/theme.css?1613032038" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1613032038" rel="stylesheet">
+    <link href="/css/nucleus.css?1631696724" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1631696724" rel="stylesheet">
+    <link href="/css/hybrid.css?1631696724" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1631696724" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1631696724" rel="stylesheet">
+    <link href="/css/auto-complete.css?1631696724" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1631696724" rel="stylesheet">
+    <link href="/css/theme.css?1631696724" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1631696724" rel="stylesheet">
     
-    <link href="/css/style.css?1613032038" rel="stylesheet">
+    <link href="/css/style.css?1631696724" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1613032038"></script>
+    <script src="/js/jquery-3.3.1.min.js?1631696724"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -70,14 +70,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1613032038"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1613032038"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1631696724"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1631696724"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/k8s-book.vupti.me";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1613032038"></script>
+<script type="text/javascript" src="/js/search.js?1631696724"></script>
 
     
   </div>
@@ -699,12 +699,12 @@
 <h2 id="watch-resources-status-change">Watch resources status change</h2>
 <p><code>kubectl</code> have a useful feature to monitor the changes in the status of a resource. For example, when you deploy a <em>pod</em>, there are multiple status before <code>Running</code> (See <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/">Pod Lifecycle documentation</a>).</p>
 <p>Using the <code>--watch/-w</code> option for a <code>get</code> command, enable to watch continuously the status changes of resources:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Will provide a new line for each status change in the pods list</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Will provide a new line for each status change in the pods list</span>
 kubectl get &lt;resource-type&gt; --watch  <span style="color:#75715e"># long format</span>
 kubectl get &lt;resource-type&gt; -w       <span style="color:#75715e"># short format</span>
 </code></pre></div><h2 id="more-and-more-details">More and more details</h2>
 <p>The following commands will provide you more and more details about a specific resource.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># get resource items names only</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># get resource items names only</span>
 kubectl get &lt;resource-type&gt; -o name
 <span style="color:#75715e"># list resource items</span>
 kubectl get &lt;resource-type&gt;
@@ -722,7 +722,7 @@ kubectl get &lt;resource-type&gt; &lt;resource-name&gt; -o yaml
 kubectl get &lt;resource-type&gt; &lt;resource-name&gt; -o json
 </code></pre></div><h2 id="troubelshooting">Troubelshooting</h2>
 <p>You can use <code>kubectl</code> to troubleshoot your clusters, deployments or other resources.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Monitor pod metrics</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Monitor pod metrics</span>
 kubectl top pod &lt;pod-name&gt;
 <span style="color:#75715e"># Monitor node metrics</span>
 kubectl top node &lt;node-name&gt;
@@ -746,7 +746,7 @@ kubectl cluster-info dump --output-directory<span style="color:#f92672">=</span>
 kubectl config view
 </code></pre></div><h2 id="pod-interractions">Pod interractions</h2>
 <p>Interact with your pods with the following commands:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Run an interactive pod</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Run an interactive pod</span>
 kubectl run -i --tty busybox --image<span style="color:#f92672">=</span>busybox -- sh
 <span style="color:#75715e"># Attach to an existing pod</span>
 kubectl attach &lt;pod-name&gt; -i
@@ -763,7 +763,7 @@ kubectl port-forward &lt;pod-name&gt; 5000:6000
 kubectl port-forward --address 0.0.0.0 &lt;pod-name&gt; 5000:6000
 </code></pre></div><h2 id="all-">All !</h2>
 <p>Use following commands to list (all) resources from (all) namespace(s):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># List resource-type items from all namespaces</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># List resource-type items from all namespaces</span>
 kubectl get &lt;resource-type&gt; -A
 <span style="color:#75715e"># List all resources in current context</span>
 kubectl get all
@@ -1146,16 +1146,16 @@ kubectl get all -A
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1613032038"></script>
-    <script src="/js/perfect-scrollbar.min.js?1613032038"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1613032038"></script>
-    <script src="/js/jquery.sticky.js?1613032038"></script>
-    <script src="/js/featherlight.min.js?1613032038"></script>
-    <script src="/js/highlight.pack.js?1613032038"></script>
+    <script src="/js/clipboard.min.js?1631696724"></script>
+    <script src="/js/perfect-scrollbar.min.js?1631696724"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1631696724"></script>
+    <script src="/js/jquery.sticky.js?1631696724"></script>
+    <script src="/js/featherlight.min.js?1631696724"></script>
+    <script src="/js/highlight.pack.js?1631696724"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1613032038"></script>
-    <script src="/js/learn.js?1613032038"></script>
-    <script src="/js/hugo-learn.js?1613032038"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1631696724"></script>
+    <script src="/js/learn.js?1631696724"></script>
+    <script src="/js/hugo-learn.js?1631696724"></script>
     
     
 

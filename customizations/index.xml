@@ -23,7 +23,7 @@
 
 &lt;p&gt;It could be used as a powerfull Ingress controler to handle incoming requests on the cluster and forward them to the appropriate service.&lt;/p&gt;
 &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;helm repo add traefik https://helm.traefik.io/traefik
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;helm repo add traefik https://helm.traefik.io/traefik
 helm repo update
 helm install traefik traefik/traefik
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;test-it&#34;&gt;Test it&lt;/h2&gt;
@@ -61,7 +61,7 @@ helm install traefik traefik/traefik
 &lt;/section&gt;
 
 
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy it&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy it&lt;/span&gt;
 kubectl apply -f ./whoami.yaml
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Run a test command&lt;/span&gt;
@@ -131,7 +131,7 @@ X-Real-Ip: 10.42.0.8
 
 
 &lt;h3 id=&#34;create-a-secret-for-basic-authentication&#34;&gt;Create a secret for basic-authentication&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# To get `htpasswd` tool&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# To get `htpasswd` tool&lt;/span&gt;
 sudo apt install apache2-utils -y
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Create an auth file with data for user &amp;#34;admin&amp;#34;&lt;/span&gt;
@@ -143,7 +143,7 @@ htpasswd ./users otheradmin
 &lt;span style=&#34;color:#75715e&#34;&gt;# Deploy the file as a new secret&lt;/span&gt;
 kubectl create secret generic admin-auth --from-file users --namespace&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;default
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;deploy-the-dashboard-ingressroute&#34;&gt;Deploy the dashboard IngressRoute&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy it&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy it&lt;/span&gt;
 kubectl apply -f ./dashboard.yaml
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Test it:&lt;/span&gt;
@@ -167,7 +167,7 @@ curl -Is -X GET http://lb.vlab.lcl/dashboard/ -u &lt;span style=&#34;color:#e6db
       <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/prometheus-operator/kube-prometheus&#34;&gt;kube-prometheus&lt;/a&gt; project collects Kubernetes manifests,
 Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end
 Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone https://github.com/prometheus-operator/kube-prometheus.git /tmp/kube-prometheus
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone https://github.com/prometheus-operator/kube-prometheus.git /tmp/kube-prometheus
 cd /tmp/kube-prometheus
 &lt;span style=&#34;color:#75715e&#34;&gt;# create the namespace and CRDs&lt;/span&gt;
 kubectl create -f manifests/setup
@@ -176,7 +176,7 @@ kubectl create -f manifests/setup
 &lt;span style=&#34;color:#75715e&#34;&gt;# create the remaining resources&lt;/span&gt;
 kubectl create -f manifests/
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;port-forward-method-to-access-dashboard&#34;&gt;Port-forward method to access dashboard&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Prometheus on https://127.0.0.1:9090&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Prometheus on https://127.0.0.1:9090&lt;/span&gt;
 kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/prometheus-k8s &lt;span style=&#34;color:#ae81ff&#34;&gt;9090&lt;/span&gt;
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Grafana with user:password admin:admin on https://127.0.0.1:3000&lt;/span&gt;
@@ -194,7 +194,7 @@ kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/alertmanager-m
 &lt;li&gt;&lt;code&gt;grafana.vlab.lcl&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;authentication&#34;&gt;Authentication&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# To get `htpasswd` tool&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# To get `htpasswd` tool&lt;/span&gt;
 sudo apt install apache2-utils -y
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Create an auth file with data for user &amp;#34;admin&amp;#34;&lt;/span&gt;
@@ -239,10 +239,10 @@ kubectl create secret generic admin-auth --from-file users --namespace&lt;span s
 &lt;/section&gt;
 
 
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl apply -f kube-prometheus-ingress-traefik.yaml
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl apply -f kube-prometheus-ingress-traefik.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;test-access-from-ingress&#34;&gt;Test access from ingress&lt;/h3&gt;
 &lt;p&gt;Following commands provide a quick way to test the behavior of deployed ingress:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Show ingress status&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Show ingress status&lt;/span&gt;
 kubectl describe ingress grafana-gateway-ingress --namespace&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;monitoring
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Test your access without authentication&lt;/span&gt;

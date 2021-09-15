@@ -21,12 +21,12 @@
 &lt;h2 id=&#34;watch-resources-status-change&#34;&gt;Watch resources status change&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;kubectl&lt;/code&gt; have a useful feature to monitor the changes in the status of a resource. For example, when you deploy a &lt;em&gt;pod&lt;/em&gt;, there are multiple status before &lt;code&gt;Running&lt;/code&gt; (See &lt;a href=&#34;https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/&#34;&gt;Pod Lifecycle documentation&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;Using the &lt;code&gt;--watch/-w&lt;/code&gt; option for a &lt;code&gt;get&lt;/code&gt; command, enable to watch continuously the status changes of resources:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Will provide a new line for each status change in the pods list&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Will provide a new line for each status change in the pods list&lt;/span&gt;
 kubectl get &amp;lt;resource-type&amp;gt; --watch  &lt;span style=&#34;color:#75715e&#34;&gt;# long format&lt;/span&gt;
 kubectl get &amp;lt;resource-type&amp;gt; -w       &lt;span style=&#34;color:#75715e&#34;&gt;# short format&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;more-and-more-details&#34;&gt;More and more details&lt;/h2&gt;
 &lt;p&gt;The following commands will provide you more and more details about a specific resource.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# get resource items names only&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# get resource items names only&lt;/span&gt;
 kubectl get &amp;lt;resource-type&amp;gt; -o name
 &lt;span style=&#34;color:#75715e&#34;&gt;# list resource items&lt;/span&gt;
 kubectl get &amp;lt;resource-type&amp;gt;
@@ -44,7 +44,7 @@ kubectl get &amp;lt;resource-type&amp;gt; &amp;lt;resource-name&amp;gt; -o yaml
 kubectl get &amp;lt;resource-type&amp;gt; &amp;lt;resource-name&amp;gt; -o json
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;troubelshooting&#34;&gt;Troubelshooting&lt;/h2&gt;
 &lt;p&gt;You can use &lt;code&gt;kubectl&lt;/code&gt; to troubleshoot your clusters, deployments or other resources.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Monitor pod metrics&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Monitor pod metrics&lt;/span&gt;
 kubectl top pod &amp;lt;pod-name&amp;gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# Monitor node metrics&lt;/span&gt;
 kubectl top node &amp;lt;node-name&amp;gt;
@@ -68,7 +68,7 @@ kubectl cluster-info dump --output-directory&lt;span style=&#34;color:#f92672&#3
 kubectl config view
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;pod-interractions&#34;&gt;Pod interractions&lt;/h2&gt;
 &lt;p&gt;Interact with your pods with the following commands:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Run an interactive pod&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Run an interactive pod&lt;/span&gt;
 kubectl run -i --tty busybox --image&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;busybox -- sh
 &lt;span style=&#34;color:#75715e&#34;&gt;# Attach to an existing pod&lt;/span&gt;
 kubectl attach &amp;lt;pod-name&amp;gt; -i
@@ -85,7 +85,7 @@ kubectl port-forward &amp;lt;pod-name&amp;gt; 5000:6000
 kubectl port-forward --address 0.0.0.0 &amp;lt;pod-name&amp;gt; 5000:6000
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;all-&#34;&gt;All !&lt;/h2&gt;
 &lt;p&gt;Use following commands to list (all) resources from (all) namespace(s):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# List resource-type items from all namespaces&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# List resource-type items from all namespaces&lt;/span&gt;
 kubectl get &amp;lt;resource-type&amp;gt; -A
 &lt;span style=&#34;color:#75715e&#34;&gt;# List all resources in current context&lt;/span&gt;
 kubectl get all

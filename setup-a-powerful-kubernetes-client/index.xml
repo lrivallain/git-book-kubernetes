@@ -19,10 +19,10 @@
       <category>Setup a powerful Kubernetes client</category>
       <description>&lt;h2 id=&#34;generic-pre-requisites&#34;&gt;Generic pre-requisites&lt;/h2&gt;
 &lt;p&gt;We will need pip and gcc for some tools, so lets install them if needed:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt-get install python3-pip gcc -y
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt-get install python3-pip gcc -y
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;install-kubectl-cli-tool&#34;&gt;Install &lt;code&gt;kubectl&lt;/code&gt; CLI tool&lt;/h2&gt;
 &lt;p&gt;In order to test and manage the k3s cluster, it could be useful to have a &lt;code&gt;kubectl&lt;/code&gt; cli install in the master nodes:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -LO https://storage.googleapis.com/kubernetes-release/release/&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;/bin/linux/amd64/kubectl
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -LO https://storage.googleapis.com/kubernetes-release/release/&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 
@@ -30,12 +30,12 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 kubectl version --client
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;kubectl-auto-complete&#34;&gt;&lt;code&gt;kubectl&lt;/code&gt; auto-complete&lt;/h3&gt;
 &lt;p&gt;Use the following commands to add auto-completion to your bash shell for the &lt;code&gt;kubectl&lt;/code&gt; command (or it&amp;rsquo;s &lt;code&gt;k&lt;/code&gt; alias)&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;source &amp;lt;(kubectl completion bash)&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;source &amp;lt;(kubectl completion bash)&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
 echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;alias k=kubectl&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
 echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;complete -F __start_kubectl k&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;heml&#34;&gt;Heml&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;helm&#34;&gt;Helm&lt;/h2&gt;
 &lt;p&gt;Easy peasy:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
@@ -48,19 +48,19 @@ echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;complete -F __start_kube
       <category>Setup a powerful Kubernetes client</category>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/alexellis/arkade&#34;&gt;Arkade&lt;/a&gt; is a great open-source Kubernetes &lt;em&gt;&amp;ldquo;market-place&amp;rdquo;&lt;/em&gt; project initiated by &lt;a href=&#34;https://github.com/alexellis&#34;&gt;@alexellis&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;arkade&lt;/code&gt; CLI provides a simple method to download your favourite devops CLIs and install helm charts, with a single command.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Note: you can also run without `sudo` and move the binary yourself&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Note: you can also run without `sudo` and move the binary yourself&lt;/span&gt;
 curl -sLS https://dl.get-arkade.dev | sudo sh
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Test&lt;/span&gt;
 arkade --help
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;install-a-cli-tool&#34;&gt;Install a CLI tool&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# List available CLI tools&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# List available CLI tools&lt;/span&gt;
 arkade get
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Example:&lt;/span&gt;
 arkade get yq
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;install-a-k8s-app&#34;&gt;Install a K8S app&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# List available apps&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# List available apps&lt;/span&gt;
 arkade install / --help
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Example: kubernetes-dashboard&lt;/span&gt;
@@ -80,12 +80,12 @@ of this project is to make it easier to navigate, observe and manage your
 deployed applications in the wild.&lt;/p&gt;
 &lt;p&gt;K9s continually watches Kubernetes for changes and offers subsequent commands to interact with your observed resources.&lt;/p&gt;
 &lt;h2 id=&#34;cli-installation&#34;&gt;CLI installation&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -L https://github.com/derailed/k9s/releases/download/v0.24.2/k9s_Linux_x86_64.tar.gz | tar -xz
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -L https://github.com/derailed/k9s/releases/download/v0.24.2/k9s_Linux_x86_64.tar.gz | tar -xz
 chmod +x k9s &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo mv ./k9s /usr/local/bin/k9s
 k9s version
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;skin&#34;&gt;Skin&lt;/h3&gt;
 &lt;p&gt;Apply a pre-defined skin to the output:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;mkdir -p ~/.k9s
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;mkdir -p ~/.k9s
 curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/one_dark.yml &amp;gt; ~/.k9s/skin.yml
 &lt;span style=&#34;color:#75715e&#34;&gt;# or&lt;/span&gt;
 curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/solarized_dark.yml &amp;gt; ~/.k9s/skin.yml
@@ -108,11 +108,11 @@ curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/solarized_da
 &lt;li&gt;&lt;code&gt;kubectx&lt;/code&gt;is a utility to manage and switch between kubectl &lt;strong&gt;contexts&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;kubens&lt;/code&gt;is a utility to switch between Kubernetes &lt;strong&gt;namespaces&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
 sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
 sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then you can easly switch both &lt;code&gt;context&lt;/code&gt; and &lt;code&gt;namespace&lt;/code&gt; by:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectx &lt;span style=&#34;color:#75715e&#34;&gt;# list contexts&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectx &lt;span style=&#34;color:#75715e&#34;&gt;# list contexts&lt;/span&gt;
 kubectx &amp;lt;name&amp;gt; &lt;span style=&#34;color:#75715e&#34;&gt;# switch context&lt;/span&gt;
 
 kubens &lt;span style=&#34;color:#75715e&#34;&gt;# list namespace&lt;/span&gt;
@@ -134,7 +134,7 @@ kubens &amp;lt;name&amp;gt; &lt;span style=&#34;color:#75715e&#34;&gt;# switch n
 &lt;li&gt;Organize, simplify, unify&lt;/li&gt;
 &lt;li&gt;Manage sprawling config&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Update or install golang support&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Update or install golang support&lt;/span&gt;
 sudo apt install golang
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Expand PATH with `go get` binary folder&lt;/span&gt;
@@ -149,7 +149,7 @@ jsonnet --version
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;gojsontoyaml&#34;&gt;gojsontoyaml&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;jsonnet&lt;/code&gt; provides &lt;em&gt;json&lt;/em&gt; files but it is more easy to use &lt;em&gt;yaml&lt;/em&gt; ones.
 &lt;code&gt;gojsontoyaml&lt;/code&gt; provide a simple way to convert the &lt;code&gt;jsonnet&lt;/code&gt; result files to &lt;em&gt;yaml&lt;/em&gt; ones.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Install with go&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Install with go&lt;/span&gt;
 go get github.com/brancz/gojsontoyaml
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Test if&lt;/span&gt;
@@ -171,7 +171,7 @@ Kubernetes cluster.&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -L https://github.com/vmware-tanzu/octant/releases/download/v0.16.3/octant_0.16.3_Linux-64bit.deb &amp;gt; /tmp/octant.deb
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -L https://github.com/vmware-tanzu/octant/releases/download/v0.16.3/octant_0.16.3_Linux-64bit.deb &amp;gt; /tmp/octant.deb
 dpkg -i /tmp/octant.deb
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# To run and access octant from http://localhost:7777&lt;/span&gt;
@@ -194,11 +194,11 @@ OCTANT_LISTENER_ADDR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;X.X.
 &lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;If you need to use Argo from this client machine.&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -sL https://github.com/argoproj/argo/releases/download/latest/argo-linux-amd64.gz | gunzip &amp;gt; argo
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -sL https://github.com/argoproj/argo/releases/download/latest/argo-linux-amd64.gz | gunzip &amp;gt; argo
 chmod +x argo &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo mv ./argo /usr/local/bin/argo
 argo version
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Argo namespace&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Argo namespace&lt;/span&gt;
 export ARGO_NAMESPACE&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;argo
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Start port forwarding&lt;/span&gt;
@@ -223,10 +223,10 @@ fg &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
 &lt;/div&gt;
 
 &lt;p&gt;One-liner:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# openfaas-cli&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# openfaas-cli&lt;/span&gt;
 curl -sSL https://cli.openfaas.com | sudo sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Set namespace&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Set namespace&lt;/span&gt;
 export OS_NS&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;openfaas&amp;#34;&lt;/span&gt;
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Get password&lt;/span&gt;
@@ -236,7 +236,7 @@ echo $OF_PASS
 &lt;span style=&#34;color:#75715e&#34;&gt;# Get URI&lt;/span&gt;
 echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;export OPENFAAS_URL=http://&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;kubectl -n $OS_NS describe pods &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;kubectl -n $OS_NS get pods | grep &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;gateway-&amp;#34;&lt;/span&gt; | awk &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{print $1}&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; | grep &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;^Node:&amp;#34;&lt;/span&gt; | awk -F &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{print $2}&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:31112&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;login&#34;&gt;Login&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;echo $OF_PASS | faas-cli login --password-stdin
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;echo $OF_PASS | faas-cli login --password-stdin
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="A personal note-book to keep some relevant informations about Kubernetes and k8s related products, for my personal and/or professional use.">
 <meta name="author" content="Ludovic Rivallain">
 
@@ -12,19 +12,19 @@
     <title>Monitoring with Prometheus – My Kubernetes Book</title>
 
     
-    <link href="/css/nucleus.css?1613032038" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1613032038" rel="stylesheet">
-    <link href="/css/hybrid.css?1613032038" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1613032038" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1613032038" rel="stylesheet">
-    <link href="/css/auto-complete.css?1613032038" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1613032038" rel="stylesheet">
-    <link href="/css/theme.css?1613032038" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1613032038" rel="stylesheet">
+    <link href="/css/nucleus.css?1631696724" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1631696724" rel="stylesheet">
+    <link href="/css/hybrid.css?1631696724" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1631696724" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1631696724" rel="stylesheet">
+    <link href="/css/auto-complete.css?1631696724" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1631696724" rel="stylesheet">
+    <link href="/css/theme.css?1631696724" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1631696724" rel="stylesheet">
     
-    <link href="/css/style.css?1613032038" rel="stylesheet">
+    <link href="/css/style.css?1631696724" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1613032038"></script>
+    <script src="/js/jquery-3.3.1.min.js?1631696724"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -70,14 +70,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1613032038"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1613032038"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1631696724"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1631696724"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/k8s-book.vupti.me";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1613032038"></script>
+<script type="text/javascript" src="/js/search.js?1631696724"></script>
 
     
   </div>
@@ -702,7 +702,7 @@
 <p>The <a href="https://github.com/prometheus-operator/kube-prometheus">kube-prometheus</a> project collects Kubernetes manifests,
 Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end
 Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/prometheus-operator/kube-prometheus.git /tmp/kube-prometheus
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/prometheus-operator/kube-prometheus.git /tmp/kube-prometheus
 cd /tmp/kube-prometheus
 <span style="color:#75715e"># create the namespace and CRDs</span>
 kubectl create -f manifests/setup
@@ -711,7 +711,7 @@ kubectl create -f manifests/setup
 <span style="color:#75715e"># create the remaining resources</span>
 kubectl create -f manifests/
 </code></pre></div><h2 id="port-forward-method-to-access-dashboard">Port-forward method to access dashboard</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Prometheus on https://127.0.0.1:9090</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Prometheus on https://127.0.0.1:9090</span>
 kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/prometheus-k8s <span style="color:#ae81ff">9090</span>
 
 <span style="color:#75715e"># Grafana with user:password admin:admin on https://127.0.0.1:3000</span>
@@ -729,7 +729,7 @@ kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/alertmanager-m
 <li><code>grafana.vlab.lcl</code></li>
 </ul>
 <h3 id="authentication">Authentication</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># To get `htpasswd` tool</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># To get `htpasswd` tool</span>
 sudo apt install apache2-utils -y
 
 <span style="color:#75715e"># Create an auth file with data for user &#34;admin&#34;</span>
@@ -774,10 +774,10 @@ kubectl create secret generic admin-auth --from-file users --namespace<span styl
 </section>
 
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl apply -f kube-prometheus-ingress-traefik.yaml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl apply -f kube-prometheus-ingress-traefik.yaml
 </code></pre></div><h3 id="test-access-from-ingress">Test access from ingress</h3>
 <p>Following commands provide a quick way to test the behavior of deployed ingress:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Show ingress status</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Show ingress status</span>
 kubectl describe ingress grafana-gateway-ingress --namespace<span style="color:#f92672">=</span>monitoring
 
 <span style="color:#75715e"># Test your access without authentication</span>
@@ -1170,16 +1170,16 @@ curl http://grafana.vlab.lcl -u <span style="color:#e6db74">&#39;admin:*****&#39
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1613032038"></script>
-    <script src="/js/perfect-scrollbar.min.js?1613032038"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1613032038"></script>
-    <script src="/js/jquery.sticky.js?1613032038"></script>
-    <script src="/js/featherlight.min.js?1613032038"></script>
-    <script src="/js/highlight.pack.js?1613032038"></script>
+    <script src="/js/clipboard.min.js?1631696724"></script>
+    <script src="/js/perfect-scrollbar.min.js?1631696724"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1631696724"></script>
+    <script src="/js/jquery.sticky.js?1631696724"></script>
+    <script src="/js/featherlight.min.js?1631696724"></script>
+    <script src="/js/highlight.pack.js?1631696724"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1613032038"></script>
-    <script src="/js/learn.js?1613032038"></script>
-    <script src="/js/hugo-learn.js?1613032038"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1631696724"></script>
+    <script src="/js/learn.js?1631696724"></script>
+    <script src="/js/hugo-learn.js?1631696724"></script>
     
     
 

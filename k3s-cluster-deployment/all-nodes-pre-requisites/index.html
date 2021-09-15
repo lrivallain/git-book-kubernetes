@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="A personal note-book to keep some relevant informations about Kubernetes and k8s related products, for my personal and/or professional use.">
 <meta name="author" content="Ludovic Rivallain">
 
@@ -12,19 +12,19 @@
     <title>All nodes pre-requisites – My Kubernetes Book</title>
 
     
-    <link href="/css/nucleus.css?1613032038" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1613032038" rel="stylesheet">
-    <link href="/css/hybrid.css?1613032038" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1613032038" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1613032038" rel="stylesheet">
-    <link href="/css/auto-complete.css?1613032038" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1613032038" rel="stylesheet">
-    <link href="/css/theme.css?1613032038" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1613032038" rel="stylesheet">
+    <link href="/css/nucleus.css?1631696724" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1631696724" rel="stylesheet">
+    <link href="/css/hybrid.css?1631696724" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1631696724" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1631696724" rel="stylesheet">
+    <link href="/css/auto-complete.css?1631696724" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1631696724" rel="stylesheet">
+    <link href="/css/theme.css?1631696724" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1631696724" rel="stylesheet">
     
-    <link href="/css/style.css?1613032038" rel="stylesheet">
+    <link href="/css/style.css?1631696724" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1613032038"></script>
+    <script src="/js/jquery-3.3.1.min.js?1631696724"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -70,14 +70,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1613032038"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1613032038"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1631696724"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1631696724"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/k8s-book.vupti.me";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1613032038"></script>
+<script type="text/javascript" src="/js/search.js?1631696724"></script>
 
     
   </div>
@@ -694,18 +694,18 @@
 
 
 <h2 id="network-configuration">Network configuration</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Network setup</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Network setup</span>
 vi /etc/netplan/50-cloud-init.yaml
 netplan apply
 </code></pre></div><h2 id="software-pre-requisites">Software pre-requisites</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Upgrade packages</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Upgrade packages</span>
 sudo apt update
 sudo apt upgrade -y
 
 <span style="color:#75715e"># Install software pre-requisites</span>
 sudo apt-get install python3-pip gcc nfs-common -y
 </code></pre></div><h2 id="ntp-time">NTP time</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install ntp -y
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install ntp -y
 <span style="color:#75715e"># check configured servers in:</span>
 sudo vi /etc/ntp.conf
 <span style="color:#75715e"># restart services if needed:</span>
@@ -1089,16 +1089,16 @@ ntpq -p
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1613032038"></script>
-    <script src="/js/perfect-scrollbar.min.js?1613032038"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1613032038"></script>
-    <script src="/js/jquery.sticky.js?1613032038"></script>
-    <script src="/js/featherlight.min.js?1613032038"></script>
-    <script src="/js/highlight.pack.js?1613032038"></script>
+    <script src="/js/clipboard.min.js?1631696724"></script>
+    <script src="/js/perfect-scrollbar.min.js?1631696724"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1631696724"></script>
+    <script src="/js/jquery.sticky.js?1631696724"></script>
+    <script src="/js/featherlight.min.js?1631696724"></script>
+    <script src="/js/highlight.pack.js?1631696724"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1613032038"></script>
-    <script src="/js/learn.js?1613032038"></script>
-    <script src="/js/hugo-learn.js?1613032038"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1631696724"></script>
+    <script src="/js/learn.js?1631696724"></script>
+    <script src="/js/hugo-learn.js?1631696724"></script>
     
     
 

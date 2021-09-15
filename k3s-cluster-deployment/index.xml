@@ -18,18 +18,18 @@
       <guid>https://k8s-book.vupti.me/k3s-cluster-deployment/all-nodes-pre-requisites/</guid>
       <category>Deploy a k3S cluster</category>
       <description>&lt;h2 id=&#34;network-configuration&#34;&gt;Network configuration&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Network setup&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Network setup&lt;/span&gt;
 vi /etc/netplan/50-cloud-init.yaml
 netplan apply
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;software-pre-requisites&#34;&gt;Software pre-requisites&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Upgrade packages&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Upgrade packages&lt;/span&gt;
 sudo apt update
 sudo apt upgrade -y
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Install software pre-requisites&lt;/span&gt;
 sudo apt-get install python3-pip gcc nfs-common -y
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ntp-time&#34;&gt;NTP time&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt-get install ntp -y
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt-get install ntp -y
 &lt;span style=&#34;color:#75715e&#34;&gt;# check configured servers in:&lt;/span&gt;
 sudo vi /etc/ntp.conf
 &lt;span style=&#34;color:#75715e&#34;&gt;# restart services if needed:&lt;/span&gt;
@@ -50,7 +50,7 @@ ntpq -p
 the k3s cluster.&lt;/p&gt;
 &lt;h3 id=&#34;install-kubectl-cli-tool&#34;&gt;Install &lt;code&gt;kubectl&lt;/code&gt; CLI tool&lt;/h3&gt;
 &lt;p&gt;In order to test and manage the k3s cluster, it could be useful to have a &lt;code&gt;kubectl&lt;/code&gt; cli install in the master nodes:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -LO https://storage.googleapis.com/kubernetes-release/release/&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;/bin/linux/amd64/kubectl
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -LO https://storage.googleapis.com/kubernetes-release/release/&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 
@@ -58,19 +58,19 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 kubectl version --client
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;auto-complete&#34;&gt;Auto-complete&lt;/h4&gt;
 &lt;p&gt;Use the following commands to add auto-completion to your bash shell for the &lt;code&gt;kubectl&lt;/code&gt; command (or it&amp;rsquo;s &lt;code&gt;k&lt;/code&gt; alias)&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;source &amp;lt;(kubectl completion bash)&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;source &amp;lt;(kubectl completion bash)&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
 echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;alias k=kubectl&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
 echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;complete -F __start_kubectl k&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;deploy&#34;&gt;Deploy&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# enable read for other users&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# enable read for other users&lt;/span&gt;
 export K3S_KUBECONFIG_MODE&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0644&lt;/span&gt;
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Deploy a new k3s master node with embeded etcd&lt;/span&gt;
 curl -sfL https://get.k3s.io | sh -s - --disable&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;traefik --cluster-init
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;configuration-file&#34;&gt;Configuration file&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;export KUBECONFIG&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/etc/rancher/k3s/k3s.yaml
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;export KUBECONFIG&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/etc/rancher/k3s/k3s.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can test the connection to the cluster by listing the deployed &lt;em&gt;pods&lt;/em&gt; and the list of &lt;em&gt;nodes&lt;/em&gt; in the cluster (only one will be listed by now):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get pods --all-namespaces
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get pods --all-namespaces
 kubectl get nodes
 
 &lt;span style=&#34;color:#75715e&#34;&gt;#Output:&lt;/span&gt;
@@ -78,7 +78,7 @@ NAME          STATUS   ROLES                       AGE     VERSION
 k3s-mstr-01   Ready    control-plane,etcd,master   2m32s   v1.20.2+k3s1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;retrieve-the-cluster-token&#34;&gt;Retrieve the cluster token&lt;/h3&gt;
 &lt;p&gt;This token will be used to join the other nodes to the current k3s deployment:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo cat /var/lib/rancher/k3s/server/node-token
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo cat /var/lib/rancher/k3s/server/node-token
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
@@ -93,13 +93,13 @@ k3s-mstr-01   Ready    control-plane,etcd,master   2m32s   v1.20.2+k3s1
 k3s deployment.&lt;/p&gt;
 &lt;p&gt;First of all, you will need to get the cluster token, as explained in the previous section and the master node &lt;em&gt;fqdn&lt;/em&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;deploy-k3s-to-join-an-existing-cluster&#34;&gt;Deploy k3s to join an existing cluster&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -sfL https://get.k3s.io | &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -sfL https://get.k3s.io | &lt;span style=&#34;color:#ae81ff&#34;&gt;\
 &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    K3S_URL&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://k3s-mstr-01.vlab.lcl:6443&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
 &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    K3S_TOKEN&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;K10d1...fe537::server:26a92...e34f9&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
 &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    sh -
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;check&#34;&gt;Check&lt;/h2&gt;
 &lt;p&gt;From the master node or any client device with access to the Kubernetes cluster, ensure that the node is now added to the cluster:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get nodes
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get nodes
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
@@ -118,7 +118,7 @@ k3s deployment.&lt;/p&gt;
 
 &lt;p&gt;First of all, you will need to get the cluster token, as explained in the previous section and the master node &lt;em&gt;fqdn&lt;/em&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;deploy-k3s-to-join-an-existing-cluster&#34;&gt;Deploy k3s to join an existing cluster&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;
 curl -sfL https://get.k3s.io | &lt;span style=&#34;color:#ae81ff&#34;&gt;\
 &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    K3S_URL&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://k3s-mstr-01.vlab.lcl:6443&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
 &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    K3S_TOKEN&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;K10d1...fe537::server:26a92...e34f9&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
@@ -126,7 +126,7 @@ curl -sfL https://get.k3s.io | &lt;span style=&#34;color:#ae81ff&#34;&gt;\
 &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    sh - --no-deploy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;traefik
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;check&#34;&gt;Check&lt;/h2&gt;
 &lt;p&gt;From the master node or any client device with access to the Kubernetes cluster, ensure that the node is now added to the cluster:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get nodes
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get nodes
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Output:&lt;/span&gt;
 NAME          STATUS   ROLES                       AGE     VERSION
