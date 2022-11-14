@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.88.1" />
+    <meta name="generator" content="Hugo 0.105.0">
     <meta name="description" content="A personal note-book to keep some relevant informations about Kubernetes and k8s related products, for my personal and/or professional use.">
 <meta name="author" content="Ludovic Rivallain">
 
@@ -12,19 +12,19 @@
     <title>jsonnet – My Kubernetes Book</title>
 
     
-    <link href="/css/nucleus.css?1631696724" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1631696724" rel="stylesheet">
-    <link href="/css/hybrid.css?1631696724" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1631696724" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1631696724" rel="stylesheet">
-    <link href="/css/auto-complete.css?1631696724" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1631696724" rel="stylesheet">
-    <link href="/css/theme.css?1631696724" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1631696724" rel="stylesheet">
+    <link href="/css/nucleus.css?1668420644" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1668420644" rel="stylesheet">
+    <link href="/css/hybrid.css?1668420644" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1668420644" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1668420644" rel="stylesheet">
+    <link href="/css/auto-complete.css?1668420644" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1668420644" rel="stylesheet">
+    <link href="/css/theme.css?1668420644" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1668420644" rel="stylesheet">
     
-    <link href="/css/style.css?1631696724" rel="stylesheet">
+    <link href="/css/style.css?1668420644" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1631696724"></script>
+    <script src="/js/jquery-3.3.1.min.js?1668420644"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -70,14 +70,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1631696724"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1631696724"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1668420644"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1668420644"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/k8s-book.vupti.me";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1631696724"></script>
+<script type="text/javascript" src="/js/search.js?1668420644"></script>
 
     
   </div>
@@ -628,7 +628,7 @@
                   
                 
                 
-                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <div id="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList">
                     <span id="sidebar-toggle-span">
                         <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
                           <i class="fas fa-bars"></i>
@@ -698,27 +698,27 @@
 <li>Organize, simplify, unify</li>
 <li>Manage sprawling config</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Update or install golang support</span>
-sudo apt install golang
-
-<span style="color:#75715e"># Expand PATH with `go get` binary folder</span>
-echo <span style="color:#e6db74">&#39;PATH=&#34;~/go/bin/:&#34;$PATH&#39;</span> &gt;&gt; ~/.bashrc
-. ~/.bashrc
-
-<span style="color:#75715e"># Install with go</span>
-go get github.com/google/go-jsonnet/cmd/jsonnet
-
-<span style="color:#75715e"># Test it</span>
-jsonnet --version
-</code></pre></div><h2 id="gojsontoyaml">gojsontoyaml</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Update or install golang support</span>
+</span></span><span style="display:flex;"><span>sudo apt install golang
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expand PATH with `go get` binary folder</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;PATH=&#34;~/go/bin/:&#34;$PATH&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span style="display:flex;"><span>. ~/.bashrc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install with go</span>
+</span></span><span style="display:flex;"><span>go get github.com/google/go-jsonnet/cmd/jsonnet
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Test it</span>
+</span></span><span style="display:flex;"><span>jsonnet --version
+</span></span></code></pre></div><h2 id="gojsontoyaml">gojsontoyaml</h2>
 <p><code>jsonnet</code> provides <em>json</em> files but it is more easy to use <em>yaml</em> ones.
 <code>gojsontoyaml</code> provide a simple way to convert the <code>jsonnet</code> result files to <em>yaml</em> ones.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Install with go</span>
-go get github.com/brancz/gojsontoyaml
-
-<span style="color:#75715e"># Test if</span>
-echo <span style="color:#e6db74">&#34;{&#39;installed&#39;: true}&#34;</span> | gojsontoyaml
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Install with go</span>
+</span></span><span style="display:flex;"><span>go get github.com/brancz/gojsontoyaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Test if</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;{&#39;installed&#39;: true}&#34;</span> | gojsontoyaml
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -1101,16 +1101,16 @@ echo <span style="color:#e6db74">&#34;{&#39;installed&#39;: true}&#34;</span> | 
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1631696724"></script>
-    <script src="/js/perfect-scrollbar.min.js?1631696724"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1631696724"></script>
-    <script src="/js/jquery.sticky.js?1631696724"></script>
-    <script src="/js/featherlight.min.js?1631696724"></script>
-    <script src="/js/highlight.pack.js?1631696724"></script>
+    <script src="/js/clipboard.min.js?1668420644"></script>
+    <script src="/js/perfect-scrollbar.min.js?1668420644"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1668420644"></script>
+    <script src="/js/jquery.sticky.js?1668420644"></script>
+    <script src="/js/featherlight.min.js?1668420644"></script>
+    <script src="/js/highlight.pack.js?1668420644"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1631696724"></script>
-    <script src="/js/learn.js?1631696724"></script>
-    <script src="/js/hugo-learn.js?1631696724"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1668420644"></script>
+    <script src="/js/learn.js?1668420644"></script>
+    <script src="/js/hugo-learn.js?1668420644"></script>
     
     
 

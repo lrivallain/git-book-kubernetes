@@ -21,77 +21,77 @@
 &lt;h2 id=&#34;watch-resources-status-change&#34;&gt;Watch resources status change&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;kubectl&lt;/code&gt; have a useful feature to monitor the changes in the status of a resource. For example, when you deploy a &lt;em&gt;pod&lt;/em&gt;, there are multiple status before &lt;code&gt;Running&lt;/code&gt; (See &lt;a href=&#34;https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/&#34;&gt;Pod Lifecycle documentation&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;Using the &lt;code&gt;--watch/-w&lt;/code&gt; option for a &lt;code&gt;get&lt;/code&gt; command, enable to watch continuously the status changes of resources:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Will provide a new line for each status change in the pods list&lt;/span&gt;
-kubectl get &amp;lt;resource-type&amp;gt; --watch  &lt;span style=&#34;color:#75715e&#34;&gt;# long format&lt;/span&gt;
-kubectl get &amp;lt;resource-type&amp;gt; -w       &lt;span style=&#34;color:#75715e&#34;&gt;# short format&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;more-and-more-details&#34;&gt;More and more details&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Will provide a new line for each status change in the pods list&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl get &amp;lt;resource-type&amp;gt; --watch  &lt;span style=&#34;color:#75715e&#34;&gt;# long format&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl get &amp;lt;resource-type&amp;gt; -w       &lt;span style=&#34;color:#75715e&#34;&gt;# short format&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;more-and-more-details&#34;&gt;More and more details&lt;/h2&gt;
 &lt;p&gt;The following commands will provide you more and more details about a specific resource.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# get resource items names only&lt;/span&gt;
-kubectl get &amp;lt;resource-type&amp;gt; -o name
-&lt;span style=&#34;color:#75715e&#34;&gt;# list resource items&lt;/span&gt;
-kubectl get &amp;lt;resource-type&amp;gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# display labels&lt;/span&gt;
-kubectl get &amp;lt;resource-type&amp;gt; --show-labels
-&lt;span style=&#34;color:#75715e&#34;&gt;# list resource items with more details&lt;/span&gt;
-kubectl get &amp;lt;resource-type&amp;gt; -o wide
-&lt;span style=&#34;color:#75715e&#34;&gt;# get a specific resource item&lt;/span&gt;
-kubectl get &amp;lt;resource-type&amp;gt; &amp;lt;resource-name&amp;gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# get a specific resource item with more details&lt;/span&gt;
-kubectl describe &amp;lt;resource-type&amp;gt; &amp;lt;resource-name&amp;gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# yaml export&lt;/span&gt;
-kubectl get &amp;lt;resource-type&amp;gt; &amp;lt;resource-name&amp;gt; -o yaml
-&lt;span style=&#34;color:#75715e&#34;&gt;# json export&lt;/span&gt;
-kubectl get &amp;lt;resource-type&amp;gt; &amp;lt;resource-name&amp;gt; -o json
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;troubelshooting&#34;&gt;Troubelshooting&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# get resource items names only&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl get &amp;lt;resource-type&amp;gt; -o name
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# list resource items&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl get &amp;lt;resource-type&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# display labels&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl get &amp;lt;resource-type&amp;gt; --show-labels
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# list resource items with more details&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl get &amp;lt;resource-type&amp;gt; -o wide
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# get a specific resource item&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl get &amp;lt;resource-type&amp;gt; &amp;lt;resource-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# get a specific resource item with more details&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl describe &amp;lt;resource-type&amp;gt; &amp;lt;resource-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# yaml export&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl get &amp;lt;resource-type&amp;gt; &amp;lt;resource-name&amp;gt; -o yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# json export&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl get &amp;lt;resource-type&amp;gt; &amp;lt;resource-name&amp;gt; -o json
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;troubelshooting&#34;&gt;Troubelshooting&lt;/h2&gt;
 &lt;p&gt;You can use &lt;code&gt;kubectl&lt;/code&gt; to troubleshoot your clusters, deployments or other resources.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Monitor pod metrics&lt;/span&gt;
-kubectl top pod &amp;lt;pod-name&amp;gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# Monitor node metrics&lt;/span&gt;
-kubectl top node &amp;lt;node-name&amp;gt;
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Look at pod&amp;#39;s logs&lt;/span&gt;
-kubectl logs -f &amp;lt;pod-name&amp;gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# Look at a specific pod&amp;#39;s container logs&lt;/span&gt;
-kubectl logs -f &amp;lt;pod-name&amp;gt; -c &amp;lt;container&amp;gt;
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Mark node as unschedulable&lt;/span&gt;
-kubectl cordon &amp;lt;node-name&amp;gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# Empty node in preparation for maintenance&lt;/span&gt;
-kubectl drain &amp;lt;node-name&amp;gt;
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Cluster info&lt;/span&gt;
-kubectl cluster-info
-&lt;span style=&#34;color:#75715e&#34;&gt;# Dump cluster state&lt;/span&gt;
-kubectl cluster-info dump --output-directory&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/tmp/dump.txt
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Config&lt;/span&gt;
-kubectl config view
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;pod-interractions&#34;&gt;Pod interractions&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Monitor pod metrics&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl top pod &amp;lt;pod-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Monitor node metrics&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl top node &amp;lt;node-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Look at pod&amp;#39;s logs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl logs -f &amp;lt;pod-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Look at a specific pod&amp;#39;s container logs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl logs -f &amp;lt;pod-name&amp;gt; -c &amp;lt;container&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Mark node as unschedulable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl cordon &amp;lt;node-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Empty node in preparation for maintenance&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl drain &amp;lt;node-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Cluster info&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl cluster-info
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Dump cluster state&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl cluster-info dump --output-directory&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/tmp/dump.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl config view
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;pod-interractions&#34;&gt;Pod interractions&lt;/h2&gt;
 &lt;p&gt;Interact with your pods with the following commands:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Run an interactive pod&lt;/span&gt;
-kubectl run -i --tty busybox --image&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;busybox -- sh
-&lt;span style=&#34;color:#75715e&#34;&gt;# Attach to an existing pod&lt;/span&gt;
-kubectl attach &amp;lt;pod-name&amp;gt; -i
-&lt;span style=&#34;color:#75715e&#34;&gt;# or&lt;/span&gt;
-kubectl exec --stdin --tty &amp;lt;pod-name&amp;gt; -- /bin/sh
-&lt;span style=&#34;color:#75715e&#34;&gt;# Exec a single command in a pod (single container pod)&lt;/span&gt;
-kubectl exec &amp;lt;pod-name&amp;gt; -- ls /
-&lt;span style=&#34;color:#75715e&#34;&gt;# Exec a single command in a pod (multi container pod)&lt;/span&gt;
-kubectl exec &amp;lt;pod-name&amp;gt; -c &amp;lt;container&amp;gt; -- ls /
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Forward port 6000 from the pod to local machine port 5000&lt;/span&gt;
-kubectl port-forward &amp;lt;pod-name&amp;gt; 5000:6000
-&lt;span style=&#34;color:#75715e&#34;&gt;# Forward port 6000 from the pod to machine port 5000&lt;/span&gt;
-kubectl port-forward --address 0.0.0.0 &amp;lt;pod-name&amp;gt; 5000:6000
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;all-&#34;&gt;All !&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Run an interactive pod&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl run -i --tty busybox --image&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;busybox -- sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Attach to an existing pod&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl attach &amp;lt;pod-name&amp;gt; -i
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# or&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl exec --stdin --tty &amp;lt;pod-name&amp;gt; -- /bin/sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Exec a single command in a pod (single container pod)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl exec &amp;lt;pod-name&amp;gt; -- ls /
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Exec a single command in a pod (multi container pod)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl exec &amp;lt;pod-name&amp;gt; -c &amp;lt;container&amp;gt; -- ls /
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Forward port 6000 from the pod to local machine port 5000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl port-forward &amp;lt;pod-name&amp;gt; 5000:6000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Forward port 6000 from the pod to machine port 5000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl port-forward --address 0.0.0.0 &amp;lt;pod-name&amp;gt; 5000:6000
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;all-&#34;&gt;All !&lt;/h2&gt;
 &lt;p&gt;Use following commands to list (all) resources from (all) namespace(s):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# List resource-type items from all namespaces&lt;/span&gt;
-kubectl get &amp;lt;resource-type&amp;gt; -A
-&lt;span style=&#34;color:#75715e&#34;&gt;# List all resources in current context&lt;/span&gt;
-kubectl get all
-&lt;span style=&#34;color:#75715e&#34;&gt;# List all resources from all namespaces&lt;/span&gt;
-kubectl get all -A
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# List resource-type items from all namespaces&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl get &amp;lt;resource-type&amp;gt; -A
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# List all resources in current context&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl get all
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# List all resources from all namespaces&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl get all -A
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -102,25 +102,25 @@ kubectl get all -A
       <guid>https://k8s-book.vupti.me/k3s-cluster-deployment/all-nodes-pre-requisites/</guid>
       <category>Deploy a k3S cluster</category>
       <description>&lt;h2 id=&#34;network-configuration&#34;&gt;Network configuration&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Network setup&lt;/span&gt;
-vi /etc/netplan/50-cloud-init.yaml
-netplan apply
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;software-pre-requisites&#34;&gt;Software pre-requisites&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Upgrade packages&lt;/span&gt;
-sudo apt update
-sudo apt upgrade -y
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Install software pre-requisites&lt;/span&gt;
-sudo apt-get install python3-pip gcc nfs-common -y
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ntp-time&#34;&gt;NTP time&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt-get install ntp -y
-&lt;span style=&#34;color:#75715e&#34;&gt;# check configured servers in:&lt;/span&gt;
-sudo vi /etc/ntp.conf
-&lt;span style=&#34;color:#75715e&#34;&gt;# restart services if needed:&lt;/span&gt;
-sudo /etc/init.d/ntp restart
-&lt;span style=&#34;color:#75715e&#34;&gt;# check ntp status:&lt;/span&gt;
-ntpq -p
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Network setup&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vi /etc/netplan/50-cloud-init.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;netplan apply
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;software-pre-requisites&#34;&gt;Software pre-requisites&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Upgrade packages&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt upgrade -y
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Install software pre-requisites&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get install python3-pip gcc nfs-common -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ntp-time&#34;&gt;NTP time&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get install ntp -y
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# check configured servers in:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo vi /etc/ntp.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# restart services if needed:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo /etc/init.d/ntp restart
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# check ntp status:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ntpq -p
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -132,24 +132,24 @@ ntpq -p
       <category>Setup a powerful Kubernetes client</category>
       <description>&lt;h2 id=&#34;generic-pre-requisites&#34;&gt;Generic pre-requisites&lt;/h2&gt;
 &lt;p&gt;We will need pip and gcc for some tools, so lets install them if needed:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt-get install python3-pip gcc -y
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;install-kubectl-cli-tool&#34;&gt;Install &lt;code&gt;kubectl&lt;/code&gt; CLI tool&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get install python3-pip gcc -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;install-kubectl-cli-tool&#34;&gt;Install &lt;code&gt;kubectl&lt;/code&gt; CLI tool&lt;/h2&gt;
 &lt;p&gt;In order to test and manage the k3s cluster, it could be useful to have a &lt;code&gt;kubectl&lt;/code&gt; cli install in the master nodes:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -LO https://storage.googleapis.com/kubernetes-release/release/&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Test it&lt;/span&gt;
-kubectl version --client
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;kubectl-auto-complete&#34;&gt;&lt;code&gt;kubectl&lt;/code&gt; auto-complete&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -LO https://storage.googleapis.com/kubernetes-release/release/&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;/bin/linux/amd64/kubectl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;chmod +x ./kubectl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo mv ./kubectl /usr/local/bin/kubectl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Test it&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl version --client
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;kubectl-auto-complete&#34;&gt;&lt;code&gt;kubectl&lt;/code&gt; auto-complete&lt;/h3&gt;
 &lt;p&gt;Use the following commands to add auto-completion to your bash shell for the &lt;code&gt;kubectl&lt;/code&gt; command (or it&amp;rsquo;s &lt;code&gt;k&lt;/code&gt; alias)&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;source &amp;lt;(kubectl completion bash)&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
-echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;alias k=kubectl&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
-echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;complete -F __start_kubectl k&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;helm&#34;&gt;Helm&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;source &amp;lt;(kubectl completion bash)&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;alias k=kubectl&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;complete -F __start_kubectl k&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;helm&#34;&gt;Helm&lt;/h2&gt;
 &lt;p&gt;Easy peasy:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -165,10 +165,10 @@ echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;complete -F __start_kube
 
 &lt;p&gt;It could be used as a powerfull Ingress controler to handle incoming requests on the cluster and forward them to the appropriate service.&lt;/p&gt;
 &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;helm repo add traefik https://helm.traefik.io/traefik
-helm repo update
-helm install traefik traefik/traefik
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;test-it&#34;&gt;Test it&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm repo add traefik https://helm.traefik.io/traefik
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm repo update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm install traefik traefik/traefik
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;test-it&#34;&gt;Test it&lt;/h2&gt;
 &lt;p&gt;Get the &lt;code&gt;whoami.yaml&lt;/code&gt; file form the bellow attachement files, then:&lt;/p&gt;
 
 &lt;section class=&#34;attachments grey&#34;&gt;
@@ -203,36 +203,36 @@ helm install traefik traefik/traefik
 &lt;/section&gt;
 
 
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy it&lt;/span&gt;
-kubectl apply -f ./whoami.yaml
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Run a test command&lt;/span&gt;
-curl -i http://k3s.vlab.lcl -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Host: mydomain.com&amp;#34;&lt;/span&gt;
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Output:&lt;/span&gt;
-HTTP/1.1 &lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt; OK
-Content-Length: &lt;span style=&#34;color:#ae81ff&#34;&gt;406&lt;/span&gt;
-Content-Type: text/plain; charset&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;utf-8
-Date: Fri, &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; Jan &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; 14:59:46 GMT
-
-Hostname: whoami-app-7564dd9695-dtzrh
-IP: 127.0.0.1
-IP: ::1
-IP: 10.42.2.6
-IP: fe80::f099:c3ff:fe3e:7071
-RemoteAddr: 10.42.1.6:46964
-GET / HTTP/1.1
-Host: mydomain.com
-User-Agent: curl/7.68.0
-Accept: */*
-Accept-Encoding: gzip
-X-Forwarded-For: 10.42.0.8
-X-Forwarded-Host: mydomain.com
-X-Forwarded-Port: &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;
-X-Forwarded-Proto: http
-X-Forwarded-Server: traefik-79fdc967bf-5nkxt
-X-Real-Ip: 10.42.0.8
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here we simulate a DNS record &lt;code&gt;mydomain.com&lt;/code&gt; by using the &lt;code&gt;Host&lt;/code&gt; HTTP header. It provides a easy way to make a test but of course, for a real service, a DNS record is mandatory.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy it&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl apply -f ./whoami.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Run a test command&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -i http://k3s.vlab.lcl -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Host: mydomain.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Output:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;HTTP/1.1 &lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt; OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Content-Length: &lt;span style=&#34;color:#ae81ff&#34;&gt;406&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Content-Type: text/plain; charset&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;utf-8
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Date: Fri, &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; Jan &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; 14:59:46 GMT
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Hostname: whoami-app-7564dd9695-dtzrh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;IP: 127.0.0.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;IP: ::1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;IP: 10.42.2.6
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;IP: fe80::f099:c3ff:fe3e:7071
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;RemoteAddr: 10.42.1.6:46964
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;GET / HTTP/1.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Host: mydomain.com
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;User-Agent: curl/7.68.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Accept: */*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Accept-Encoding: gzip
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;X-Forwarded-For: 10.42.0.8
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;X-Forwarded-Host: mydomain.com
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;X-Forwarded-Port: &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;X-Forwarded-Proto: http
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;X-Forwarded-Server: traefik-79fdc967bf-5nkxt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;X-Real-Ip: 10.42.0.8
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here we simulate a DNS record &lt;code&gt;mydomain.com&lt;/code&gt; by using the &lt;code&gt;Host&lt;/code&gt; HTTP header. It provides a easy way to make a test but of course, for a real service, a DNS record is mandatory.&lt;/p&gt;
 &lt;p&gt;Here is a quick demo of the load-balancing made on the &lt;code&gt;whoami&lt;/code&gt; service with 4 replicas:
 &lt;asciinema-player src=&#34;https://k8s-book.vupti.me/images/customizations/whoami-traefik-ingress.cast&#34; cols=&#34;170&#34; rows=&#34;27&#34;&gt;&lt;/asciinema-player&gt;&lt;/p&gt;
 &lt;script src=&#34;https://k8s-book.vupti.me/libs/asciinema/asciinema-player.js&#34;&gt;&lt;/script&gt;
@@ -273,28 +273,28 @@ X-Real-Ip: 10.42.0.8
 
 
 &lt;h3 id=&#34;create-a-secret-for-basic-authentication&#34;&gt;Create a secret for basic-authentication&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# To get `htpasswd` tool&lt;/span&gt;
-sudo apt install apache2-utils -y
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Create an auth file with data for user &amp;#34;admin&amp;#34;&lt;/span&gt;
-htpasswd -c ./users admin &lt;span style=&#34;color:#75715e&#34;&gt;# you will be prompted for password and confirmation&lt;/span&gt;
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# If needed, add other user(s) to the file with **almost** the same command:&lt;/span&gt;
-htpasswd ./users otheradmin
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy the file as a new secret&lt;/span&gt;
-kubectl create secret generic admin-auth --from-file users --namespace&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;default
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;deploy-the-dashboard-ingressroute&#34;&gt;Deploy the dashboard IngressRoute&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy it&lt;/span&gt;
-kubectl apply -f ./dashboard.yaml
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Test it:&lt;/span&gt;
-curl -I -X GET http://lb.vlab.lcl/dashboard/ | head -n1
-&lt;span style=&#34;color:#75715e&#34;&gt;# Output: HTTP/1.1 401 Unauthorized&lt;/span&gt;
-
-curl -Is -X GET http://lb.vlab.lcl/dashboard/ -u &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;admin:*****&amp;#39;&lt;/span&gt; | head -n &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# Output: HTTP/1.1 200 OK&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, you probably can reach: &lt;a href=&#34;http://lb.vlab.lcl/dashboard/#&#34;&gt;http://lb.vlab.lcl/dashboard/#&lt;/a&gt; from your favorite web brower.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# To get `htpasswd` tool&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install apache2-utils -y
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Create an auth file with data for user &amp;#34;admin&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;htpasswd -c ./users admin &lt;span style=&#34;color:#75715e&#34;&gt;# you will be prompted for password and confirmation&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# If needed, add other user(s) to the file with **almost** the same command:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;htpasswd ./users otheradmin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy the file as a new secret&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl create secret generic admin-auth --from-file users --namespace&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;default
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;deploy-the-dashboard-ingressroute&#34;&gt;Deploy the dashboard IngressRoute&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy it&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl apply -f ./dashboard.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Test it:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -I -X GET http://lb.vlab.lcl/dashboard/ | head -n1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Output: HTTP/1.1 401 Unauthorized&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -Is -X GET http://lb.vlab.lcl/dashboard/ -u &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;admin:*****&amp;#39;&lt;/span&gt; | head -n &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Output: HTTP/1.1 200 OK&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, you probably can reach: &lt;a href=&#34;http://lb.vlab.lcl/dashboard/#&#34;&gt;http://lb.vlab.lcl/dashboard/#&lt;/a&gt; from your favorite web brower.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://k8s-book.vupti.me/images/customizations/traefik-dashboard.png&#34; alt=&#34;Traefik dashboard&#34;&gt;&lt;/p&gt;
 </description>
     </item>
@@ -308,24 +308,24 @@ curl -Is -X GET http://lb.vlab.lcl/dashboard/ -u &lt;span style=&#34;color:#e6db
       <category>Setup a powerful Kubernetes client</category>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/alexellis/arkade&#34;&gt;Arkade&lt;/a&gt; is a great open-source Kubernetes &lt;em&gt;&amp;ldquo;market-place&amp;rdquo;&lt;/em&gt; project initiated by &lt;a href=&#34;https://github.com/alexellis&#34;&gt;@alexellis&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;arkade&lt;/code&gt; CLI provides a simple method to download your favourite devops CLIs and install helm charts, with a single command.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Note: you can also run without `sudo` and move the binary yourself&lt;/span&gt;
-curl -sLS https://dl.get-arkade.dev | sudo sh
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Test&lt;/span&gt;
-arkade --help
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;install-a-cli-tool&#34;&gt;Install a CLI tool&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# List available CLI tools&lt;/span&gt;
-arkade get
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Example:&lt;/span&gt;
-arkade get yq
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;install-a-k8s-app&#34;&gt;Install a K8S app&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# List available apps&lt;/span&gt;
-arkade install / --help
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Example: kubernetes-dashboard&lt;/span&gt;
-arkade install kubernetes-dashboard
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Note: you can also run without `sudo` and move the binary yourself&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -sLS https://dl.get-arkade.dev | sudo sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;arkade --help
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;install-a-cli-tool&#34;&gt;Install a CLI tool&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# List available CLI tools&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;arkade get
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Example:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;arkade get yq
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;install-a-k8s-app&#34;&gt;Install a K8S app&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# List available apps&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;arkade install / --help
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Example: kubernetes-dashboard&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;arkade install kubernetes-dashboard
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -339,36 +339,36 @@ arkade install kubernetes-dashboard
 the k3s cluster.&lt;/p&gt;
 &lt;h3 id=&#34;install-kubectl-cli-tool&#34;&gt;Install &lt;code&gt;kubectl&lt;/code&gt; CLI tool&lt;/h3&gt;
 &lt;p&gt;In order to test and manage the k3s cluster, it could be useful to have a &lt;code&gt;kubectl&lt;/code&gt; cli install in the master nodes:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -LO https://storage.googleapis.com/kubernetes-release/release/&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Test it&lt;/span&gt;
-kubectl version --client
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;auto-complete&#34;&gt;Auto-complete&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -LO https://storage.googleapis.com/kubernetes-release/release/&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;/bin/linux/amd64/kubectl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;chmod +x ./kubectl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo mv ./kubectl /usr/local/bin/kubectl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Test it&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl version --client
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;auto-complete&#34;&gt;Auto-complete&lt;/h4&gt;
 &lt;p&gt;Use the following commands to add auto-completion to your bash shell for the &lt;code&gt;kubectl&lt;/code&gt; command (or it&amp;rsquo;s &lt;code&gt;k&lt;/code&gt; alias)&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;source &amp;lt;(kubectl completion bash)&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
-echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;alias k=kubectl&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
-echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;complete -F __start_kubectl k&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;deploy&#34;&gt;Deploy&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# enable read for other users&lt;/span&gt;
-export K3S_KUBECONFIG_MODE&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0644&lt;/span&gt;
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy a new k3s master node with embeded etcd&lt;/span&gt;
-curl -sfL https://get.k3s.io | sh -s - --disable&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;traefik --cluster-init
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;configuration-file&#34;&gt;Configuration file&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;export KUBECONFIG&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/etc/rancher/k3s/k3s.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can test the connection to the cluster by listing the deployed &lt;em&gt;pods&lt;/em&gt; and the list of &lt;em&gt;nodes&lt;/em&gt; in the cluster (only one will be listed by now):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get pods --all-namespaces
-kubectl get nodes
-
-&lt;span style=&#34;color:#75715e&#34;&gt;#Output:&lt;/span&gt;
-NAME          STATUS   ROLES                       AGE     VERSION
-k3s-mstr-01   Ready    control-plane,etcd,master   2m32s   v1.20.2+k3s1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;retrieve-the-cluster-token&#34;&gt;Retrieve the cluster token&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;source &amp;lt;(kubectl completion bash)&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;alias k=kubectl&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;complete -F __start_kubectl k&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt;~/.bashrc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;deploy&#34;&gt;Deploy&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# enable read for other users&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export K3S_KUBECONFIG_MODE&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0644&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Deploy a new k3s master node with embeded etcd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -sfL https://get.k3s.io | sh -s - --disable&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;traefik --cluster-init
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;configuration-file&#34;&gt;Configuration file&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export KUBECONFIG&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/etc/rancher/k3s/k3s.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can test the connection to the cluster by listing the deployed &lt;em&gt;pods&lt;/em&gt; and the list of &lt;em&gt;nodes&lt;/em&gt; in the cluster (only one will be listed by now):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl get pods --all-namespaces
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl get nodes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Output:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NAME          STATUS   ROLES                       AGE     VERSION
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;k3s-mstr-01   Ready    control-plane,etcd,master   2m32s   v1.20.2+k3s1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;retrieve-the-cluster-token&#34;&gt;Retrieve the cluster token&lt;/h3&gt;
 &lt;p&gt;This token will be used to join the other nodes to the current k3s deployment:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo cat /var/lib/rancher/k3s/server/node-token
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo cat /var/lib/rancher/k3s/server/node-token
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -381,24 +381,24 @@ k3s-mstr-01   Ready    control-plane,etcd,master   2m32s   v1.20.2+k3s1
       <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/prometheus-operator/kube-prometheus&#34;&gt;kube-prometheus&lt;/a&gt; project collects Kubernetes manifests,
 Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end
 Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone https://github.com/prometheus-operator/kube-prometheus.git /tmp/kube-prometheus
-cd /tmp/kube-prometheus
-&lt;span style=&#34;color:#75715e&#34;&gt;# create the namespace and CRDs&lt;/span&gt;
-kubectl create -f manifests/setup
-&lt;span style=&#34;color:#75715e&#34;&gt;# wait for them to be availble&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;until&lt;/span&gt; kubectl get servicemonitors --all-namespaces ; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; date; sleep 1; echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# create the remaining resources&lt;/span&gt;
-kubectl create -f manifests/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;port-forward-method-to-access-dashboard&#34;&gt;Port-forward method to access dashboard&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Prometheus on https://127.0.0.1:9090&lt;/span&gt;
-kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/prometheus-k8s &lt;span style=&#34;color:#ae81ff&#34;&gt;9090&lt;/span&gt;
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Grafana with user:password admin:admin on https://127.0.0.1:3000&lt;/span&gt;
-kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/grafana &lt;span style=&#34;color:#ae81ff&#34;&gt;3000&lt;/span&gt;
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Alert Manager on http://127.0.0.1:9093&lt;/span&gt;
-kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/alertmanager-main &lt;span style=&#34;color:#ae81ff&#34;&gt;9093&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ingress-access-to-dashboards&#34;&gt;Ingress access to dashboards&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/prometheus-operator/kube-prometheus.git /tmp/kube-prometheus
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd /tmp/kube-prometheus
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# create the namespace and CRDs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl create -f manifests/setup
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# wait for them to be availble&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;until&lt;/span&gt; kubectl get servicemonitors --all-namespaces ; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; date; sleep 1; echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# create the remaining resources&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl create -f manifests/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;port-forward-method-to-access-dashboard&#34;&gt;Port-forward method to access dashboard&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Prometheus on https://127.0.0.1:9090&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/prometheus-k8s &lt;span style=&#34;color:#ae81ff&#34;&gt;9090&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Grafana with user:password admin:admin on https://127.0.0.1:3000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/grafana &lt;span style=&#34;color:#ae81ff&#34;&gt;3000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Alert Manager on http://127.0.0.1:9093&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/alertmanager-main &lt;span style=&#34;color:#ae81ff&#34;&gt;9093&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ingress-access-to-dashboards&#34;&gt;Ingress access to dashboards&lt;/h2&gt;
 &lt;p&gt;The following section will explain how you can expose the 3 previously created dashboards through a simple &lt;code&gt;ingress&lt;/code&gt; configuration with a basic authentication.&lt;/p&gt;
 &lt;h3 id=&#34;dns-records&#34;&gt;DNS records&lt;/h3&gt;
 &lt;p&gt;Create DNS records for 3 new hosts with a &lt;code&gt;CNAME&lt;/code&gt; type and target on the endpoint of your Kubernetes cluster. For example:&lt;/p&gt;
@@ -408,18 +408,18 @@ kubectl --namespace monitoring port-forward --address 0.0.0.0 svc/alertmanager-m
 &lt;li&gt;&lt;code&gt;grafana.vlab.lcl&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;authentication&#34;&gt;Authentication&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# To get `htpasswd` tool&lt;/span&gt;
-sudo apt install apache2-utils -y
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Create an auth file with data for user &amp;#34;admin&amp;#34;&lt;/span&gt;
-htpasswd -c ./users admin &lt;span style=&#34;color:#75715e&#34;&gt;# you will be prompted for password and confirmation&lt;/span&gt;
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# If needed, add other user(s) to the file with **almost** the same command:&lt;/span&gt;
-htpasswd ./users otheradmin
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Create a secret named `admin-auth`&lt;/span&gt;
-kubectl create secret generic admin-auth --from-file users --namespace&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;monitoring
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;deploy-an-ingress-based-on-traefik&#34;&gt;Deploy an ingress based on Traefik&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# To get `htpasswd` tool&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install apache2-utils -y
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Create an auth file with data for user &amp;#34;admin&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;htpasswd -c ./users admin &lt;span style=&#34;color:#75715e&#34;&gt;# you will be prompted for password and confirmation&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# If needed, add other user(s) to the file with **almost** the same command:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;htpasswd ./users otheradmin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Create a secret named `admin-auth`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl create secret generic admin-auth --from-file users --namespace&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;monitoring
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;deploy-an-ingress-based-on-traefik&#34;&gt;Deploy an ingress based on Traefik&lt;/h3&gt;
 
 &lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;If needed, please apply content from the &lt;em&gt;Traefik&lt;/em&gt; section to prepare Ingress controller.&lt;/p&gt;
 &lt;/div&gt;
@@ -453,20 +453,20 @@ kubectl create secret generic admin-auth --from-file users --namespace&lt;span s
 &lt;/section&gt;
 
 
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl apply -f kube-prometheus-ingress-traefik.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;test-access-from-ingress&#34;&gt;Test access from ingress&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl apply -f kube-prometheus-ingress-traefik.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;test-access-from-ingress&#34;&gt;Test access from ingress&lt;/h3&gt;
 &lt;p&gt;Following commands provide a quick way to test the behavior of deployed ingress:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Show ingress status&lt;/span&gt;
-kubectl describe ingress grafana-gateway-ingress --namespace&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;monitoring
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Test your access without authentication&lt;/span&gt;
-curl http://grafana.vlab.lcl -Is | head -n &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# Outpout: HTTP/1.1 401 Unauthorized&lt;/span&gt;
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Test your access with authentication&lt;/span&gt;
-curl http://grafana.vlab.lcl -u &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;admin:*****&amp;#39;&lt;/span&gt; -Is | head -n &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# Outpout: HTTP/1.1 200 OK&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Show ingress status&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl describe ingress grafana-gateway-ingress --namespace&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;monitoring
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Test your access without authentication&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl http://grafana.vlab.lcl -Is | head -n &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Outpout: HTTP/1.1 401 Unauthorized&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Test your access with authentication&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl http://grafana.vlab.lcl -u &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;admin:*****&amp;#39;&lt;/span&gt; -Is | head -n &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Outpout: HTTP/1.1 200 OK&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -480,14 +480,14 @@ curl http://grafana.vlab.lcl -u &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#
 k3s deployment.&lt;/p&gt;
 &lt;p&gt;First of all, you will need to get the cluster token, as explained in the previous section and the master node &lt;em&gt;fqdn&lt;/em&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;deploy-k3s-to-join-an-existing-cluster&#34;&gt;Deploy k3s to join an existing cluster&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -sfL https://get.k3s.io | &lt;span style=&#34;color:#ae81ff&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    K3S_URL&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://k3s-mstr-01.vlab.lcl:6443&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    K3S_TOKEN&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;K10d1...fe537::server:26a92...e34f9&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    sh -
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;check&#34;&gt;Check&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -sfL https://get.k3s.io | &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    K3S_URL&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://k3s-mstr-01.vlab.lcl:6443&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    K3S_TOKEN&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;K10d1...fe537::server:26a92...e34f9&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    sh -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;check&#34;&gt;Check&lt;/h2&gt;
 &lt;p&gt;From the master node or any client device with access to the Kubernetes cluster, ensure that the node is now added to the cluster:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get nodes
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl get nodes
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -505,22 +505,22 @@ k3s deployment.&lt;/p&gt;
 
 &lt;p&gt;First of all, you will need to get the cluster token, as explained in the previous section and the master node &lt;em&gt;fqdn&lt;/em&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;deploy-k3s-to-join-an-existing-cluster&#34;&gt;Deploy k3s to join an existing cluster&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;
-curl -sfL https://get.k3s.io | &lt;span style=&#34;color:#ae81ff&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    K3S_URL&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://k3s-mstr-01.vlab.lcl:6443&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    K3S_TOKEN&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;K10d1...fe537::server:26a92...e34f9&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    INSTALL_K3S_EXEC&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;server&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    sh - --no-deploy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;traefik
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;check&#34;&gt;Check&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -sfL https://get.k3s.io | &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    K3S_URL&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://k3s-mstr-01.vlab.lcl:6443&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    K3S_TOKEN&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;K10d1...fe537::server:26a92...e34f9&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    INSTALL_K3S_EXEC&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;server&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    sh - --no-deploy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;traefik
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;check&#34;&gt;Check&lt;/h2&gt;
 &lt;p&gt;From the master node or any client device with access to the Kubernetes cluster, ensure that the node is now added to the cluster:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get nodes
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Output:&lt;/span&gt;
-NAME          STATUS   ROLES                       AGE     VERSION
-k3s-mstr-01   Ready    control-plane,etcd,master   4m25s   v1.20.2+k3s1
-k3s-mstr-02   Ready    control-plane,etcd,master   3m33s   v1.20.2+k3s1
-k3s-mstr-03   Ready    control-plane,etcd,master   2m27s   v1.20.2+k3s1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl get nodes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Output:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NAME          STATUS   ROLES                       AGE     VERSION
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;k3s-mstr-01   Ready    control-plane,etcd,master   4m25s   v1.20.2+k3s1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;k3s-mstr-02   Ready    control-plane,etcd,master   3m33s   v1.20.2+k3s1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;k3s-mstr-03   Ready    control-plane,etcd,master   2m27s   v1.20.2+k3s1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -535,16 +535,16 @@ of this project is to make it easier to navigate, observe and manage your
 deployed applications in the wild.&lt;/p&gt;
 &lt;p&gt;K9s continually watches Kubernetes for changes and offers subsequent commands to interact with your observed resources.&lt;/p&gt;
 &lt;h2 id=&#34;cli-installation&#34;&gt;CLI installation&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -L https://github.com/derailed/k9s/releases/download/v0.24.2/k9s_Linux_x86_64.tar.gz | tar -xz
-chmod +x k9s &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo mv ./k9s /usr/local/bin/k9s
-k9s version
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;skin&#34;&gt;Skin&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -L https://github.com/derailed/k9s/releases/download/v0.24.2/k9s_Linux_x86_64.tar.gz | tar -xz
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;chmod +x k9s &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo mv ./k9s /usr/local/bin/k9s
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;k9s version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;skin&#34;&gt;Skin&lt;/h3&gt;
 &lt;p&gt;Apply a pre-defined skin to the output:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;mkdir -p ~/.k9s
-curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/one_dark.yml &amp;gt; ~/.k9s/skin.yml
-&lt;span style=&#34;color:#75715e&#34;&gt;# or&lt;/span&gt;
-curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/solarized_dark.yml &amp;gt; ~/.k9s/skin.yml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://k8s-book.vupti.me/images/powerfull-client/k9s.png&#34; alt=&#34;Example of Octant UI&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir -p ~/.k9s
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/one_dark.yml &amp;gt; ~/.k9s/skin.yml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# or&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/solarized_dark.yml &amp;gt; ~/.k9s/skin.yml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://k8s-book.vupti.me/images/powerfull-client/k9s.png&#34; alt=&#34;Example of Octant UI&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -563,16 +563,16 @@ curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/solarized_da
 &lt;li&gt;&lt;code&gt;kubectx&lt;/code&gt;is a utility to manage and switch between kubectl &lt;strong&gt;contexts&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;kubens&lt;/code&gt;is a utility to switch between Kubernetes &lt;strong&gt;namespaces&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
-sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
-sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then you can easly switch both &lt;code&gt;context&lt;/code&gt; and &lt;code&gt;namespace&lt;/code&gt; by:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectx &lt;span style=&#34;color:#75715e&#34;&gt;# list contexts&lt;/span&gt;
-kubectx &amp;lt;name&amp;gt; &lt;span style=&#34;color:#75715e&#34;&gt;# switch context&lt;/span&gt;
-
-kubens &lt;span style=&#34;color:#75715e&#34;&gt;# list namespace&lt;/span&gt;
-kubens &amp;lt;name&amp;gt; &lt;span style=&#34;color:#75715e&#34;&gt;# switch namespace&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then you can easly switch both &lt;code&gt;context&lt;/code&gt; and &lt;code&gt;namespace&lt;/code&gt; by:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectx &lt;span style=&#34;color:#75715e&#34;&gt;# list contexts&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectx &amp;lt;name&amp;gt; &lt;span style=&#34;color:#75715e&#34;&gt;# switch context&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubens &lt;span style=&#34;color:#75715e&#34;&gt;# list namespace&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubens &amp;lt;name&amp;gt; &lt;span style=&#34;color:#75715e&#34;&gt;# switch namespace&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -589,27 +589,27 @@ kubens &amp;lt;name&amp;gt; &lt;span style=&#34;color:#75715e&#34;&gt;# switch n
 &lt;li&gt;Organize, simplify, unify&lt;/li&gt;
 &lt;li&gt;Manage sprawling config&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Update or install golang support&lt;/span&gt;
-sudo apt install golang
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Expand PATH with `go get` binary folder&lt;/span&gt;
-echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;PATH=&amp;#34;~/go/bin/:&amp;#34;$PATH&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
-. ~/.bashrc
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Install with go&lt;/span&gt;
-go get github.com/google/go-jsonnet/cmd/jsonnet
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Test it&lt;/span&gt;
-jsonnet --version
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;gojsontoyaml&#34;&gt;gojsontoyaml&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Update or install golang support&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install golang
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Expand PATH with `go get` binary folder&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;PATH=&amp;#34;~/go/bin/:&amp;#34;$PATH&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;. ~/.bashrc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Install with go&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get github.com/google/go-jsonnet/cmd/jsonnet
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Test it&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;jsonnet --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;gojsontoyaml&#34;&gt;gojsontoyaml&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;jsonnet&lt;/code&gt; provides &lt;em&gt;json&lt;/em&gt; files but it is more easy to use &lt;em&gt;yaml&lt;/em&gt; ones.
 &lt;code&gt;gojsontoyaml&lt;/code&gt; provide a simple way to convert the &lt;code&gt;jsonnet&lt;/code&gt; result files to &lt;em&gt;yaml&lt;/em&gt; ones.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Install with go&lt;/span&gt;
-go get github.com/brancz/gojsontoyaml
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Test if&lt;/span&gt;
-echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{&amp;#39;installed&amp;#39;: true}&amp;#34;&lt;/span&gt; | gojsontoyaml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Install with go&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get github.com/brancz/gojsontoyaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Test if&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{&amp;#39;installed&amp;#39;: true}&amp;#34;&lt;/span&gt; | gojsontoyaml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -626,15 +626,15 @@ Kubernetes cluster.&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -L https://github.com/vmware-tanzu/octant/releases/download/v0.16.3/octant_0.16.3_Linux-64bit.deb &amp;gt; /tmp/octant.deb
-dpkg -i /tmp/octant.deb
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# To run and access octant from http://localhost:7777&lt;/span&gt;
-octant
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# To remotly run and access octant:&lt;/span&gt;
-OCTANT_LISTENER_ADDR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;X.X.X.X:7777 OCTANT_ACCEPTED_HOSTS&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Y.Y.Y.Y octant --disable-open-browser
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://k8s-book.vupti.me/images/powerfull-client/octant.png&#34; alt=&#34;Example of Octant UI&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -L https://github.com/vmware-tanzu/octant/releases/download/v0.16.3/octant_0.16.3_Linux-64bit.deb &amp;gt; /tmp/octant.deb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dpkg -i /tmp/octant.deb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# To run and access octant from http://localhost:7777&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;octant
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# To remotly run and access octant:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;OCTANT_LISTENER_ADDR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;X.X.X.X:7777 OCTANT_ACCEPTED_HOSTS&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Y.Y.Y.Y octant --disable-open-browser
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://k8s-book.vupti.me/images/powerfull-client/octant.png&#34; alt=&#34;Example of Octant UI&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -649,21 +649,21 @@ OCTANT_LISTENER_ADDR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;X.X.
 &lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;If you need to use Argo from this client machine.&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -sL https://github.com/argoproj/argo/releases/download/latest/argo-linux-amd64.gz | gunzip &amp;gt; argo
-chmod +x argo &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo mv ./argo /usr/local/bin/argo
-argo version
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Argo namespace&lt;/span&gt;
-export ARGO_NAMESPACE&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;argo
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Start port forwarding&lt;/span&gt;
-kubectl -n $ARGO_NAMESPACE port-forward deployment/argo-server 2746:2746 &amp;amp;
-&lt;span style=&#34;color:#75715e&#34;&gt;# keep it running in bg; user the following command to get the job number:&lt;/span&gt;
-jobs
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# if needed: get it back in foreground:&lt;/span&gt;
-fg &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -sL https://github.com/argoproj/argo/releases/download/latest/argo-linux-amd64.gz | gunzip &amp;gt; argo
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;chmod +x argo &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo mv ./argo /usr/local/bin/argo
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;argo version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Argo namespace&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export ARGO_NAMESPACE&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;argo
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Start port forwarding&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl -n $ARGO_NAMESPACE port-forward deployment/argo-server 2746:2746 &amp;amp;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# keep it running in bg; user the following command to get the job number:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;jobs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# if needed: get it back in foreground:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fg &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -678,21 +678,21 @@ fg &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
 &lt;/div&gt;
 
 &lt;p&gt;One-liner:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# openfaas-cli&lt;/span&gt;
-curl -sSL https://cli.openfaas.com | sudo sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Set namespace&lt;/span&gt;
-export OS_NS&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;openfaas&amp;#34;&lt;/span&gt;
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Get password&lt;/span&gt;
-export OF_PASS&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;echo &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;kubectl -n $OS_NS get secret basic-auth -o jsonpath&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{.data.basic-auth-password}&amp;#34;&lt;/span&gt; | base64 --decode&lt;span style=&#34;color:#66d9ef&#34;&gt;))&lt;/span&gt;
-echo $OF_PASS
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Get URI&lt;/span&gt;
-echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;export OPENFAAS_URL=http://&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;kubectl -n $OS_NS describe pods &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;kubectl -n $OS_NS get pods | grep &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;gateway-&amp;#34;&lt;/span&gt; | awk &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{print $1}&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; | grep &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;^Node:&amp;#34;&lt;/span&gt; | awk -F &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{print $2}&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:31112&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;login&#34;&gt;Login&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;echo $OF_PASS | faas-cli login --password-stdin
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# openfaas-cli&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -sSL https://cli.openfaas.com | sudo sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Set namespace&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export OS_NS&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;openfaas&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Get password&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export OF_PASS&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;echo &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;kubectl -n $OS_NS get secret basic-auth -o jsonpath&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{.data.basic-auth-password}&amp;#34;&lt;/span&gt; | base64 --decode&lt;span style=&#34;color:#66d9ef&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo $OF_PASS
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Get URI&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;export OPENFAAS_URL=http://&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;kubectl -n $OS_NS describe pods &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;kubectl -n $OS_NS get pods | grep &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;gateway-&amp;#34;&lt;/span&gt; | awk &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{print $1}&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; | grep &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;^Node:&amp;#34;&lt;/span&gt; | awk -F &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{print $2}&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:31112&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;login&#34;&gt;Login&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo $OF_PASS | faas-cli login --password-stdin
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>

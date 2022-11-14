@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.88.1" />
+    <meta name="generator" content="Hugo 0.105.0">
     <meta name="description" content="A personal note-book to keep some relevant informations about Kubernetes and k8s related products, for my personal and/or professional use.">
 <meta name="author" content="Ludovic Rivallain">
 
@@ -12,19 +12,19 @@
     <title>k9s – My Kubernetes Book</title>
 
     
-    <link href="/css/nucleus.css?1631696724" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1631696724" rel="stylesheet">
-    <link href="/css/hybrid.css?1631696724" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1631696724" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1631696724" rel="stylesheet">
-    <link href="/css/auto-complete.css?1631696724" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1631696724" rel="stylesheet">
-    <link href="/css/theme.css?1631696724" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1631696724" rel="stylesheet">
+    <link href="/css/nucleus.css?1668420644" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1668420644" rel="stylesheet">
+    <link href="/css/hybrid.css?1668420644" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1668420644" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1668420644" rel="stylesheet">
+    <link href="/css/auto-complete.css?1668420644" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1668420644" rel="stylesheet">
+    <link href="/css/theme.css?1668420644" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1668420644" rel="stylesheet">
     
-    <link href="/css/style.css?1631696724" rel="stylesheet">
+    <link href="/css/style.css?1668420644" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1631696724"></script>
+    <script src="/js/jquery-3.3.1.min.js?1668420644"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -70,14 +70,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1631696724"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1631696724"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1668420644"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1668420644"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/k8s-book.vupti.me";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1631696724"></script>
+<script type="text/javascript" src="/js/search.js?1668420644"></script>
 
     
   </div>
@@ -628,7 +628,7 @@
                   
                 
                 
-                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <div id="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList">
                     <span id="sidebar-toggle-span">
                         <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
                           <i class="fas fa-bars"></i>
@@ -700,16 +700,16 @@ of this project is to make it easier to navigate, observe and manage your
 deployed applications in the wild.</p>
 <p>K9s continually watches Kubernetes for changes and offers subsequent commands to interact with your observed resources.</p>
 <h2 id="cli-installation">CLI installation</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -L https://github.com/derailed/k9s/releases/download/v0.24.2/k9s_Linux_x86_64.tar.gz | tar -xz
-chmod +x k9s <span style="color:#f92672">&amp;&amp;</span> sudo mv ./k9s /usr/local/bin/k9s
-k9s version
-</code></pre></div><h3 id="skin">Skin</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -L https://github.com/derailed/k9s/releases/download/v0.24.2/k9s_Linux_x86_64.tar.gz | tar -xz
+</span></span><span style="display:flex;"><span>chmod +x k9s <span style="color:#f92672">&amp;&amp;</span> sudo mv ./k9s /usr/local/bin/k9s
+</span></span><span style="display:flex;"><span>k9s version
+</span></span></code></pre></div><h3 id="skin">Skin</h3>
 <p>Apply a pre-defined skin to the output:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p ~/.k9s
-curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/one_dark.yml &gt; ~/.k9s/skin.yml
-<span style="color:#75715e"># or</span>
-curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/solarized_dark.yml &gt; ~/.k9s/skin.yml
-</code></pre></div><p><img src="/images/powerfull-client/k9s.png" alt="Example of Octant UI"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p ~/.k9s
+</span></span><span style="display:flex;"><span>curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/one_dark.yml &gt; ~/.k9s/skin.yml
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># or</span>
+</span></span><span style="display:flex;"><span>curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/solarized_dark.yml &gt; ~/.k9s/skin.yml
+</span></span></code></pre></div><p><img src="/images/powerfull-client/k9s.png" alt="Example of Octant UI"></p>
 
 
 <footer class="footline">
@@ -1093,16 +1093,16 @@ curl -L https://raw.githubusercontent.com/derailed/k9s/master/skins/solarized_da
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1631696724"></script>
-    <script src="/js/perfect-scrollbar.min.js?1631696724"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1631696724"></script>
-    <script src="/js/jquery.sticky.js?1631696724"></script>
-    <script src="/js/featherlight.min.js?1631696724"></script>
-    <script src="/js/highlight.pack.js?1631696724"></script>
+    <script src="/js/clipboard.min.js?1668420644"></script>
+    <script src="/js/perfect-scrollbar.min.js?1668420644"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1668420644"></script>
+    <script src="/js/jquery.sticky.js?1668420644"></script>
+    <script src="/js/featherlight.min.js?1668420644"></script>
+    <script src="/js/highlight.pack.js?1668420644"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1631696724"></script>
-    <script src="/js/learn.js?1631696724"></script>
-    <script src="/js/hugo-learn.js?1631696724"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1668420644"></script>
+    <script src="/js/learn.js?1668420644"></script>
+    <script src="/js/hugo-learn.js?1668420644"></script>
     
     
 

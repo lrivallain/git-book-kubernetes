@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.88.1" />
+    <meta name="generator" content="Hugo 0.105.0">
     <meta name="description" content="A personal note-book to keep some relevant informations about Kubernetes and k8s related products, for my personal and/or professional use.">
 <meta name="author" content="Ludovic Rivallain">
 
@@ -12,19 +12,19 @@
     <title>kubens &amp; kubectx – My Kubernetes Book</title>
 
     
-    <link href="/css/nucleus.css?1631696724" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1631696724" rel="stylesheet">
-    <link href="/css/hybrid.css?1631696724" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1631696724" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1631696724" rel="stylesheet">
-    <link href="/css/auto-complete.css?1631696724" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1631696724" rel="stylesheet">
-    <link href="/css/theme.css?1631696724" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1631696724" rel="stylesheet">
+    <link href="/css/nucleus.css?1668420644" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1668420644" rel="stylesheet">
+    <link href="/css/hybrid.css?1668420644" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1668420644" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1668420644" rel="stylesheet">
+    <link href="/css/auto-complete.css?1668420644" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1668420644" rel="stylesheet">
+    <link href="/css/theme.css?1668420644" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1668420644" rel="stylesheet">
     
-    <link href="/css/style.css?1631696724" rel="stylesheet">
+    <link href="/css/style.css?1668420644" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1631696724"></script>
+    <script src="/js/jquery-3.3.1.min.js?1668420644"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -70,14 +70,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1631696724"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1631696724"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1668420644"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1668420644"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/k8s-book.vupti.me";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1631696724"></script>
+<script type="text/javascript" src="/js/search.js?1668420644"></script>
 
     
   </div>
@@ -628,7 +628,7 @@
                   
                 
                 
-                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <div id="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList">
                     <span id="sidebar-toggle-span">
                         <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
                           <i class="fas fa-bars"></i>
@@ -695,16 +695,16 @@
 <li><code>kubectx</code>is a utility to manage and switch between kubectl <strong>contexts</strong>.</li>
 <li><code>kubens</code>is a utility to switch between Kubernetes <strong>namespaces</strong>.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
-sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
-sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
-</code></pre></div><p>Then you can easly switch both <code>context</code> and <code>namespace</code> by:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectx <span style="color:#75715e"># list contexts</span>
-kubectx &lt;name&gt; <span style="color:#75715e"># switch context</span>
-
-kubens <span style="color:#75715e"># list namespace</span>
-kubens &lt;name&gt; <span style="color:#75715e"># switch namespace</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
+</span></span><span style="display:flex;"><span>sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
+</span></span><span style="display:flex;"><span>sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
+</span></span></code></pre></div><p>Then you can easly switch both <code>context</code> and <code>namespace</code> by:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectx <span style="color:#75715e"># list contexts</span>
+</span></span><span style="display:flex;"><span>kubectx &lt;name&gt; <span style="color:#75715e"># switch context</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>kubens <span style="color:#75715e"># list namespace</span>
+</span></span><span style="display:flex;"><span>kubens &lt;name&gt; <span style="color:#75715e"># switch namespace</span>
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -1087,16 +1087,16 @@ kubens &lt;name&gt; <span style="color:#75715e"># switch namespace</span>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1631696724"></script>
-    <script src="/js/perfect-scrollbar.min.js?1631696724"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1631696724"></script>
-    <script src="/js/jquery.sticky.js?1631696724"></script>
-    <script src="/js/featherlight.min.js?1631696724"></script>
-    <script src="/js/highlight.pack.js?1631696724"></script>
+    <script src="/js/clipboard.min.js?1668420644"></script>
+    <script src="/js/perfect-scrollbar.min.js?1668420644"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1668420644"></script>
+    <script src="/js/jquery.sticky.js?1668420644"></script>
+    <script src="/js/featherlight.min.js?1668420644"></script>
+    <script src="/js/highlight.pack.js?1668420644"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1631696724"></script>
-    <script src="/js/learn.js?1631696724"></script>
-    <script src="/js/hugo-learn.js?1631696724"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1668420644"></script>
+    <script src="/js/learn.js?1668420644"></script>
+    <script src="/js/hugo-learn.js?1668420644"></script>
     
     
 

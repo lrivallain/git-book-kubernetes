@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.88.1" />
+    <meta name="generator" content="Hugo 0.105.0">
     <meta name="description" content="A personal note-book to keep some relevant informations about Kubernetes and k8s related products, for my personal and/or professional use.">
 <meta name="author" content="Ludovic Rivallain">
 
@@ -12,19 +12,19 @@
     <title>Initial master node – My Kubernetes Book</title>
 
     
-    <link href="/css/nucleus.css?1631696724" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1631696724" rel="stylesheet">
-    <link href="/css/hybrid.css?1631696724" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1631696724" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1631696724" rel="stylesheet">
-    <link href="/css/auto-complete.css?1631696724" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1631696724" rel="stylesheet">
-    <link href="/css/theme.css?1631696724" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1631696724" rel="stylesheet">
+    <link href="/css/nucleus.css?1668420644" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1668420644" rel="stylesheet">
+    <link href="/css/hybrid.css?1668420644" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1668420644" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1668420644" rel="stylesheet">
+    <link href="/css/auto-complete.css?1668420644" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1668420644" rel="stylesheet">
+    <link href="/css/theme.css?1668420644" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1668420644" rel="stylesheet">
     
-    <link href="/css/style.css?1631696724" rel="stylesheet">
+    <link href="/css/style.css?1668420644" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1631696724"></script>
+    <script src="/js/jquery-3.3.1.min.js?1668420644"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -70,14 +70,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1631696724"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1631696724"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1668420644"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1668420644"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/k8s-book.vupti.me";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1631696724"></script>
+<script type="text/javascript" src="/js/search.js?1668420644"></script>
 
     
   </div>
@@ -628,7 +628,7 @@
                   
                 
                 
-                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <div id="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList">
                     <span id="sidebar-toggle-span">
                         <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
                           <i class="fas fa-bars"></i>
@@ -706,36 +706,36 @@
 the k3s cluster.</p>
 <h3 id="install-kubectl-cli-tool">Install <code>kubectl</code> CLI tool</h3>
 <p>In order to test and manage the k3s cluster, it could be useful to have a <code>kubectl</code> cli install in the master nodes:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -LO https://storage.googleapis.com/kubernetes-release/release/<span style="color:#66d9ef">$(</span>curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt<span style="color:#66d9ef">)</span>/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
-
-<span style="color:#75715e"># Test it</span>
-kubectl version --client
-</code></pre></div><h4 id="auto-complete">Auto-complete</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -LO https://storage.googleapis.com/kubernetes-release/release/<span style="color:#66d9ef">$(</span>curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt<span style="color:#66d9ef">)</span>/bin/linux/amd64/kubectl
+</span></span><span style="display:flex;"><span>chmod +x ./kubectl
+</span></span><span style="display:flex;"><span>sudo mv ./kubectl /usr/local/bin/kubectl
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Test it</span>
+</span></span><span style="display:flex;"><span>kubectl version --client
+</span></span></code></pre></div><h4 id="auto-complete">Auto-complete</h4>
 <p>Use the following commands to add auto-completion to your bash shell for the <code>kubectl</code> command (or it&rsquo;s <code>k</code> alias)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#39;source &lt;(kubectl completion bash)&#39;</span> &gt;&gt;~/.bashrc
-echo <span style="color:#e6db74">&#39;alias k=kubectl&#39;</span> &gt;&gt;~/.bashrc
-echo <span style="color:#e6db74">&#39;complete -F __start_kubectl k&#39;</span> &gt;&gt;~/.bashrc
-</code></pre></div><h3 id="deploy">Deploy</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># enable read for other users</span>
-export K3S_KUBECONFIG_MODE<span style="color:#f92672">=</span><span style="color:#ae81ff">0644</span>
-
-<span style="color:#75715e"># Deploy a new k3s master node with embeded etcd</span>
-curl -sfL https://get.k3s.io | sh -s - --disable<span style="color:#f92672">=</span>traefik --cluster-init
-</code></pre></div><h3 id="configuration-file">Configuration file</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export KUBECONFIG<span style="color:#f92672">=</span>/etc/rancher/k3s/k3s.yaml
-</code></pre></div><p>You can test the connection to the cluster by listing the deployed <em>pods</em> and the list of <em>nodes</em> in the cluster (only one will be listed by now):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get pods --all-namespaces
-kubectl get nodes
-
-<span style="color:#75715e">#Output:</span>
-NAME          STATUS   ROLES                       AGE     VERSION
-k3s-mstr-01   Ready    control-plane,etcd,master   2m32s   v1.20.2+k3s1
-</code></pre></div><h3 id="retrieve-the-cluster-token">Retrieve the cluster token</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;source &lt;(kubectl completion bash)&#39;</span> &gt;&gt;~/.bashrc
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;alias k=kubectl&#39;</span> &gt;&gt;~/.bashrc
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;complete -F __start_kubectl k&#39;</span> &gt;&gt;~/.bashrc
+</span></span></code></pre></div><h3 id="deploy">Deploy</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># enable read for other users</span>
+</span></span><span style="display:flex;"><span>export K3S_KUBECONFIG_MODE<span style="color:#f92672">=</span><span style="color:#ae81ff">0644</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Deploy a new k3s master node with embeded etcd</span>
+</span></span><span style="display:flex;"><span>curl -sfL https://get.k3s.io | sh -s - --disable<span style="color:#f92672">=</span>traefik --cluster-init
+</span></span></code></pre></div><h3 id="configuration-file">Configuration file</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export KUBECONFIG<span style="color:#f92672">=</span>/etc/rancher/k3s/k3s.yaml
+</span></span></code></pre></div><p>You can test the connection to the cluster by listing the deployed <em>pods</em> and the list of <em>nodes</em> in the cluster (only one will be listed by now):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl get pods --all-namespaces
+</span></span><span style="display:flex;"><span>kubectl get nodes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Output:</span>
+</span></span><span style="display:flex;"><span>NAME          STATUS   ROLES                       AGE     VERSION
+</span></span><span style="display:flex;"><span>k3s-mstr-01   Ready    control-plane,etcd,master   2m32s   v1.20.2+k3s1
+</span></span></code></pre></div><h3 id="retrieve-the-cluster-token">Retrieve the cluster token</h3>
 <p>This token will be used to join the other nodes to the current k3s deployment:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo cat /var/lib/rancher/k3s/server/node-token
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo cat /var/lib/rancher/k3s/server/node-token
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -1115,16 +1115,16 @@ k3s-mstr-01   Ready    control-plane,etcd,master   2m32s   v1.20.2+k3s1
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1631696724"></script>
-    <script src="/js/perfect-scrollbar.min.js?1631696724"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1631696724"></script>
-    <script src="/js/jquery.sticky.js?1631696724"></script>
-    <script src="/js/featherlight.min.js?1631696724"></script>
-    <script src="/js/highlight.pack.js?1631696724"></script>
+    <script src="/js/clipboard.min.js?1668420644"></script>
+    <script src="/js/perfect-scrollbar.min.js?1668420644"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1668420644"></script>
+    <script src="/js/jquery.sticky.js?1668420644"></script>
+    <script src="/js/featherlight.min.js?1668420644"></script>
+    <script src="/js/highlight.pack.js?1668420644"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1631696724"></script>
-    <script src="/js/learn.js?1631696724"></script>
-    <script src="/js/hugo-learn.js?1631696724"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1668420644"></script>
+    <script src="/js/learn.js?1668420644"></script>
+    <script src="/js/hugo-learn.js?1668420644"></script>
     
     
 

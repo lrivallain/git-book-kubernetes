@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.88.1" />
+    <meta name="generator" content="Hugo 0.105.0">
     <meta name="description" content="A personal note-book to keep some relevant informations about Kubernetes and k8s related products, for my personal and/or professional use.">
 <meta name="author" content="Ludovic Rivallain">
 
@@ -12,19 +12,19 @@
     <title>Traefik as ingress controler – My Kubernetes Book</title>
 
     
-    <link href="/css/nucleus.css?1631696724" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1631696724" rel="stylesheet">
-    <link href="/css/hybrid.css?1631696724" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1631696724" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1631696724" rel="stylesheet">
-    <link href="/css/auto-complete.css?1631696724" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1631696724" rel="stylesheet">
-    <link href="/css/theme.css?1631696724" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1631696724" rel="stylesheet">
+    <link href="/css/nucleus.css?1668420644" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1668420644" rel="stylesheet">
+    <link href="/css/hybrid.css?1668420644" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1668420644" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1668420644" rel="stylesheet">
+    <link href="/css/auto-complete.css?1668420644" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1668420644" rel="stylesheet">
+    <link href="/css/theme.css?1668420644" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1668420644" rel="stylesheet">
     
-    <link href="/css/style.css?1631696724" rel="stylesheet">
+    <link href="/css/style.css?1668420644" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1631696724"></script>
+    <script src="/js/jquery-3.3.1.min.js?1668420644"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -70,14 +70,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1631696724"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1631696724"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1668420644"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1668420644"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/k8s-book.vupti.me";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1631696724"></script>
+<script type="text/javascript" src="/js/search.js?1668420644"></script>
 
     
   </div>
@@ -628,7 +628,7 @@
                   
                 
                 
-                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <div id="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList">
                     <span id="sidebar-toggle-span">
                         <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
                           <i class="fas fa-bars"></i>
@@ -704,10 +704,10 @@
 
 <p>It could be used as a powerfull Ingress controler to handle incoming requests on the cluster and forward them to the appropriate service.</p>
 <h2 id="installation">Installation</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">helm repo add traefik https://helm.traefik.io/traefik
-helm repo update
-helm install traefik traefik/traefik
-</code></pre></div><h2 id="test-it">Test it</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>helm repo add traefik https://helm.traefik.io/traefik
+</span></span><span style="display:flex;"><span>helm repo update
+</span></span><span style="display:flex;"><span>helm install traefik traefik/traefik
+</span></span></code></pre></div><h2 id="test-it">Test it</h2>
 <p>Get the <code>whoami.yaml</code> file form the bellow attachement files, then:</p>
 
 <section class="attachments grey">
@@ -742,36 +742,36 @@ helm install traefik traefik/traefik
 </section>
 
 
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Deploy it</span>
-kubectl apply -f ./whoami.yaml
-
-<span style="color:#75715e"># Run a test command</span>
-curl -i http://k3s.vlab.lcl -H <span style="color:#e6db74">&#34;Host: mydomain.com&#34;</span>
-
-<span style="color:#75715e"># Output:</span>
-HTTP/1.1 <span style="color:#ae81ff">200</span> OK
-Content-Length: <span style="color:#ae81ff">406</span>
-Content-Type: text/plain; charset<span style="color:#f92672">=</span>utf-8
-Date: Fri, <span style="color:#ae81ff">22</span> Jan <span style="color:#ae81ff">2021</span> 14:59:46 GMT
-
-Hostname: whoami-app-7564dd9695-dtzrh
-IP: 127.0.0.1
-IP: ::1
-IP: 10.42.2.6
-IP: fe80::f099:c3ff:fe3e:7071
-RemoteAddr: 10.42.1.6:46964
-GET / HTTP/1.1
-Host: mydomain.com
-User-Agent: curl/7.68.0
-Accept: */*
-Accept-Encoding: gzip
-X-Forwarded-For: 10.42.0.8
-X-Forwarded-Host: mydomain.com
-X-Forwarded-Port: <span style="color:#ae81ff">80</span>
-X-Forwarded-Proto: http
-X-Forwarded-Server: traefik-79fdc967bf-5nkxt
-X-Real-Ip: 10.42.0.8
-</code></pre></div><p>Here we simulate a DNS record <code>mydomain.com</code> by using the <code>Host</code> HTTP header. It provides a easy way to make a test but of course, for a real service, a DNS record is mandatory.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Deploy it</span>
+</span></span><span style="display:flex;"><span>kubectl apply -f ./whoami.yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Run a test command</span>
+</span></span><span style="display:flex;"><span>curl -i http://k3s.vlab.lcl -H <span style="color:#e6db74">&#34;Host: mydomain.com&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output:</span>
+</span></span><span style="display:flex;"><span>HTTP/1.1 <span style="color:#ae81ff">200</span> OK
+</span></span><span style="display:flex;"><span>Content-Length: <span style="color:#ae81ff">406</span>
+</span></span><span style="display:flex;"><span>Content-Type: text/plain; charset<span style="color:#f92672">=</span>utf-8
+</span></span><span style="display:flex;"><span>Date: Fri, <span style="color:#ae81ff">22</span> Jan <span style="color:#ae81ff">2021</span> 14:59:46 GMT
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Hostname: whoami-app-7564dd9695-dtzrh
+</span></span><span style="display:flex;"><span>IP: 127.0.0.1
+</span></span><span style="display:flex;"><span>IP: ::1
+</span></span><span style="display:flex;"><span>IP: 10.42.2.6
+</span></span><span style="display:flex;"><span>IP: fe80::f099:c3ff:fe3e:7071
+</span></span><span style="display:flex;"><span>RemoteAddr: 10.42.1.6:46964
+</span></span><span style="display:flex;"><span>GET / HTTP/1.1
+</span></span><span style="display:flex;"><span>Host: mydomain.com
+</span></span><span style="display:flex;"><span>User-Agent: curl/7.68.0
+</span></span><span style="display:flex;"><span>Accept: */*
+</span></span><span style="display:flex;"><span>Accept-Encoding: gzip
+</span></span><span style="display:flex;"><span>X-Forwarded-For: 10.42.0.8
+</span></span><span style="display:flex;"><span>X-Forwarded-Host: mydomain.com
+</span></span><span style="display:flex;"><span>X-Forwarded-Port: <span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>X-Forwarded-Proto: http
+</span></span><span style="display:flex;"><span>X-Forwarded-Server: traefik-79fdc967bf-5nkxt
+</span></span><span style="display:flex;"><span>X-Real-Ip: 10.42.0.8
+</span></span></code></pre></div><p>Here we simulate a DNS record <code>mydomain.com</code> by using the <code>Host</code> HTTP header. It provides a easy way to make a test but of course, for a real service, a DNS record is mandatory.</p>
 <p>Here is a quick demo of the load-balancing made on the <code>whoami</code> service with 4 replicas:
 <asciinema-player src="/images/customizations/whoami-traefik-ingress.cast" cols="170" rows="27"></asciinema-player></p>
 <script src="/libs/asciinema/asciinema-player.js"></script>
@@ -812,28 +812,28 @@ X-Real-Ip: 10.42.0.8
 
 
 <h3 id="create-a-secret-for-basic-authentication">Create a secret for basic-authentication</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># To get `htpasswd` tool</span>
-sudo apt install apache2-utils -y
-
-<span style="color:#75715e"># Create an auth file with data for user &#34;admin&#34;</span>
-htpasswd -c ./users admin <span style="color:#75715e"># you will be prompted for password and confirmation</span>
-
-<span style="color:#75715e"># If needed, add other user(s) to the file with **almost** the same command:</span>
-htpasswd ./users otheradmin
-
-<span style="color:#75715e"># Deploy the file as a new secret</span>
-kubectl create secret generic admin-auth --from-file users --namespace<span style="color:#f92672">=</span>default
-</code></pre></div><h3 id="deploy-the-dashboard-ingressroute">Deploy the dashboard IngressRoute</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Deploy it</span>
-kubectl apply -f ./dashboard.yaml
-
-<span style="color:#75715e"># Test it:</span>
-curl -I -X GET http://lb.vlab.lcl/dashboard/ | head -n1
-<span style="color:#75715e"># Output: HTTP/1.1 401 Unauthorized</span>
-
-curl -Is -X GET http://lb.vlab.lcl/dashboard/ -u <span style="color:#e6db74">&#39;admin:*****&#39;</span> | head -n <span style="color:#ae81ff">1</span>
-<span style="color:#75715e"># Output: HTTP/1.1 200 OK</span>
-</code></pre></div><p>Now, you probably can reach: <a href="http://lb.vlab.lcl/dashboard/#">http://lb.vlab.lcl/dashboard/#</a> from your favorite web brower.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># To get `htpasswd` tool</span>
+</span></span><span style="display:flex;"><span>sudo apt install apache2-utils -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create an auth file with data for user &#34;admin&#34;</span>
+</span></span><span style="display:flex;"><span>htpasswd -c ./users admin <span style="color:#75715e"># you will be prompted for password and confirmation</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If needed, add other user(s) to the file with **almost** the same command:</span>
+</span></span><span style="display:flex;"><span>htpasswd ./users otheradmin
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Deploy the file as a new secret</span>
+</span></span><span style="display:flex;"><span>kubectl create secret generic admin-auth --from-file users --namespace<span style="color:#f92672">=</span>default
+</span></span></code></pre></div><h3 id="deploy-the-dashboard-ingressroute">Deploy the dashboard IngressRoute</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Deploy it</span>
+</span></span><span style="display:flex;"><span>kubectl apply -f ./dashboard.yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Test it:</span>
+</span></span><span style="display:flex;"><span>curl -I -X GET http://lb.vlab.lcl/dashboard/ | head -n1
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output: HTTP/1.1 401 Unauthorized</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>curl -Is -X GET http://lb.vlab.lcl/dashboard/ -u <span style="color:#e6db74">&#39;admin:*****&#39;</span> | head -n <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output: HTTP/1.1 200 OK</span>
+</span></span></code></pre></div><p>Now, you probably can reach: <a href="http://lb.vlab.lcl/dashboard/#">http://lb.vlab.lcl/dashboard/#</a> from your favorite web brower.</p>
 <p><img src="/images/customizations/traefik-dashboard.png" alt="Traefik dashboard"></p>
 
 
@@ -1215,16 +1215,16 @@ curl -Is -X GET http://lb.vlab.lcl/dashboard/ -u <span style="color:#e6db74">&#3
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1631696724"></script>
-    <script src="/js/perfect-scrollbar.min.js?1631696724"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1631696724"></script>
-    <script src="/js/jquery.sticky.js?1631696724"></script>
-    <script src="/js/featherlight.min.js?1631696724"></script>
-    <script src="/js/highlight.pack.js?1631696724"></script>
+    <script src="/js/clipboard.min.js?1668420644"></script>
+    <script src="/js/perfect-scrollbar.min.js?1668420644"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1668420644"></script>
+    <script src="/js/jquery.sticky.js?1668420644"></script>
+    <script src="/js/featherlight.min.js?1668420644"></script>
+    <script src="/js/highlight.pack.js?1668420644"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1631696724"></script>
-    <script src="/js/learn.js?1631696724"></script>
-    <script src="/js/hugo-learn.js?1631696724"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1668420644"></script>
+    <script src="/js/learn.js?1668420644"></script>
+    <script src="/js/hugo-learn.js?1668420644"></script>
     
     
 
